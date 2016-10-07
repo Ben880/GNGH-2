@@ -63,7 +63,7 @@ public class LabelHandler
             frame.setInfoLable(5, "  Mining: " + info.getMining(x, y));
             frame.setInfoLable(6, "  Lumber: " + info.getLumber(x, y));
             frame.setInfoLable(7, "  Owned: " + owned.getOwned(x, y));
-            frame.setInfoLable(8, "  Enemy Type: " + enemy.getType(x, y));
+            frame.setInfoLable(8, "  Enemy Type: " + enemy.getTypeString(x, y));
             frame.setInfoLable(9, "  Enemy Count: " + enemy.getAmount(x, y));
             frame.setInfoLable(10, "  Enemy Skill: " + enemy.getSkill(x, y));
             if (frame.debug)

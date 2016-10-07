@@ -10,6 +10,7 @@ public class EnemyInfo
 {
 
     private int[][] type = new int[20][20];
+    private String[][] stype = new String[20][20];
     private int[][] amount = new int[20][20];
     private int[][] skill = new int[20][20];
     private static EnemyInfo instance = null;
@@ -59,9 +60,46 @@ public class EnemyInfo
     }
 
     //getters and setters
-    public void setType(int x, int y, int type)
+    public void setType(int x, int y, int i)
     {
-        this.type[x][y] = type;
+        type[x][y] = i;
+        setTypeString(x, y, i);
+    }
+
+    public void setTypeString(int x, int y, int i)
+    {
+        switch (i)
+        {
+            case 1:
+                stype[x][y] = "Enemy 1";
+                break;
+            case 2:
+                stype[x][y] = "Enemy 2";
+                break;
+            case 3:
+                stype[x][y] = "Enemy 3";
+                break;
+            case 4:
+                stype[x][y] = "Enemy 4";
+                break;
+            case 5:
+                stype[x][y] = "Enemy 5";
+                break;
+            case 6:
+                stype[x][y] = "Enemy 6";
+                break;
+            case 7:
+                stype[x][y] = "Enemy 7";
+                break;
+            case 8:
+                stype[x][y] = "Enemy 8";
+                break;
+            default:
+                stype[x][y] = "Default Enemy";
+                break;
+
+        }
+
     }
 
     public void setAmount(int x, int y, int type)
@@ -74,9 +112,15 @@ public class EnemyInfo
         this.skill[x][y] = type;
     }
 
+    //get
     public int getType(int x, int y)
     {
         return type[x][y];
+    }
+
+    public String getTypeString(int x, int y)
+    {
+        return stype[x][y];
     }
 
     public int getAmount(int x, int y)

@@ -94,4 +94,24 @@ public class EventHandler
         frame.console("foaragers are to return on day " + events.get(eventNumber).getCompleet());
         eventNumber++;
     }
+
+    public void attack(int x, int y)
+    {
+        Calculator calc = new Calculator();
+        DialogueBox box = new DialogueBox();
+        int troops = box.troops();
+        System.out.print("here");
+        events.add(new EventHolder());
+        System.out.print("here");
+        events.get(eventNumber).setType(2);
+        events.get(eventNumber).setPos(x, y);
+        events.get(eventNumber).setCompleet((int) (calc.scoutDays(x, y) * 1.3));
+        events.get(eventNumber).setTroops(troops);
+        events.get(eventNumber).setMessage("Attack on " + x + ", " + y + " compleet!");
+        frame.console("Attackers are to return on day " + events.get(eventNumber).getCompleet());
+        resources.setTroops(resources.getTroops() - troops);
+        resources.setFood(resources.getFood() - (50 * (events.get(eventNumber).getCompleet() - day.getDay())));
+        System.out.print("here");
+        eventNumber++;
+    }
 }

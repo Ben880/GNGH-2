@@ -103,6 +103,9 @@ public class ButtonHandler
             case 0:
                 event.scout(x, y);
                 break;
+            case 1:
+                event.attack(x, y);
+                break;
             case 2:
                 event.forage(x, y);
                 break;

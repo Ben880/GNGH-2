@@ -30,11 +30,17 @@ public class AudioPlayer
 
     public void playStartSound()
     {
-        MediaPlayer player;
-        new javafx.embed.swing.JFXPanel();
-        String uriString = new File(dir + "\\" + "Windows Logon.wav").toURI().toString();
-        player = new MediaPlayer(new Media(uriString));
-        player.play();
+        new Thread()
+        {
+            public void run()
+            {
+                MediaPlayer player;
+                new javafx.embed.swing.JFXPanel();
+                String uriString = new File(dir + "\\" + "Windows Logon.wav").toURI().toString();
+                player = new MediaPlayer(new Media(uriString));
+                player.play();
+            }
+        }.start();
 
     }
 

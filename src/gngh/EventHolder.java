@@ -139,4 +139,9 @@ public class EventHolder
         food = i;
     }
 
+    public void setTroops(int i)
+    {
+        troops = i;
+    }
+
 }
