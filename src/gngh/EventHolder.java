@@ -11,6 +11,7 @@ public class EventHolder
     VisibleInfo Info;
     DayTracker day;
     ResourceTracker resources;
+    EnemyInfo enemy;
     //reserved types
     //scout 0
     //attack 1
@@ -20,6 +21,7 @@ public class EventHolder
     private boolean console = false;
     private boolean dispBiomeSquare = false;
     private boolean setStatsVisible = false;
+    private boolean setEnemies = false;
 
     private String message = "Message not set";
     private int type = 0;
@@ -29,6 +31,7 @@ public class EventHolder
     private int people = 0;
     private int troops = 0;
     private int food = 0;
+    private int enemies = 0;
 
     public void EventHolder()
     {
@@ -41,6 +44,7 @@ public class EventHolder
         Info = VisibleInfo.getInstance();
         day = DayTracker.getInstance();
         resources = ResourceTracker.getInstance();
+        enemy = EnemyInfo.getInstance();
         if (console)
             frame.console(message);
         if (dispBiomeSquare)
@@ -48,9 +52,21 @@ public class EventHolder
         if (setStatsVisible)
             Info.setStatsVisible(x, y, true);
         resources.setFood(food + resources.getFood());
-        resources.setPeople(people + resources.getPeople()
-        );
+        resources.setPeople(people + resources.getPeople());
         LabelHandler.getInstance().resourceUpdate();
+        if (setEnemies)
+        {
+            enemy.setAmount(x, y, enemies);
+            if (enemies == 0)
+            {
+                enemy.setSkill(x, y, 0);
+                enemy.setType(x, y, 0);
+            }
+            frame.dispBiomeSquare(x, y);
+            Info.setStatsVisible(x, y, true);
+            resources.setTroops(resources.getTroops() + troops);
+
+        }
     }
 
     public void createGenericEvent(int compleet)
@@ -142,6 +158,12 @@ public class EventHolder
     public void setTroops(int i)
     {
         troops = i;
+    }
+
+    public void setEnemies(int i)
+    {
+        enemies = i;
+        setEnemies = true;
     }
 
 }

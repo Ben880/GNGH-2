@@ -1,5 +1,7 @@
 package gngh;
 
+import java.util.Random;
+
 /*
        //  Author: Benjamin Wilcox
        //  Project GNGH
@@ -11,6 +13,8 @@ public class Calculator
     VisibleInfo info;
     DayTracker day;
     ResourceTracker resources;
+    EnemyInfo enemy;
+    Random rand = new Random();
 
     public int disEQ(int x, int y)
     {
@@ -34,6 +38,33 @@ public class Calculator
     {
         info = VisibleInfo.getInstance();
         return (info.getFertility(x, y) * 500);
+    }
+
+    public void attack(int x, int y, int troops, EventHolder event)
+    {
+        enemy = EnemyInfo.getInstance();
+        int treturn = troops;
+        int enemies = enemy.getAmount(x, y);
+        int ratio = (int) (enemy.getSkill(x, y) / .2);
+        int i = 0;
+        while (enemies > 0 && treturn > 0)
+        {
+            if (rand.nextInt(100) > ratio)
+            {
+                enemies--;
+            } else
+            {
+                treturn--;
+            }
+        }
+        if (enemy.getAmount(x, y) == enemies)
+        {
+            event.setMessage("Troops did not return from battle");
+        } else
+        {
+            event.setTroops(treturn);
+            event.setEnemies(enemies);
+        }
     }
 
 }

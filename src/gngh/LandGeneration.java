@@ -602,7 +602,7 @@ public class LandGeneration
             }
             if (!(getBiome(x, y) == -1) && !(getBiome(x, y) == 1) && !(getBiome(x, y) == 2))
             {
-                if (rand.nextInt(100) < 30)
+                if (rand.nextInt(100) < 35)
                 {
                     enemy.setType(x, y, rand.nextInt(10));
                     enemy.setSkill(x, y, 19 - (int) Math.round(Math.sqrt(rand.nextInt(400))));
@@ -610,6 +610,7 @@ public class LandGeneration
 
                 }//end create enemy if
             }//end land check if
+
             i++;
             x++;
         }

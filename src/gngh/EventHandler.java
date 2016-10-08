@@ -17,6 +17,7 @@ public class EventHandler
     VisibleInfo Info;
     DayTracker day;
     ResourceTracker resources;
+    LabelHandler labels;
     Random rand = new Random();
     //singleton
     private static EventHandler instance = null;
@@ -27,6 +28,7 @@ public class EventHandler
         Info = VisibleInfo.getInstance();
         day = DayTracker.getInstance();
         resources = ResourceTracker.getInstance();
+        labels = LabelHandler.getInstance();
 
     }
 
@@ -106,10 +108,11 @@ public class EventHandler
         events.get(eventNumber).setType(2);
         events.get(eventNumber).setPos(x, y);
         events.get(eventNumber).setCompleet((int) (calc.scoutDays(x, y) * 1.3));
-        events.get(eventNumber).setTroops(troops);
+        calc.attack(x, y, troops, events.get(eventNumber));
         events.get(eventNumber).setMessage("Attack on " + x + ", " + y + " compleet!");
         frame.console("Attackers are to return on day " + events.get(eventNumber).getCompleet());
         resources.setTroops(resources.getTroops() - troops);
+        labels.resourceUpdate();
         resources.setFood(resources.getFood() - (50 * (events.get(eventNumber).getCompleet() - day.getDay())));
         System.out.print("here");
         eventNumber++;
