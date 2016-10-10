@@ -10,6 +10,29 @@ class Technology
 {
 
     private static Technology instance = null;
+    //numbered technologies
+    int attack = 0;
+    //primitive technologies
+    boolean resourcemanagement = false;
+    boolean fire = false;
+    boolean choppig = false;
+    boolean farming = false;
+    boolean fishing = false;
+    boolean stonecutting = false;
+    boolean organizedtroops = false;
+    boolean primitveweapons = false;
+    boolean shelter = false;
+    //stone age
+    boolean stoneage = false;
+    boolean walls = false;
+    boolean structures = false;
+    boolean woodworking = false;
+    boolean mining = false;
+
+    boolean stoneworks = false;
+    //bronze age
+    boolean bornazeage = false;
+    boolean alloys = false;
 
     private Technology()
     {
