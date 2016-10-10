@@ -70,8 +70,11 @@ public class EnemyInfo
     {
         switch (i)
         {
-            case 0:
+            case -1:
                 stype[x][y] = "none";
+                break;
+            case 0:
+                stype[x][y] = "Eenemy 0";
                 break;
             case 1:
                 stype[x][y] = "Enemy 1";

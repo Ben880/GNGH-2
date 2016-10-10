@@ -588,6 +588,8 @@ public class LandGeneration
 
     public void populate()
     {
+        //enemy types
+        //
         int i = 0;
         int x = 0;
         int y = 0;

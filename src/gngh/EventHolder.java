@@ -60,7 +60,7 @@ public class EventHolder
             if (enemies == 0)
             {
                 enemy.setSkill(x, y, 0);
-                enemy.setType(x, y, 0);
+                enemy.setType(x, y, -1);
             }
             frame.dispBiomeSquare(x, y);
             Info.setStatsVisible(x, y, true);
