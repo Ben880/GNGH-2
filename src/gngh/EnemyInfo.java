@@ -74,31 +74,37 @@ public class EnemyInfo
                 stype[x][y] = "none";
                 break;
             case 0:
-                stype[x][y] = "Eenemy 0";
+                stype[x][y] = "Bear";
                 break;
             case 1:
-                stype[x][y] = "Enemy 1";
+                stype[x][y] = "Boar";
                 break;
             case 2:
-                stype[x][y] = "Enemy 2";
+                stype[x][y] = "Mamoth";
                 break;
             case 3:
-                stype[x][y] = "Enemy 3";
+                stype[x][y] = "Savages";
                 break;
             case 4:
-                stype[x][y] = "Enemy 4";
+                stype[x][y] = "Outlaws";
                 break;
             case 5:
-                stype[x][y] = "Enemy 5";
+                stype[x][y] = "Giants";
                 break;
             case 6:
-                stype[x][y] = "Enemy 6";
+                stype[x][y] = "Bandits";
                 break;
             case 7:
-                stype[x][y] = "Enemy 7";
+                stype[x][y] = "Dragon";
                 break;
             case 8:
-                stype[x][y] = "Enemy 8";
+                stype[x][y] = "Killer bees";
+                break;
+            case 9:
+                stype[x][y] = "Witches";
+                break;
+            case 10:
+                stype[x][y] = "Unnamed";
                 break;
             default:
                 stype[x][y] = "Default Enemy";

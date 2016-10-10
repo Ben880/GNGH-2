@@ -602,17 +602,24 @@ public class LandGeneration
                 x = 0;
                 y++;
             }
-            if (!(getBiome(x, y) == -1) && !(getBiome(x, y) == 1) && !(getBiome(x, y) == 2))
+            if (!(getBiome(x, y) == 2))
             {
                 if (rand.nextInt(100) < 35)
                 {
-                    enemy.setType(x, y, rand.nextInt(10));
+                    enemy.setType(x, y, rand.nextInt(25));
                     enemy.setSkill(x, y, 19 - (int) Math.round(Math.sqrt(rand.nextInt(400))));
                     enemy.setAmount(x, y, 19 - (int) Math.round(Math.sqrt(rand.nextInt(400))));
 
                 }//end create enemy if
+                else
+                {
+                    enemy.setType(x, y, -1);
+                }
             }//end land check if
-
+            else
+            {
+                enemy.setType(x, y, -1);
+            }
             i++;
             x++;
         }
