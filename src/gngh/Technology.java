@@ -11,7 +11,7 @@ class Technology
 
     private static Technology instance = null;
     //numbered technologies
-    int attack = 0;
+    int attack = 5;
     //primitive technologies
     boolean resourcemanagement = false;
     boolean fire = false;
