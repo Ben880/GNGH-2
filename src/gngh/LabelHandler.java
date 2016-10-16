@@ -11,9 +11,7 @@ public class LabelHandler
     private static LabelHandler instance = null;
     DayTracker day;
     MyFrame frame;
-    EnemyInfo enemy;
-    VisibleInfo info;
-    OwnershipInfo owned;
+    Info info;
 
     private LabelHandler()
     {
@@ -52,28 +50,26 @@ public class LabelHandler
     public void clickUpdate(int x, int y)
     {
         frame = MyFrame.getInstance("GNGH");
-        enemy = EnemyInfo.getInstance();
-        info = VisibleInfo.getInstance();
-        owned = OwnershipInfo.getInstance();
+        info = Info.getInstance();
         int i = y * 20 + x;
-        if (info.getStatsVisible(x, y) || frame.debug)
+        if (info.visible.getStatsVisible(x, y) || frame.debug)
         {
-            frame.setInfoLable(3, "  Biome: " + info.getBiomeString(x, y));
-            frame.setInfoLable(4, "  Fertility: " + info.getFertility(x, y));
-            frame.setInfoLable(5, "  Mining: " + info.getMining(x, y));
-            frame.setInfoLable(6, "  Lumber: " + info.getLumber(x, y));
-            frame.setInfoLable(7, "  Owned: " + owned.getOwned(x, y));
-            frame.setInfoLable(8, "  Enemy Type: " + enemy.getTypeString(x, y));
-            frame.setInfoLable(9, "  Enemy Count: " + enemy.getAmount(x, y));
-            frame.setInfoLable(10, "  Enemy Skill: " + enemy.getSkill(x, y));
+            frame.setInfoLable(3, "  Biome: " + info.visible.getBiomeString(x, y));
+            frame.setInfoLable(4, "  Fertility: " + info.visible.getFertility(x, y));
+            frame.setInfoLable(5, "  Mining: " + info.visible.getMining(x, y));
+            frame.setInfoLable(6, "  Lumber: " + info.visible.getLumber(x, y));
+            frame.setInfoLable(7, "  Owned: " + info.owned.getOwned(x, y));
+            frame.setInfoLable(8, "  Enemy Type: " + info.enemy.getTypeString(x, y));
+            frame.setInfoLable(9, "  Enemy Count: " + info.enemy.getAmount(x, y));
+            frame.setInfoLable(10, "  Enemy Skill: " + info.enemy.getSkill(x, y));
             if (frame.debug)
             {
                 frame.infoLabel.buttonInfo.setText("  Button: " + i + " (" + x + "," + y + ")");
-                frame.infoLabel.isOwned.setText("  Owned: " + owned.getOwned(x, y));
+                frame.infoLabel.isOwned.setText("  Owned: " + info.owned.getOwned(x, y));
             }
-            frame.setActionVisible(0, !info.getStatsVisible(x, y));
-            frame.setActionVisible(1, !owned.getOwned(x, y));
-            frame.setActionVisible(2, info.getStatsVisible(x, y));
+            frame.setActionVisible(0, !info.visible.getStatsVisible(x, y));
+            frame.setActionVisible(1, !info.owned.getOwned(x, y));
+            frame.setActionVisible(2, info.visible.getStatsVisible(x, y));
         } else
         {
             frame.setInfoLable(3, "  Biome: ??");
@@ -88,11 +84,11 @@ public class LabelHandler
             if (frame.debug)
             {
                 frame.infoLabel.buttonInfo.setText("  Button: " + i + " (" + x + "," + y + ")");
-                frame.infoLabel.isOwned.setText("  Owned: " + owned.getOwned(x, y));
+                frame.infoLabel.isOwned.setText("  Owned: " + info.owned.getOwned(x, y));
             }
-            frame.setActionVisible(0, !info.getStatsVisible(x, y));
-            frame.setActionVisible(1, !owned.getOwned(x, y));
-            frame.setActionVisible(2, info.getStatsVisible(x, y));
+            frame.setActionVisible(0, !info.visible.getStatsVisible(x, y));
+            frame.setActionVisible(1, !info.owned.getOwned(x, y));
+            frame.setActionVisible(2, info.visible.getStatsVisible(x, y));
         }
 
     }

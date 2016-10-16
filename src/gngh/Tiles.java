@@ -20,16 +20,20 @@ import javax.swing.border.Border;
 public class Tiles extends JPanel
 {
 
+    //borders for hover effect
     Border emptyBorder = BorderFactory.createEmptyBorder();
     Border lineBorder = BorderFactory.createLineBorder(new Color(100, 100, 100), 1);
+    //the buttons themselves
     ButtonHandler button;
     JButton[][] btn = new JButton[20][20];
+    //holder for the buttons
     JPanel main = new JPanel();
     JPanel mainHolder = new JPanel();
     Color background = new Color(100, 100, 100);
 
     public Tiles()
     {
+        //builds tiles
         setLayout(new BorderLayout());
         main.setLayout(new GridLayout(20, 20));
         main.setBackground(background);

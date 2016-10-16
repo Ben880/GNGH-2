@@ -13,15 +13,13 @@ public class ButtonHandler
     MyFrame frame;
     int x;
     int y;
-    VisibleInfo Info;
-    OwnershipInfo Owned;
-    EnemyInfo enemy;
+    Info info;
     DayTracker day;
     EventHandler event;
 
     private ButtonHandler()
     {
-
+        info = Info.getInstance();
     }
 
     public static ButtonHandler getInstance()
@@ -44,7 +42,6 @@ public class ButtonHandler
 
     public void actionClick(String source)
     {
-        Info = VisibleInfo.getInstance();
         frame = MyFrame.getInstance("GNGH");
         if (frame.debug && source != "debugToggle")
             frame.console("actionClick source: " + source);
@@ -71,7 +68,7 @@ public class ButtonHandler
                     null,
                     possibilities,
                     0);
-            Info.setBiome(x, y, newBiome);
+            info.visible.setBiome(x, y, newBiome);
             frame.draw();
 
         }

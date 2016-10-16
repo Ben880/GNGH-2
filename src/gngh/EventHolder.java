@@ -8,10 +8,9 @@ public class EventHolder
 {
 
     MyFrame frame;
-    VisibleInfo Info;
+    Info info;
     DayTracker day;
     ResourceTracker resources;
-    EnemyInfo enemy;
     //reserved types
     //scout 0
     //attack 1
@@ -41,29 +40,28 @@ public class EventHolder
     public void finish()
     {
         frame = MyFrame.getInstance("GNGH");
-        Info = VisibleInfo.getInstance();
+        info = Info.getInstance();
         day = DayTracker.getInstance();
         resources = ResourceTracker.getInstance();
-        enemy = EnemyInfo.getInstance();
         if (console)
             frame.console(message);
         if (dispBiomeSquare)
             frame.dispBiomeSquare(x, y);
         if (setStatsVisible)
-            Info.setStatsVisible(x, y, true);
+            info.visible.setStatsVisible(x, y, true);
         resources.setFood(food + resources.getFood());
         resources.setPeople(people + resources.getPeople());
         LabelHandler.getInstance().resourceUpdate();
         if (setEnemies)
         {
-            enemy.setAmount(x, y, enemies);
+            info.enemy.setAmount(x, y, enemies);
             if (enemies == 0)
             {
-                enemy.setSkill(x, y, 0);
-                enemy.setType(x, y, -1);
+                info.enemy.setSkill(x, y, 0);
+                info.enemy.setType(x, y, -1);
             }
             frame.dispBiomeSquare(x, y);
-            Info.setStatsVisible(x, y, true);
+            info.visible.setStatsVisible(x, y, true);
             resources.setTroops(resources.getTroops() + troops);
 
         }

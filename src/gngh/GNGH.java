@@ -25,7 +25,7 @@ public class GNGH
 class MyFrame extends JFrame
 {
 
-    //importing panels
+    //importing sub panels
     Tiles tile = new Tiles();
     Console console = new Console();
     ActionButtons action = new ActionButtons();
@@ -39,8 +39,7 @@ class MyFrame extends JFrame
     DayTracker day;
     AudioPlayer sound;
     ButtonHandler button;
-    VisibleInfo info;
-    OwnershipInfo owned;
+    Info info;
     LabelHandler lableHandle;
     //distasteful palet here
     Color forest = new Color(0, 100, 0);
@@ -68,9 +67,8 @@ class MyFrame extends JFrame
         draw();
         //for stats to be displayed on first click singletons need to be initialized
         day = DayTracker.getInstance();
-        info = VisibleInfo.getInstance();
+        info = Info.getInstance();
         button = ButtonHandler.getInstance();
-        owned = OwnershipInfo.getInstance();
         sound = AudioPlayer.getInstance();
         action.setSliderDay(10);
         sound.playStartSound();
@@ -105,7 +103,7 @@ class MyFrame extends JFrame
         int bCheck = -2;
         try
         {
-            bCheck = info.getBiome(x, y, true);
+            bCheck = info.visible.getBiome(x, y, true);
         } catch (Exception e)
         {
         }
@@ -124,7 +122,7 @@ class MyFrame extends JFrame
                 x = 0;
                 y++;
             }
-            if (info.getFog(x, y, dispFog))
+            if (info.visible.getFog(x, y, dispFog))
             {
                 tile.setColor(x, y, Color.black);
                 tile.setText(x, y, "");
@@ -136,33 +134,33 @@ class MyFrame extends JFrame
 
     public void dispBiome(int x, int y)
     {
-        info.setBiomeVisible(x, y, true);
-        if (info.getBiome(x, y, false) == 0)
+        info.visible.setBiomeVisible(x, y, true);
+        if (info.visible.getBiome(x, y, false) == 0)
         {
             tile.setText(x, y, ",.");
             tile.setColor(x, y, Color.green);
         }
-        if (info.getBiome(x, y, false) == 1)
+        if (info.visible.getBiome(x, y, false) == 1)
         {
             tile.setText(x, y, "^");
             tile.setColor(x, y, Color.gray);
         }
-        if (info.getBiome(x, y, false) == 2)
+        if (info.visible.getBiome(x, y, false) == 2)
         {
             tile.setText(x, y, "~");
             tile.setColor(x, y, Color.blue);
         }
-        if (info.getBiome(x, y, false) == 3)
+        if (info.visible.getBiome(x, y, false) == 3)
         {
             tile.setText(x, y, "||");
             tile.setColor(x, y, forest);
         }
-        if (info.getBiome(x, y, false) == 4)
+        if (info.visible.getBiome(x, y, false) == 4)
         {
             tile.setText(x, y, "_");
             tile.setColor(x, y, desert);
         }
-        if (info.getBiome(x, y, false) == -1)
+        if (info.visible.getBiome(x, y, false) == -1)
         {
             tile.setText(x, y, "b");
             tile.setColor(x, y, Color.red);
@@ -197,8 +195,7 @@ class MyFrame extends JFrame
 
     public void dispAllBiome()
     {
-        info = VisibleInfo.getInstance();
-        owned = OwnershipInfo.getInstance();
+        info = Info.getInstance();
         int i = 0;
         int x = 0;
         int y = 0;
@@ -209,32 +206,33 @@ class MyFrame extends JFrame
                 x = 0;
                 y++;
             }
-            if (info.getBiome(x, y, true) == 0)
+            dispBiome(x, y);
+            if (info.visible.getBiome(x, y, true) == 0)
             {
                 tile.setText(x, y, ",.");
                 tile.setColor(x, y, Color.green);
             }
-            if (info.getBiome(x, y, true) == 1)
+            if (info.visible.getBiome(x, y, true) == 1)
             {
                 tile.setText(x, y, "^");
                 tile.setColor(x, y, Color.gray);
             }
-            if (info.getBiome(x, y, true) == 2)
+            if (info.visible.getBiome(x, y, true) == 2)
             {
                 tile.setText(x, y, "~");
                 tile.setColor(x, y, Color.blue);
             }
-            if (info.getBiome(x, y, true) == 3)
+            if (info.visible.getBiome(x, y, true) == 3)
             {
                 tile.setText(x, y, "||");
                 tile.setColor(x, y, forest);
             }
-            if (info.getBiome(x, y, true) == 4)
+            if (info.visible.getBiome(x, y, true) == 4)
             {
                 tile.setText(x, y, "_");
                 tile.setColor(x, y, desert);
             }
-            if (info.getBiome(x, y, true) == -1)
+            if (info.visible.getBiome(x, y, true) == -1)
             {
                 tile.setText(x, y, "b");
                 tile.setColor(x, y, Color.red);

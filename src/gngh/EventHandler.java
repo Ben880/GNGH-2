@@ -14,7 +14,7 @@ public class EventHandler
     ArrayList<EventHolder> events = new ArrayList<EventHolder>();
     int eventNumber = 0;
     MyFrame frame;
-    VisibleInfo Info;
+    Info info;
     DayTracker day;
     ResourceTracker resources;
     LabelHandler labels;
@@ -25,7 +25,7 @@ public class EventHandler
     private EventHandler()
     {
         frame = MyFrame.getInstance("GNGH");
-        Info = VisibleInfo.getInstance();
+        info = Info.getInstance();
         day = DayTracker.getInstance();
         resources = ResourceTracker.getInstance();
         labels = LabelHandler.getInstance();
@@ -72,7 +72,7 @@ public class EventHandler
         events.get(eventNumber).setPos(x, y);
         events.get(eventNumber).setType(0);
         events.get(eventNumber).setCompleet(calc.scoutDays(x, y));
-        events.get(eventNumber).setMessage("Scouts returned and found a " + Info.getBiomeString(x, y) + " biome.");
+        events.get(eventNumber).setMessage("Scouts returned and found a " + info.visible.getBiomeString(x, y) + " biome.");
         calc = null;
         frame.console("scouts are to return on day " + events.get(eventNumber).getCompleet());
         eventNumber++;

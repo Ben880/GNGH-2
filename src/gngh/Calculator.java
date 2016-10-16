@@ -10,10 +10,9 @@ public class Calculator
 {
 //calculates most things (excluding resources and world gen)
 
-    VisibleInfo info;
+    Info info;
     DayTracker day;
     ResourceTracker resources;
-    EnemyInfo enemy;
     Random rand = new Random();
 
     public int disEQ(int x, int y)
@@ -36,16 +35,15 @@ public class Calculator
 
     public double forageFood(int x, int y)
     {
-        info = VisibleInfo.getInstance();
-        return (info.getFertility(x, y) * 500);
+        info = Info.getInstance();
+        return (info.visible.getFertility(x, y) * 500);
     }
 
     public void attack(int x, int y, int troops, EventHolder event)
     {
-        enemy = EnemyInfo.getInstance();
         int treturn = troops;
-        int enemies = enemy.getAmount(x, y);
-        int ratio = (int) (enemy.getSkill(x, y) / .2);
+        int enemies = info.enemy.getAmount(x, y);
+        int ratio = (int) (info.enemy.getSkill(x, y) / .2);
         int i = 0;
         while (enemies > 0 && treturn > 0)
         {
@@ -57,7 +55,7 @@ public class Calculator
                 treturn--;
             }
         }
-        if (enemy.getAmount(x, y) == enemies)
+        if (info.enemy.getAmount(x, y) == enemies)
         {
             event.setMessage("Troops did not return from battle");
         } else

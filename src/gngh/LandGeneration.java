@@ -11,13 +11,11 @@ public class LandGeneration
 {
 
     Random rand = new Random();
-    VisibleInfo Info;
-    OwnershipInfo Owned;
-    EnemyInfo enemy;
+    Info info;
 
     public LandGeneration()
     {
-        Info = VisibleInfo.getInstance();
+        info = Info.getInstance();
     }
 
     public void generate()
@@ -25,8 +23,6 @@ public class LandGeneration
         int i = 0;
         int x = 0;
         int y = 0;
-        Info = VisibleInfo.getInstance();
-        Owned = OwnershipInfo.getInstance();
         while (i < 400)
         {
             if (x == 20)
@@ -35,11 +31,11 @@ public class LandGeneration
                 y++;
             }
 
-            Info.setBiome(x, y, 0);
-            Info.setBiomeVisible(x, y, false);
-            Info.setStatsVisible(x, y, false);
-            Owned.setOwned(x, y, false);
-            Owned.setStructure(x, y, -1);
+            info.visible.setBiome(x, y, 0);
+            info.visible.setBiomeVisible(x, y, false);
+            info.visible.setStatsVisible(x, y, false);
+            info.owned.setOwned(x, y, false);
+            info.owned.setStructure(x, y, -1);
             i++;
             x++;
         }
@@ -189,7 +185,7 @@ public class LandGeneration
             int shape = rand.nextInt(5);
             int y = mountian / 20;
             int x = mountian % 20;
-            if (Info.getBiome(x, y, true) == 0)
+            if (info.visible.getBiome(x, y, true) == 0)
             {
                 fail = false;
                 if (shape >= 0)
@@ -236,7 +232,7 @@ public class LandGeneration
     {
         try // new class
         {
-            Info.setBiome(x, y, i);
+            info.visible.setBiome(x, y, i);
         } catch (Exception e)
         {
 
@@ -247,20 +243,19 @@ public class LandGeneration
     {
         int x = 19;
         int y = 19;
-        Info.setBiome(x, y, -1);
-        Info.setBiome(x - 1, y - 0, 0);
-        Info.setBiome(x - 1, y - 1, 0);
-        Info.setBiome(x - 0, y - 1, 0);
-        Info.setBiomeVisible(x, y, true);
-        Info.setBiomeVisible(x - 1, y - 0, true);
-        Info.setBiomeVisible(x - 1, y - 1, true);
-        Info.setBiomeVisible(x - 0, y - 1, true);
-        Info.setStatsVisible(x, y, true);
-        Info.setStatsVisible(x - 1, y - 0, true);
-        Info.setStatsVisible(x - 1, y - 1, true);
-        Info.setStatsVisible(x - 0, y - 1, true);
-        Owned = OwnershipInfo.getInstance();
-        Owned.setOwned(19, 19, true);
+        info.visible.setBiome(x, y, -1);
+        info.visible.setBiome(x - 1, y - 0, 0);
+        info.visible.setBiome(x - 1, y - 1, 0);
+        info.visible.setBiome(x - 0, y - 1, 0);
+        info.visible.setBiomeVisible(x, y, true);
+        info.visible.setBiomeVisible(x - 1, y - 0, true);
+        info.visible.setBiomeVisible(x - 1, y - 1, true);
+        info.visible.setBiomeVisible(x - 0, y - 1, true);
+        info.visible.setStatsVisible(x, y, true);
+        info.visible.setStatsVisible(x - 1, y - 0, true);
+        info.visible.setStatsVisible(x - 1, y - 1, true);
+        info.visible.setStatsVisible(x - 0, y - 1, true);
+        info.owned.setOwned(19, 19, true);
 
     } //end method
 
@@ -354,7 +349,7 @@ public class LandGeneration
             {
                 temp = .25;
             }
-            Info.setFertility(x, y, temp);
+            info.visible.setFertility(x, y, temp);
             i++;
             x++;
         } //end while
@@ -450,7 +445,7 @@ public class LandGeneration
             {
                 temp = .25;
             }
-            Info.setMining(x, y, temp);
+            info.visible.setMining(x, y, temp);
             i++;
             x++;
         }
@@ -550,7 +545,7 @@ public class LandGeneration
             {
                 temp = 4;
             }
-            Info.setLumber(x, y, temp);
+            info.visible.setLumber(x, y, temp);
             i++;
             x++;
         } //end while
@@ -561,7 +556,7 @@ public class LandGeneration
         int bCheck = -2;
         try
         {
-            bCheck = Info.getBiome(x, y, true);
+            bCheck = info.visible.getBiome(x, y, true);
         } catch (Exception e)
         {
         }
@@ -580,7 +575,7 @@ public class LandGeneration
                 x = 0;
                 y++;
             }
-            Info.setBiomeVisible(x, y, false);
+            info.visible.setBiomeVisible(x, y, false);
             i++;
             x++;
         }
@@ -593,8 +588,6 @@ public class LandGeneration
         int i = 0;
         int x = 0;
         int y = 0;
-        Owned = OwnershipInfo.getInstance();
-        enemy = EnemyInfo.getInstance();
         while (i < 400)
         {
             if (x == 20)
@@ -606,19 +599,19 @@ public class LandGeneration
             {
                 if (rand.nextInt(100) < 35)
                 {
-                    enemy.setType(x, y, rand.nextInt(25));
-                    enemy.setSkill(x, y, 19 - (int) Math.round(Math.sqrt(rand.nextInt(400))));
-                    enemy.setAmount(x, y, 19 - (int) Math.round(Math.sqrt(rand.nextInt(400))));
+                    info.enemy.setType(x, y, rand.nextInt(25));
+                    info.enemy.setSkill(x, y, 19 - (int) Math.round(Math.sqrt(rand.nextInt(400))));
+                    info.enemy.setAmount(x, y, 19 - (int) Math.round(Math.sqrt(rand.nextInt(400))));
 
                 }//end create enemy if
                 else
                 {
-                    enemy.setType(x, y, -1);
+                    info.enemy.setType(x, y, -1);
                 }
             }//end land check if
             else
             {
-                enemy.setType(x, y, -1);
+                info.enemy.setType(x, y, -1);
             }
             i++;
             x++;
