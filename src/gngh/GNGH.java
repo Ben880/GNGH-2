@@ -61,14 +61,18 @@ class MyFrame extends JFrame
     private MyFrame(String s)
     {
         super(s);
+        //iitialize classes
+        info = Info.getInstance();
+        day = DayTracker.getInstance();
+
+        button = ButtonHandler.getInstance();
+        //gui
         buildGUI();
         //Start Game Code
         create();
         draw();
         //for stats to be displayed on first click singletons need to be initialized
-        day = DayTracker.getInstance();
-        info = Info.getInstance();
-        button = ButtonHandler.getInstance();
+
         sound = AudioPlayer.getInstance();
         action.setSliderDay(10);
         sound.playStartSound();
@@ -124,7 +128,7 @@ class MyFrame extends JFrame
                 x = 0;
                 y++;
             }
-            if (info.visible.getFog(x, y, dispFog))
+            if (info.visible.getFog(x, y, info.visible.fog))
             {
                 tile.setColor(x, y, Color.black);
                 tile.setText(x, y, "");
@@ -208,7 +212,7 @@ class MyFrame extends JFrame
                 x = 0;
                 y++;
             }
-            dispBiome(x, y);
+            //dispBiome(x, y);
             if (info.visible.getBiome(x, y, true) == 0)
             {
                 tile.setText(x, y, ",.");

@@ -7,6 +7,7 @@ package gngh;
 public class VisibleInfo
 {
 
+    public boolean fog = true;
     private int[][] biome = new int[20][20];
     private String[][] biomeName = new String[20][20];
     private double[][] fertility = new double[20][20];
@@ -47,9 +48,13 @@ public class VisibleInfo
             return -2;
     }
 
+    public boolean getFog(int x, int y)
+    {
+        return fog;
+    }
+
     public boolean getFog(int x, int y, boolean dispFog)
     {
-
         if (biomeVisible[x][y])
             return false;
         else if (!dispFog)
@@ -113,6 +118,14 @@ public class VisibleInfo
                 biomeName[x][y] = "??";
                 break;
         }
+    }
+
+    public void toggleFog()
+    {
+        if (fog)
+            fog = false;
+        else
+            fog = true;
     }
 
     public void setFertility(int x, int y, double i)
