@@ -83,6 +83,8 @@ class MyFrame extends JFrame
         add(action, BorderLayout.LINE_START);
         add(console, BorderLayout.PAGE_END);
         add(tile, BorderLayout.CENTER);
+        MenuBar menuBar = new MenuBar();
+        this.setJMenuBar(menuBar);
     }
 
     public void console(String string)
