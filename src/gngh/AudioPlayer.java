@@ -36,7 +36,7 @@ public class AudioPlayer
             {
                 MediaPlayer player;
                 new javafx.embed.swing.JFXPanel();
-                String uriString = new File(dir + "\\" + "Windows Logon.wav").toURI().toString();
+                String uriString = new File(dir + "\\" + "Computer_Start-Up-Your_Mom-1280862923.wav").toURI().toString();
                 player = new MediaPlayer(new Media(uriString));
                 player.play();
             }
@@ -48,7 +48,7 @@ public class AudioPlayer
     {
         MediaPlayer player;
         new javafx.embed.swing.JFXPanel();
-        String uriString = new File(dir + "\\" + "Windows Shutdown.wav").toURI().toString();
+        String uriString = new File(dir + "\\" + "A-Tone-His_Self-1266414414.wav").toURI().toString();
         player = new MediaPlayer(new Media(uriString));
         player.play();
     }
