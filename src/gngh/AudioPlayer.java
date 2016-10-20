@@ -11,8 +11,9 @@ import javafx.scene.media.MediaPlayer;
 public class AudioPlayer
 {
 
-    private String dir = "Sounds";
+    private static String dir = "Sounds";
     private static AudioPlayer instance = null;
+    private static MediaPlayer player;
 
     private AudioPlayer()
     {
@@ -28,25 +29,17 @@ public class AudioPlayer
         return instance;
     }
 
-    public void playStartSound()
+    public static void playStartSound()
     {
-        new Thread()
-        {
-            public void run()
-            {
-                MediaPlayer player;
-                new javafx.embed.swing.JFXPanel();
-                String uriString = new File(dir + "\\" + "Computer_Start-Up-Your_Mom-1280862923.wav").toURI().toString();
-                player = new MediaPlayer(new Media(uriString));
-                player.play();
-            }
-        }.start();
 
+        new javafx.embed.swing.JFXPanel();
+        String uriString = new File(dir + "\\" + "Computer_Start-Up-Your_Mom-1280862923.wav").toURI().toString();
+        player = new MediaPlayer(new Media(uriString));
+        player.play();
     }
 
-    public void playBing()
+    public static void playBing()
     {
-        MediaPlayer player;
         new javafx.embed.swing.JFXPanel();
         String uriString = new File(dir + "\\" + "A-Tone-His_Self-1266414414.wav").toURI().toString();
         player = new MediaPlayer(new Media(uriString));
