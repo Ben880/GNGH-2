@@ -293,11 +293,6 @@ class MyFrame extends JFrame
         }
     }
 
-    public void setInfoLable(int i, String s)
-    {
-        infoLabel.setText(i, s);
-    }
-
     public void setInfoLable(int l, int i, String s)
     {
         infoLabel.setText(l, i, s);

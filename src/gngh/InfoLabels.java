@@ -19,12 +19,10 @@ public class InfoLabels extends JPanel
 {
 
     LabelHandler lableHandle;
-    //info labels
+    //info main components
     JLabel infoLabel = new JLabel("Info");
     JPanel rightCol = new JPanel();
-    JPanel rightInner = new JPanel();
-    JLabel[] infoLabels = new JLabel[80];
-    ///debug
+    ///debug panel components
     JPanel debugInfo = new JPanel();
     JLabel buttonInfo = new JLabel();
     JLabel isOwned = new JLabel();
@@ -32,14 +30,12 @@ public class InfoLabels extends JPanel
     Color background = new Color(100, 100, 100);
     Color panel = new Color(170, 170, 170);
     Dimension sideD = new Dimension(300, 15);
-    Dimension rightSideD = new Dimension(290, 610);
     Dimension debugInfoD = new Dimension(290, 145);
 
-    InfoTabbs tp;
+    InfoTabs tp;
 
     InfoLabels()
     {
-
         setLayout(new BorderLayout());
         //main holder
         rightCol.setPreferredSize(sideD);
@@ -48,30 +44,11 @@ public class InfoLabels extends JPanel
         //main heading
         infoLabel.setFont(new Font("Arial", Font.BOLD, 20));
         rightCol.add(infoLabel);
-        //========================start old code===============================
-        //sub holder
-        rightInner.setPreferredSize(rightSideD);
-        rightInner.setBackground(panel);
-        rightInner.setLayout(new GridLayout(40, 2));
-        //rightCol.add(rightInner);
-        //lables
-        int i = 1;
-        lableHandle = LabelHandler.getInstance();
-        while (i < 40)
-        {
-            infoLabels[i] = new JLabel();
-            infoLabels[i].setFont(new Font("Arial", Font.PLAIN, 12));
-            infoLabels[i].setText("  " + i);
-            rightInner.add(infoLabels[i]);
-            infoLabels[i].setText(lableHandle.getDefaultText(i));
-            i++;
-        }
-        //===================end old code==================================
-        //debug
+
+        //debug panel (migrate to sub class)
         debugInfo.setLayout(new GridLayout(4, 1));
         debugInfo.setBackground(panel);
         debugInfo.setPreferredSize(debugInfoD);
-
         buttonInfo.setText("  Button: ? ([x][y])");
         buttonInfo.setBorder(BorderFactory.createEmptyBorder());
         debugInfo.add(buttonInfo);
@@ -79,11 +56,10 @@ public class InfoLabels extends JPanel
         isOwned.setBorder(BorderFactory.createEmptyBorder());
         debugInfo.add(isOwned);
         debugInfo.setVisible(false);
-        //formatting some stuff
+        //looks and feels of tabbs
         UIManager.put("TabbedPane.selected", panel);
         UIManager.getDefaults().put("TabbedPane.contentBorderInsets", new Insets(0, 0, 0, 0));
         UIManager.getDefaults().put("TabbedPane.tabAreaInsets", new Insets(0, 0, 0, 0));
-        //UIManager.getDefaults().put("TabbedPane.tabInsets", new Insets(0, 0, 0, 0));
         UIManager.put("TabbedPane.selected", panel);
         UIManager.put("TabbedPane.borderHightlightColor", panel);
         UIManager.put("TabbedPane.hilight", panel);
@@ -91,18 +67,12 @@ public class InfoLabels extends JPanel
         UIManager.put("TabbedPane.focus", panel);
         UIManager.put("TabbedPane.darkShadow", background);
         UIManager.put("TabbedPane.light", background);
-        tp = new InfoTabbs();
-        tp.setPreferredSize(new Dimension(290, 595));
+        //creation of tabbed panel
+        tp = new InfoTabs();
         //add stuff
         rightCol.add(tp, BorderLayout.CENTER);
         rightCol.add(debugInfo);
 
-    }
-
-    //=====================old code =======================
-    public void setText(int i, String s)
-    {
-        infoLabels[i].setText("  " + s);
     }
 
     public void setText(int l, int i, String s)
@@ -112,7 +82,6 @@ public class InfoLabels extends JPanel
 
     public void toggleDebug(boolean b)
     {
-        //System.out.println("Toggle debug action recived: " + b);
         debugInfo.setVisible(b);
     }
 
