@@ -33,6 +33,7 @@ class MyFrame extends JFrame
     //Game variables
     public static int currX = 19;
     public static int currY = 19;
+    //following sould not be controlled by class
     boolean debug = false;
     boolean dispFog = true;
     //Classs import
@@ -45,7 +46,6 @@ class MyFrame extends JFrame
     Color forest = new Color(0, 100, 0);
     Color desert = new Color(255, 209, 114);
 
-    //trst
     //singleton
     private static MyFrame instance = null;
 
