@@ -64,7 +64,7 @@ class MyFrame extends JFrame
         //iitialize classes
         info = Info.getInstance();
         day = DayTracker.getInstance();
-
+        lableHandle = LabelHandler.getInstance();
         button = ButtonHandler.getInstance();
         //gui
         buildGUI();
@@ -72,11 +72,10 @@ class MyFrame extends JFrame
         create();
         draw();
         //for stats to be displayed on first click singletons need to be initialized
-
         sound = AudioPlayer.getInstance();
         action.setSliderDay(10);
-        sound.playStartSound();
-        //console("Start day 1 to preform actions");
+        //sound.playStartSound();
+        console("Start day 1 to preform actions");
 
     }
 
@@ -297,6 +296,11 @@ class MyFrame extends JFrame
     public void setInfoLable(int i, String s)
     {
         infoLabel.setText(i, s);
+    }
+
+    public void setInfoLable(int l, int i, String s)
+    {
+        infoLabel.setText(l, i, s);
     }
 
     public void setActionVisible(int i, boolean b)
