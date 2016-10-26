@@ -24,7 +24,7 @@ public class EventHandler
 
     private EventHandler()
     {
-        frame = MyFrame.getInstance("GNGH");
+
         info = Info.getInstance();
         day = DayTracker.getInstance();
         resources = ResourceTracker.getInstance();
@@ -44,6 +44,7 @@ public class EventHandler
     //regular methods
     public void dayChange(int day)
     {
+        frame = MyFrame.getInstance("GNGH");
         int i = 0;
         while (i < events.size())
         {
@@ -67,6 +68,7 @@ public class EventHandler
 
     public void scout(int x, int y)
     {
+        frame = MyFrame.getInstance("GNGH");
         Calculator calc = new Calculator();
         events.add(new EventHolder());
         events.get(eventNumber).setPos(x, y);
@@ -80,6 +82,7 @@ public class EventHandler
 
     public void forage(int x, int y)
     {
+        frame = MyFrame.getInstance("GNGH");
         Calculator calc = new Calculator();
         events.add(new EventHolder());
         events.get(eventNumber).setType(2);
@@ -99,6 +102,7 @@ public class EventHandler
 
     public void attack(int x, int y)
     {
+        frame = MyFrame.getInstance("GNGH");
         Calculator calc = new Calculator();
         DialogueBox box = new DialogueBox();
         int troops = box.troops();
