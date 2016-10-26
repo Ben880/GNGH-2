@@ -22,9 +22,9 @@ public class Info
 
     private Info()
     {
-        visible = VisibleInfo.getInstance();
-        owned = OwnershipInfo.getInstance();
-        enemy = EnemyInfo.getInstance();
+        visible = new VisibleInfo();
+        owned = new OwnershipInfo();
+        enemy = new EnemyInfo();
     }
 
     public static Info getInstance()

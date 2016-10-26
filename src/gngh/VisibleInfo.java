@@ -17,20 +17,9 @@ public class VisibleInfo
     private boolean[][] statsVisible = new boolean[20][20];
     public static int count = 0;
 
-    private static VisibleInfo instance = null;
-
-    private VisibleInfo()
+    public VisibleInfo()
     {
 
-    }
-
-    public static VisibleInfo getInstance()
-    {
-        if (instance == null)
-        {
-            instance = new VisibleInfo();
-        }
-        return instance;
     }
 
     //return strings

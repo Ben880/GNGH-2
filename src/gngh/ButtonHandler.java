@@ -90,9 +90,9 @@ public class ButtonHandler
     public void actionClick(int i)
     {
         event = EventHandler.getInstance();
-        if (frame.debug)
-            frame.console("ButtonHandler actionClick btnNumber: " + i);
-
+//        //causes nullpointer
+//        if (frame.debug)
+//            frame.console("ButtonHandler actionClick btnNumber: " + i);
         switch (i)
         {
             case -1:
@@ -110,27 +110,4 @@ public class ButtonHandler
                 break;
         }
     }
-
-    private void lableMap()
-    {
-        //1 day
-        //2 space
-        //3 biome
-        //4 fertility
-        //5 mining
-        //6 lumber
-        //7
-        //8
-        //9
-        //10
-        //11
-        //12
-        //13
-        //14
-        //15
-        //16
-        //18
-        //19
-    }
-
 }

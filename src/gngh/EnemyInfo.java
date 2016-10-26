@@ -13,22 +13,11 @@ public class EnemyInfo
     private String[][] stype = new String[20][20];
     private int[][] amount = new int[20][20];
     private int[][] skill = new int[20][20];
-    private static EnemyInfo instance = null;
     Random rand = new Random();
-    VisibleInfo info;
 
-    private EnemyInfo()
+    public EnemyInfo()
     {
 
-    }
-
-    public static EnemyInfo getInstance()
-    {
-        if (instance == null)
-        {
-            instance = new EnemyInfo();
-        }
-        return instance;
     }
 
     public void dayChange()

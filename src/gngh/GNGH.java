@@ -33,7 +33,7 @@ class MyFrame extends JFrame
     //Game variables
     public static int currX = 19;
     public static int currY = 19;
-    //following sould not be controlled by class
+    //following sould not be controlled by this class
     boolean debug = false;
     boolean dispFog = true;
     //Classs import
@@ -61,22 +61,29 @@ class MyFrame extends JFrame
     private MyFrame(String s)
     {
         super(s);
-        //iitialize classes
-        info = Info.getInstance();
-        day = DayTracker.getInstance();
-        lableHandle = LabelHandler.getInstance();
-        button = ButtonHandler.getInstance();
-        //gui
+        initialize();
         buildGUI();
-        //Start Game Code
         create();
         draw();
-        //for stats to be displayed on first click singletons need to be initialized
         sound = AudioPlayer.getInstance();
         action.setSliderDay(10);
         //sound.playStartSound();
         console("Start day 1 to preform actions");
 
+    }
+
+    public void initialize()
+    {
+        EventHandler event;
+        event = EventHandler.getInstance();
+        ResourceTracker resources;
+        resources = ResourceTracker.getInstance();
+        ResourceProduction production;
+        production = ResourceProduction.getInstance();
+        info = Info.getInstance();
+        day = DayTracker.getInstance();
+        lableHandle = LabelHandler.getInstance();
+        button = ButtonHandler.getInstance();
     }
 
     public void buildGUI()

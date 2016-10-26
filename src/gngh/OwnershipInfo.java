@@ -9,20 +9,10 @@ public class OwnershipInfo
 
     private boolean[][] owned = new boolean[20][20];
     private int[][] structure = new int[20][20];
-    private static OwnershipInfo instance = null;
 
-    private OwnershipInfo()
+    public OwnershipInfo()
     {
 
-    }
-
-    public static OwnershipInfo getInstance()
-    {
-        if (instance == null)
-        {
-            instance = new OwnershipInfo();
-        }
-        return instance;
     }
 
     public void setOwned(int x, int y, boolean b)

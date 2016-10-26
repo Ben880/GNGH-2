@@ -184,6 +184,7 @@ public class ActionButtons extends JPanel
                 button.actionClick(source);
             } catch (Exception e)
             {
+                System.out.println("Unhandled Exception caught " + e);
                 //if (debug)
                 //console("Unhandled Exception caught at ActionPress " + e);
             }
