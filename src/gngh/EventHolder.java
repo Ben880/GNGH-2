@@ -7,10 +7,10 @@ package gngh;
 public class EventHolder
 {
 
-    MyFrame frame;
+    MainFrame frame;
     Info info;
     DayTracker day;
-    ResourceTracker resources;
+    ResourceInfo resources;
     //reserved types
     //scout 0
     //attack 1
@@ -39,10 +39,10 @@ public class EventHolder
 
     public void finish()
     {
-        frame = MyFrame.getInstance("GNGH");
+        frame = MainFrame.getInstance("GNGH");
         info = Info.getInstance();
         day = DayTracker.getInstance();
-        resources = ResourceTracker.getInstance();
+        resources = ResourceInfo.getInstance();
         if (console)
             frame.console(message);
         if (dispBiomeSquare)

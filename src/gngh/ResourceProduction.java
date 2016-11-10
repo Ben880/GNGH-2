@@ -9,7 +9,7 @@ public class ResourceProduction
 
     private static ResourceProduction instance = null;
     private Calculator calc;
-    private ResourceTracker resources;
+    private ResourceInfo resources;
     private int foodProduction;
     private int lumberProduction;
     private int stoneProduction;
@@ -37,7 +37,7 @@ public class ResourceProduction
 
     public void dayChange()
     {
-        resources = ResourceTracker.getInstance();
+        resources = ResourceInfo.getInstance();
         resources.setFood(resources.getFood() + food());
         resources.setLumber(resources.getLumber() + 50);
         resources.setStone(resources.getStone() + 10);

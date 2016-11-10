@@ -11,12 +11,12 @@ public class ResearchHandler
 
     private static ResearchHandler instance = null;
 
-    MyFrame frame;
+    MainFrame frame;
     boolean researching = false;
 
     private ResearchHandler()
     {
-        frame = MyFrame.getInstance("GNGH");
+        frame = MainFrame.getInstance("GNGH");
     }
 
     public static ResearchHandler getInstance()

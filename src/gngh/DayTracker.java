@@ -9,7 +9,7 @@ public class DayTracker
 
     private static DayTracker instance = null;
     private int day;
-    EventHandler event;
+    EventTracker event;
     //EventCreation event;
 
     private DayTracker()
@@ -31,7 +31,7 @@ public class DayTracker
         int i = 0;
         ResourceProduction production;
         production = ResourceProduction.getInstance();
-        event = EventHandler.getInstance();
+        event = EventTracker.getInstance();
         while (i < amount)
         {
             day++;

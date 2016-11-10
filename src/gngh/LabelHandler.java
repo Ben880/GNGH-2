@@ -10,7 +10,7 @@ public class LabelHandler
 
     private static LabelHandler instance = null;
     DayTracker day;
-    MyFrame frame;
+    MainFrame frame;
     Info info;
 
     private LabelHandler()
@@ -29,10 +29,10 @@ public class LabelHandler
 
     public void resourceUpdate()
     {
-        ResourceTracker resources;
-        resources = ResourceTracker.getInstance();
-        MyFrame frame;
-        frame = MyFrame.getInstance("GNGH");
+        ResourceInfo resources;
+        resources = ResourceInfo.getInstance();
+        MainFrame frame;
+        frame = MainFrame.getInstance("GNGH");
         day = DayTracker.getInstance();
         frame.setInfoLable(0, 1, "Day: " + day.getDay());
         frame.setInfoLable(1, 1, "Day: " + day.getDay());
@@ -53,7 +53,7 @@ public class LabelHandler
 
     public void clickUpdate(int x, int y)
     {
-        frame = MyFrame.getInstance("GNGH");
+        frame = MainFrame.getInstance("GNGH");
         info = Info.getInstance();
         int i = y * 20 + x;
         if (info.visible.getStatsVisible(x, y) || frame.debug)
@@ -99,8 +99,8 @@ public class LabelHandler
 
     public String getDefaultText(int l, int i)
     {
-        ResourceTracker resources;
-        resources = ResourceTracker.getInstance();
+        ResourceInfo resources;
+        resources = ResourceInfo.getInstance();
         if (l == 0)
         {
             switch (i)

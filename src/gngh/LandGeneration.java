@@ -64,8 +64,8 @@ public class LandGeneration
         //start enemy creation
         populate();
         //generation of non land values
-        ResourceTracker resources;
-        resources = ResourceTracker.getInstance();
+        ResourceInfo resources;
+        resources = ResourceInfo.getInstance();
         resources = null;
     }
 

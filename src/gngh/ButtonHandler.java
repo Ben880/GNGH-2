@@ -10,16 +10,22 @@ public class ButtonHandler
 {
 
     private static ButtonHandler instance = null;
-    MyFrame frame;
     int x;
     int y;
     Info info;
     DayTracker day;
-    EventHandler event;
+    EventTracker event;
+    MainFrame frame;
+    FrameHandler fh;
+    LabelHandler labels;
 
     private ButtonHandler()
     {
         info = Info.getInstance();
+        labels = LabelHandler.getInstance();
+        fh = FrameHandler.getInstance();
+        frame = fh.getFrame();
+
     }
 
     public static ButtonHandler getInstance()
@@ -33,8 +39,7 @@ public class ButtonHandler
 
     public void gameClick(int x, int y)
     {
-        LabelHandler labels;
-        labels = LabelHandler.getInstance();
+
         labels.clickUpdate(x, y);
         this.x = x;
         this.y = y;
@@ -42,7 +47,6 @@ public class ButtonHandler
 
     public void actionClick(String source)
     {
-        frame = MyFrame.getInstance("GNGH");
         if (frame.debug && source != "debugToggle")
             frame.console("actionClick source: " + source);
         if (source == "plusDays")
@@ -89,7 +93,7 @@ public class ButtonHandler
 
     public void actionClick(int i)
     {
-        event = EventHandler.getInstance();
+        event = EventTracker.getInstance();
 //        //causes nullpointer
 //        if (frame.debug)
 //            frame.console("ButtonHandler actionClick btnNumber: " + i);

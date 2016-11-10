@@ -19,12 +19,14 @@ public class Info
     VisibleInfo visible;
     OwnershipInfo owned;
     EnemyInfo enemy;
+    ResourceInfo resources;
 
     private Info()
     {
         visible = new VisibleInfo();
         owned = new OwnershipInfo();
         enemy = new EnemyInfo();
+        resources = ResourceInfo.getInstance();
     }
 
     public static Info getInstance()
@@ -49,4 +51,8 @@ public class Info
         return enemy;
     }
 
+    public ResourceInfo resources()
+    {
+        return resources;
+    }
 }

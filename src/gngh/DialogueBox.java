@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 public class DialogueBox
 {
 
-    MyFrame frame;
+    MainFrame frame;
 
     public DialogueBox()
     {
@@ -20,7 +20,7 @@ public class DialogueBox
 
     public int troops()
     {
-        frame = MyFrame.getInstance("GNGH");
+        frame = MainFrame.getInstance("GNGH");
         String s = JOptionPane.showInputDialog(frame, "How many troops do you want to send", "Attack", -1);
         int troops = Integer.parseInt(s);
         return troops;

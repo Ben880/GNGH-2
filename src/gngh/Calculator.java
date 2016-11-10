@@ -12,7 +12,7 @@ public class Calculator
 
     Info info;
     DayTracker day;
-    ResourceTracker resources;
+    ResourceInfo resources;
     Random rand = new Random();
 
     public int disEQ(int x, int y)
