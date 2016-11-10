@@ -10,14 +10,14 @@ public class Tracker
 
     private DayTracker day;
     private EventTracker event;
-    ResearchTracker research;
+    private ResearchTracker research;
 
-    private static Tracker instance;
+    private static Tracker instance = null;
 
     private Tracker()
     {
-        day = DayTracker.getInstance();
-        event = EventTracker.getInstance();
+        day = new DayTracker();
+        event = new EventTracker();
         research = new ResearchTracker();
     }
 

@@ -11,7 +11,7 @@ public class Calculator
 //calculates most things (excluding resources and world gen)
 
     Info info;
-    DayTracker day;
+    Tracker tracker;
     ResourceInfo resources;
     Random rand = new Random();
 
@@ -23,14 +23,15 @@ public class Calculator
 
     public int scoutDays(int x, int y)
     {
-        day = DayTracker.getInstance();
-        int days = disEQ(x, y) * 6 + day.getDay();
+        tracker = Tracker.getInstance();
+        int days = disEQ(x, y) * 6 + tracker.day().getDay();
         return days;
     }
 
     public int forageDays(int x, int y)
     {
-        return (disEQ(x, y) * 8 + day.getDay());
+        tracker = Tracker.getInstance();
+        return (disEQ(x, y) * 8 + tracker.day().getDay());
     }
 
     public double forageFood(int x, int y)

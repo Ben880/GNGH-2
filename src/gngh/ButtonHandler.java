@@ -9,38 +9,28 @@ import javax.swing.JOptionPane;
 public class ButtonHandler
 {
 
-    private static ButtonHandler instance = null;
     int x;
     int y;
     Info info;
-    DayTracker day;
-    EventTracker event;
+    Tracker tracker;
     MainFrame frame;
-    FrameHandler fh;
-    LabelHandler labels;
 
-    private ButtonHandler()
+    public ButtonHandler()
     {
-        info = Info.getInstance();
-        labels = LabelHandler.getInstance();
-        fh = FrameHandler.getInstance();
-        frame = fh.getFrame();
 
     }
 
-    public static ButtonHandler getInstance()
+    public void initialize(Info i, Tracker t, MainFrame f)
     {
-        if (instance == null)
-        {
-            instance = new ButtonHandler();
-        }
-        return instance;
+        info = i;
+        tracker = t;
+        frame = f;
     }
 
     public void gameClick(int x, int y)
     {
 
-        labels.clickUpdate(x, y);
+        //handler.gui().label().clickUpdate(x, y);
         this.x = x;
         this.y = y;
     }
@@ -85,15 +75,13 @@ public class ButtonHandler
         }
         if (source == "dayStart")
         {
-            day = DayTracker.getInstance();
-            day.incriment(frame.getSliderDay() / 10);
+            tracker.day().incriment(frame.getSliderDay() / 10);
             //frame.infoLabels[1].setText("    Day: " + day.getDay());
         }
     }
 
     public void actionClick(int i)
     {
-        event = EventTracker.getInstance();
 //        //causes nullpointer
 //        if (frame.debug)
 //            frame.console("ButtonHandler actionClick btnNumber: " + i);
@@ -102,13 +90,13 @@ public class ButtonHandler
             case -1:
                 break;
             case 0:
-                event.scout(x, y);
+                tracker.event().scout(x, y);
                 break;
             case 1:
-                event.attack(x, y);
+                tracker.event().attack(x, y);
                 break;
             case 2:
-                event.forage(x, y);
+                tracker.event().forage(x, y);
                 break;
             case 6:
                 break;

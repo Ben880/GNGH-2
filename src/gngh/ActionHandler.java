@@ -12,7 +12,7 @@ public class ActionHandler
 
     public ActionHandler()
     {
-        button = ButtonHandler.getInstance();
+        button = new ButtonHandler();
     }
 
     public ButtonHandler button()

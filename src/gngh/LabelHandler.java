@@ -6,54 +6,44 @@ package gngh;
  */
 public class LabelHandler
 {
-//singleton
 
-    private static LabelHandler instance = null;
-    DayTracker day;
+    Tracker tracker;
     MainFrame frame;
     Info info;
 
-    private LabelHandler()
+    public LabelHandler()
     {
 
     }
 
-    public static LabelHandler getInstance()
+    public void initialize(Info i, MainFrame f, Tracker t)
     {
-        if (instance == null)
-        {
-            instance = new LabelHandler();
-        }
-        return instance;
+        info = i;
+        frame = f;
+        tracker = t;
     }
 
     public void resourceUpdate()
     {
-        ResourceInfo resources;
-        resources = ResourceInfo.getInstance();
-        MainFrame frame;
-        frame = MainFrame.getInstance("GNGH");
-        day = DayTracker.getInstance();
-        frame.setInfoLable(0, 1, "Day: " + day.getDay());
-        frame.setInfoLable(1, 1, "Day: " + day.getDay());
-        frame.setInfoLable(2, 1, "Day: " + day.getDay());
-        frame.setInfoLable(3, 1, "Day: " + day.getDay());
-        frame.setInfoLable(2, 3, "food: " + resources.getFood());
-        frame.setInfoLable(2, 4, "lumber: " + resources.getLumber());
-        frame.setInfoLable(2, 5, "stone: " + resources.getStone());
-        frame.setInfoLable(2, 6, "ore: " + resources.getOre());
-        frame.setInfoLable(2, 7, "people: " + resources.getPeople());
-        frame.setInfoLable(2, 8, "troops: " + resources.getTroops());
-        frame.setInfoLable(2, 9, "tools: " + resources.getTools());
-        frame.setInfoLable(2, 10, "horses: " + resources.getHorses());
-        frame.setInfoLable(2, 11, "livestock: " + resources.getAnimals());
-        frame.setInfoLable(2, 12, "medicine: " + resources.getMedicine());
+        frame.setInfoLable(0, 1, "Day: " + tracker.day().getDay());
+        frame.setInfoLable(1, 1, "Day: " + tracker.day().getDay());
+        frame.setInfoLable(2, 1, "Day: " + tracker.day().getDay());
+        frame.setInfoLable(3, 1, "Day: " + tracker.day().getDay());
+        frame.setInfoLable(2, 3, "food: " + info.resources().getFood());
+        frame.setInfoLable(2, 4, "lumber: " + info.resources().getLumber());
+        frame.setInfoLable(2, 5, "stone: " + info.resources().getStone());
+        frame.setInfoLable(2, 6, "ore: " + info.resources().getOre());
+        frame.setInfoLable(2, 7, "people: " + info.resources().getPeople());
+        frame.setInfoLable(2, 8, "troops: " + info.resources().getTroops());
+        frame.setInfoLable(2, 9, "tools: " + info.resources().getTools());
+        frame.setInfoLable(2, 10, "horses: " + info.resources().getHorses());
+        frame.setInfoLable(2, 11, "livestock: " + info.resources().getAnimals());
+        frame.setInfoLable(2, 12, "medicine: " + info.resources().getMedicine());
 
     }
 
     public void clickUpdate(int x, int y)
     {
-        frame = MainFrame.getInstance("GNGH");
         info = Info.getInstance();
         int i = y * 20 + x;
         if (info.visible.getStatsVisible(x, y) || frame.debug)
@@ -99,8 +89,6 @@ public class LabelHandler
 
     public String getDefaultText(int l, int i)
     {
-        ResourceInfo resources;
-        resources = ResourceInfo.getInstance();
         if (l == 0)
         {
             switch (i)
@@ -162,25 +150,25 @@ public class LabelHandler
                 case 2:
                     return "";
                 case 3:
-                    return "food: " + resources.getFood();
+                    return "food: " + info.resources().getFood();
                 case 4:
-                    return "lumber: " + resources.getLumber();
+                    return "lumber: " + info.resources().getLumber();
                 case 5:
-                    return "stone: " + resources.getStone();
+                    return "stone: " + info.resources().getStone();
                 case 6:
-                    return "ore: " + resources.getOre();
+                    return "ore: " + info.resources().getOre();
                 case 7:
-                    return "people: " + resources.getPeople();
+                    return "people: " + info.resources().getPeople();
                 case 8:
-                    return "troops: " + resources.getTroops();
+                    return "troops: " + info.resources().getTroops();
                 case 9:
-                    return "tools: " + resources.getTools();
+                    return "tools: " + info.resources().getTools();
                 case 10:
-                    return "horses: " + resources.getHorses();
+                    return "horses: " + info.resources().getHorses();
                 case 11:
-                    return "livestock: " + resources.getAnimals();
+                    return "livestock: " + info.resources().getAnimals();
                 case 12:
-                    return "medicine: " + resources.getMedicine();
+                    return "medicine: " + info.resources().getMedicine();
             }
         }//end if
         if (l == 3)

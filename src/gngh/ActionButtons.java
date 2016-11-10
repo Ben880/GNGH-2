@@ -15,8 +15,7 @@ public class ActionButtons extends JPanel
 {
 
     //singleton declarations
-    ButtonHandler button;
-    LabelHandler labelHandle;
+    Handler handler;
     //Left panel
     JPanel leftCol = new JPanel();
     JPanel leftInner = new JPanel();
@@ -54,6 +53,7 @@ public class ActionButtons extends JPanel
 
     public ActionButtons()
     {
+        handler = Handler.instance;
         setLayout(new BorderLayout());
         //main holder
         leftCol.setPreferredSize(sideD);
@@ -68,7 +68,6 @@ public class ActionButtons extends JPanel
         leftInner.setLayout(new GridLayout(20, 2));
         leftCol.add(leftInner);
         //buttons
-        labelHandle = LabelHandler.getInstance();
         int i = 0;
         while (i < 40)
         {
@@ -80,7 +79,7 @@ public class ActionButtons extends JPanel
             actionButton[i].addActionListener(new ActionButtons.ActionPress());
             actionButton[i].setActionCommand(String.valueOf(i));
             leftInner.add(actionButton[i]);
-            actionButton[i].setText(labelHandle.getButtonText(i));
+            actionButton[i].setText(handler.gui().label().getButtonText(i));
             i++;
         }
 
@@ -172,16 +171,16 @@ public class ActionButtons extends JPanel
         @Override
         public void actionPerformed(ActionEvent event)
         {
-            button = ButtonHandler.getInstance();
+            handler = Handler.getInstance();
             int btnNumber = -1;
             try
             {
                 btnNumber = Integer.parseInt(event.getActionCommand());
-                button.actionClick(btnNumber);
+                handler.action.button.actionClick(btnNumber);
             } catch (NumberFormatException e)
             {
                 String source = event.getActionCommand();
-                button.actionClick(source);
+                handler.action.button.actionClick(source);
             } catch (Exception e)
             {
                 System.out.println("Unhandled Exception caught " + e);

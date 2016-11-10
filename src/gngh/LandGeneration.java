@@ -63,10 +63,6 @@ public class LandGeneration
         lumber();
         //start enemy creation
         populate();
-        //generation of non land values
-        ResourceInfo resources;
-        resources = ResourceInfo.getInstance();
-        resources = null;
     }
 
     public void desert() //4

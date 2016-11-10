@@ -13,10 +13,10 @@ class MainFrame extends JFrame
 {
 
     //importing sub panels
-    Tiles tile = new Tiles();
-    Console console = new Console();
-    ActionButtons action = new ActionButtons();
-    InfoLabels infoLabel = new InfoLabels();
+    Tiles tile;
+    Console console;
+    ActionButtons action;
+    InfoLabels infoLabel;
     //Game variables
     public static int currX = 19;
     public static int currY = 19;
@@ -24,59 +24,33 @@ class MainFrame extends JFrame
     boolean debug = false;
     boolean dispFog = true;
     //Classs import
-    DayTracker day;
     AudioPlayer sound;
-    ButtonHandler button;
     Info info;
-    LabelHandler lableHandle;
+    Tracker tracker = Tracker.getInstance();
     //distasteful palet here
     Color forest = new Color(0, 100, 0);
     Color desert = new Color(255, 209, 114);
 
-    //singleton
-    private static MainFrame instance = null;
-
-    public static MainFrame getInstance(String s)
-    {
-        if (instance == null)
-        {
-            instance = new MainFrame(s);
-        }
-        return instance;
-    }
-
-    private MainFrame(String s)
+    MainFrame(String s)
     {
         super(s);
-        initialize();
+        Initialize init = new Initialize(this);
         buildGUI();
         create();
         draw();
-        sound = AudioPlayer.getInstance();
+
         action.setSliderDay(10);
         sound.playStartSound();
 
         //console("Start day 1 to preform actions");
     }
 
-    public void initialize()
-    {
-        FrameHandler frame;
-        frame = FrameHandler.getInstance(this);
-        EventTracker event;
-        event = EventTracker.getInstance();
-        ResourceInfo resources;
-        resources = ResourceInfo.getInstance();
-        ResourceProduction production;
-        production = ResourceProduction.getInstance();
-        info = Info.getInstance();
-        day = DayTracker.getInstance();
-        lableHandle = LabelHandler.getInstance();
-        button = ButtonHandler.getInstance();
-    }
-
     public void buildGUI()
     {
+        tile = new Tiles();
+        console = new Console();
+        action = new ActionButtons();
+        infoLabel = new InfoLabels();
         setLayout(new BorderLayout());
         add(infoLabel, BorderLayout.LINE_END);
         add(action, BorderLayout.LINE_START);

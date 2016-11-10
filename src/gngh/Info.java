@@ -26,7 +26,7 @@ public class Info
         visible = new VisibleInfo();
         owned = new OwnershipInfo();
         enemy = new EnemyInfo();
-        resources = ResourceInfo.getInstance();
+        resources = new ResourceInfo();
     }
 
     public static Info getInstance()

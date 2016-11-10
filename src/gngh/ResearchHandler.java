@@ -16,7 +16,6 @@ public class ResearchHandler
 
     private ResearchHandler()
     {
-        frame = MainFrame.getInstance("GNGH");
     }
 
     public static ResearchHandler getInstance()

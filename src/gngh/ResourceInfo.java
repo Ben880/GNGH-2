@@ -19,9 +19,8 @@ public class ResourceInfo
     private int troops;
     private int medicine;
     Calculator calc;
-    private static ResourceInfo instance = null;
 
-    private ResourceInfo()
+    public ResourceInfo()
     {
         food = 2000;
         lumber = 300;
@@ -31,15 +30,6 @@ public class ResourceInfo
         people = 100;
         troops = 10;
         medicine = 10;
-    }
-
-    public static ResourceInfo getInstance()
-    {
-        if (instance == null)
-        {
-            instance = new ResourceInfo();
-        }
-        return instance;
     }
 
     public void dayChange()

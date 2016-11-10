@@ -13,38 +13,28 @@ public class EventTracker
     //feilds
     ArrayList<EventHolder> events = new ArrayList<EventHolder>();
     int eventNumber = 0;
-    MainFrame frame;
+
     Info info;
-    DayTracker day;
-    ResourceInfo resources;
+    Tracker tracker;
+    Handler handler;
     LabelHandler labels;
     Random rand = new Random();
-    //singleton
-    private static EventTracker instance = null;
 
-    private EventTracker()
+    public EventTracker()
     {
-
-        info = Info.getInstance();
-        day = DayTracker.getInstance();
-        resources = ResourceInfo.getInstance();
-        labels = LabelHandler.getInstance();
 
     }
 
-    public static EventTracker getInstance()
+    public void Initialize(Info i, Tracker t, Handler h)
     {
-        if (instance == null)
-        {
-            instance = new EventTracker();
-        }
-        return instance;
+        info = Info.getInstance();
+        tracker = Tracker.getInstance();
+        handler = Handler.getInstance();
     }
 
     //regular methods
     public void dayChange(int day)
     {
-        frame = MainFrame.getInstance("GNGH");
         int i = 0;
         while (i < events.size())
         {
@@ -53,22 +43,21 @@ public class EventTracker
             {
                 events.get(i).finish();
             }
-            if (frame.debug)
+            if (handler.gui().frame().getFrame().debug)
             {
-                frame.console("Event #" + i + " type: " + events.get(i).getType() + " is to compleet on " + events.get(i).getCompleet());
+                handler.gui().frame().getFrame().console("Event #" + i + " type: " + events.get(i).getType() + " is to compleet on " + events.get(i).getCompleet());
             }
             i++;
 
             if (rand.nextInt(100) == 90)
             {
-                frame.console("Random Event Trigger");
+                handler.gui().frame().getFrame().console("Random Event Trigger");
             }
         }
     }
 
     public void scout(int x, int y)
     {
-        frame = MainFrame.getInstance("GNGH");
         Calculator calc = new Calculator();
         events.add(new EventHolder());
         events.get(eventNumber).setPos(x, y);
@@ -76,13 +65,12 @@ public class EventTracker
         events.get(eventNumber).setCompleet(calc.scoutDays(x, y));
         events.get(eventNumber).setMessage("Scouts returned and found a " + info.visible.getBiomeString(x, y) + " biome.");
         calc = null;
-        frame.console("scouts are to return on day " + events.get(eventNumber).getCompleet());
+        handler.gui().frame().getFrame().console("scouts are to return on day " + events.get(eventNumber).getCompleet());
         eventNumber++;
     }
 
     public void forage(int x, int y)
     {
-        frame = MainFrame.getInstance("GNGH");
         Calculator calc = new Calculator();
         events.add(new EventHolder());
         events.get(eventNumber).setType(2);
@@ -91,18 +79,17 @@ public class EventTracker
         events.get(eventNumber).setPeople(30);
         events.get(eventNumber).setFood((int) calc.forageFood(x, y));
         events.get(eventNumber).setMessage("Foraging at " + x + ", " + y + " compleet!");
-        resources.setFood(resources.getFood() - (50 * (events.get(eventNumber).getCompleet() - day.getDay())));
-        resources.setPeople(resources.getPeople() - 30);
-        LabelHandler.getInstance().resourceUpdate();
+        info.resources().setFood(info.resources().getFood() - (50 * (events.get(eventNumber).getCompleet() - tracker.day().getDay())));
+        info.resources().setPeople(info.resources().getPeople() - 30);
+        handler.gui().label().resourceUpdate();
 
         calc = null;
-        frame.console("foaragers are to return on day " + events.get(eventNumber).getCompleet());
+        handler.gui().frame().getFrame().console("foaragers are to return on day " + events.get(eventNumber).getCompleet());
         eventNumber++;
     }
 
     public void attack(int x, int y)
     {
-        frame = MainFrame.getInstance("GNGH");
         Calculator calc = new Calculator();
         DialogueBox box = new DialogueBox();
         int troops = box.troops();
@@ -114,10 +101,10 @@ public class EventTracker
         events.get(eventNumber).setCompleet((int) (calc.scoutDays(x, y) * 1.3));
         calc.attack(x, y, troops, events.get(eventNumber));
         events.get(eventNumber).setMessage("Attack on " + x + ", " + y + " compleet!");
-        frame.console("Attackers are to return on day " + events.get(eventNumber).getCompleet());
-        resources.setTroops(resources.getTroops() - troops);
+        handler.gui().frame().getFrame().console("Attackers are to return on day " + events.get(eventNumber).getCompleet());
+        info.resources().setTroops(info.resources().getTroops() - troops);
         labels.resourceUpdate();
-        resources.setFood(resources.getFood() - (50 * (events.get(eventNumber).getCompleet() - day.getDay())));
+        info.resources().setFood(info.resources().getFood() - (50 * (events.get(eventNumber).getCompleet() - tracker.day().getDay())));
         System.out.print("here");
         eventNumber++;
     }

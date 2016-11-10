@@ -7,16 +7,14 @@ package gngh;
 public class EventHolder
 {
 
-    MainFrame frame;
     Info info;
-    DayTracker day;
-    ResourceInfo resources;
+    Handler handler;
+
     //reserved types
     //scout 0
     //attack 1
     //forage 2
     //generic 6
-
     private boolean console = false;
     private boolean dispBiomeSquare = false;
     private boolean setStatsVisible = false;
@@ -34,24 +32,21 @@ public class EventHolder
 
     public void EventHolder()
     {
-
+        info = Info.getInstance();
+        handler = Handler.getInstance();
     }
 
     public void finish()
     {
-        frame = MainFrame.getInstance("GNGH");
-        info = Info.getInstance();
-        day = DayTracker.getInstance();
-        resources = ResourceInfo.getInstance();
         if (console)
-            frame.console(message);
+            handler.gui().frame().getFrame().console(message);
         if (dispBiomeSquare)
-            frame.dispBiomeSquare(x, y);
+            handler.gui().frame().getFrame().dispBiomeSquare(x, y);
         if (setStatsVisible)
             info.visible.setStatsVisible(x, y, true);
-        resources.setFood(food + resources.getFood());
-        resources.setPeople(people + resources.getPeople());
-        LabelHandler.getInstance().resourceUpdate();
+        info.resources().setFood(food + info.resources().getFood());
+        info.resources().setPeople(people + info.resources().getPeople());
+        handler.gui().label().resourceUpdate();
         if (setEnemies)
         {
             info.enemy.setAmount(x, y, enemies);
@@ -60,9 +55,9 @@ public class EventHolder
                 info.enemy.setSkill(x, y, 0);
                 info.enemy.setType(x, y, -1);
             }
-            frame.dispBiomeSquare(x, y);
+            handler.gui().frame().getFrame().dispBiomeSquare(x, y);
             info.visible.setStatsVisible(x, y, true);
-            resources.setTroops(resources.getTroops() + troops);
+            info.resources().setTroops(info.resources().getTroops() + troops);
 
         }
     }

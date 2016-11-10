@@ -9,7 +9,7 @@ public class ResourceProduction
 
     private static ResourceProduction instance = null;
     private Calculator calc;
-    private ResourceInfo resources;
+    private Info info;
     private int foodProduction;
     private int lumberProduction;
     private int stoneProduction;
@@ -23,7 +23,7 @@ public class ResourceProduction
 
     private ResourceProduction()
     {
-
+        info = Info.getInstance();
     }
 
     public static ResourceProduction getInstance()
@@ -37,18 +37,17 @@ public class ResourceProduction
 
     public void dayChange()
     {
-        resources = ResourceInfo.getInstance();
-        resources.setFood(resources.getFood() + food());
-        resources.setLumber(resources.getLumber() + 50);
-        resources.setStone(resources.getStone() + 10);
-        resources.setOre(resources.getOre() + 5);
-        resources.setPeople(resources.getPeople() + 2);
+        info.resources().setFood(info.resources().getFood() + food());
+        info.resources().setLumber(info.resources().getLumber() + 50);
+        info.resources().setStone(info.resources().getStone() + 10);
+        info.resources().setOre(info.resources().getOre() + 5);
+        info.resources().setPeople(info.resources().getPeople() + 2);
     }
 
     public int food()
     {
         int food = 0;
-        food = foodProduction - (resources.getPeople() * 3) - (resources.getTroops() * 5) - (resources.getAnimals() * 4) - (resources.getHorses() * 6);
+        food = foodProduction - (info.resources().getPeople() * 3) - (info.resources().getTroops() * 5) - (info.resources().getAnimals() * 4) - (info.resources().getHorses() * 6);
         return food;
     }
 

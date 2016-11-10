@@ -8,24 +8,11 @@ package gngh;
 public class FrameHandler
 {
 
-    private static FrameHandler instance = null;
     MainFrame frame;
 
-    private FrameHandler(MainFrame f)
+    public FrameHandler(MainFrame f)
     {
         frame = f;
-    }
-
-    public static FrameHandler getInstance(MainFrame f)
-    {
-        if (instance == null)
-            instance = new FrameHandler(f);
-        return instance;
-    }
-
-    public static FrameHandler getInstance()
-    {
-        return instance;
     }
 
     public MainFrame getFrame()

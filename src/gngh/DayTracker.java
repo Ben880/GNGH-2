@@ -7,46 +7,40 @@ package gngh;
 public class DayTracker
 {
 
-    private static DayTracker instance = null;
     private int day;
-    EventTracker event;
-    //EventCreation event;
+    Tracker tracker;
+    Handler handler;
 
-    private DayTracker()
+    public DayTracker()
     {
         day = 0;
     }
 
-    public static DayTracker getInstance()
+    public void Initialize(Tracker t, Handler h)
     {
-        if (instance == null)
-        {
-            instance = new DayTracker();
-        }
-        return instance;
+        tracker = t;
+        handler = h;
     }
 
     public void incriment(int amount)
     {
         int i = 0;
+        //migrate to hierarchy
         ResourceProduction production;
         production = ResourceProduction.getInstance();
-        event = EventTracker.getInstance();
+
         while (i < amount)
         {
             day++;
-            event.dayChange(day);
+            tracker.event().dayChange(day);
             production.dayChange();
             i++;
         }
-        LabelHandler lables;
-        lables = LabelHandler.getInstance();
-        lables.resourceUpdate();
+        handler.gui().label().resourceUpdate();
     }
 
     public int getDay()
     {
         return day;
     }
-
 }

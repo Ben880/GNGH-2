@@ -11,7 +11,7 @@ public class Handler
     ActionHandler action;
     GUIHandler gui;
 
-    private static Handler instance;
+    public static Handler instance;
 
     private Handler()
     {
@@ -24,5 +24,15 @@ public class Handler
         if (instance == null)
             instance = new Handler();
         return instance;
+    }
+
+    public ActionHandler action()
+    {
+        return action;
+    }
+
+    public GUIHandler gui()
+    {
+        return gui;
     }
 }

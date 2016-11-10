@@ -11,9 +11,35 @@ public class GUIHandler
     LabelHandler label;
     ButtonDisplayHandler button;
     TileHandler tile;
+    FrameHandler frame;
 
     public GUIHandler()
     {
-        label = LabelHandler.getInstance();
+        label = new LabelHandler();
+    }
+
+    public LabelHandler label()
+    {
+        return label;
+    }
+
+    public ButtonDisplayHandler button()
+    {
+        return button;
+    }
+
+    public TileHandler tile()
+    {
+        return tile;
+    }
+
+    public FrameHandler frame()
+    {
+        return frame;
+    }
+
+    public void setFrame(MainFrame f)
+    {
+        frame = new FrameHandler(f);
     }
 }
