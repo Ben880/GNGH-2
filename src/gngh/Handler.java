@@ -15,8 +15,8 @@ public class Handler
 
     private Handler()
     {
-        action = new ActionHandler();
-        gui = new GUIHandler();
+        action = new ActionHandler(this);
+        gui = new GUIHandler(this);
     }
 
     public static Handler getInstance()

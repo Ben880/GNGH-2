@@ -20,15 +20,10 @@ public class EventTracker
     LabelHandler labels;
     Random rand = new Random();
 
-    public EventTracker()
+    public EventTracker(Tracker t)
     {
-
-    }
-
-    public void Initialize(Info i, Tracker t, Handler h)
-    {
+        tracker = t;
         info = Info.getInstance();
-        tracker = Tracker.getInstance();
         handler = Handler.getInstance();
     }
 

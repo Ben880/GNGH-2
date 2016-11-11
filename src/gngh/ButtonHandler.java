@@ -14,10 +14,11 @@ public class ButtonHandler
     Info info;
     Tracker tracker;
     MainFrame frame;
+    Handler handler;
 
-    public ButtonHandler()
+    public ButtonHandler(Handler h)
     {
-
+        handler = h;
     }
 
     public void initialize(Info i, Tracker t, MainFrame f)

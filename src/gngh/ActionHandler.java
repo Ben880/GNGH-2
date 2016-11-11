@@ -10,9 +10,9 @@ public class ActionHandler
 
     ButtonHandler button;
 
-    public ActionHandler()
+    public ActionHandler(Handler h)
     {
-        button = new ButtonHandler();
+        button = new ButtonHandler(h);
     }
 
     public ButtonHandler button()

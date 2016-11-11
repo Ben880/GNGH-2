@@ -13,9 +13,9 @@ public class GUIHandler
     TileHandler tile;
     FrameHandler frame;
 
-    public GUIHandler()
+    public GUIHandler(Handler h)
     {
-        label = new LabelHandler();
+        label = new LabelHandler(h);
     }
 
     public LabelHandler label()
@@ -38,7 +38,7 @@ public class GUIHandler
         return frame;
     }
 
-    public void setFrame(MainFrame f)
+    public void passFrame(MainFrame f)
     {
         frame = new FrameHandler(f);
     }

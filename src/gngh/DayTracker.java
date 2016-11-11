@@ -11,14 +11,14 @@ public class DayTracker
     Tracker tracker;
     Handler handler;
 
-    public DayTracker()
+    public DayTracker(Tracker t)
     {
+        tracker = t;
         day = 0;
     }
 
     public void Initialize(Tracker t, Handler h)
     {
-        tracker = t;
         handler = h;
     }
 

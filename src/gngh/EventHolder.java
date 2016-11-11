@@ -32,12 +32,13 @@ public class EventHolder
 
     public void EventHolder()
     {
-        info = Info.getInstance();
-        handler = Handler.getInstance();
+
     }
 
     public void finish()
     {
+        info = Info.getInstance();
+        handler = Handler.getInstance();
         if (console)
             handler.gui().frame().getFrame().console(message);
         if (dispBiomeSquare)
