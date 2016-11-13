@@ -160,9 +160,9 @@ public class ActionButtons extends JPanel
         return dayIncriment.getValue();
     }
 
-    public void setSliderDay(int days)
+    public void setSliderDay(int i)
     {
-        dayIncriment.setValue(days);
+        dayIncriment.setValue(i);
     }
 
     class ActionPress implements ActionListener
