@@ -7,14 +7,14 @@ package gngh;
 public class LabelHandler
 {
 
-    Handler handler;
+    ActionHandler handler;
     Tracker tracker;
     MainFrame frame;
     Info info;
 
-    public LabelHandler(Handler h)
+    public LabelHandler()
     {
-        handler = h;
+
     }
 
     public void initialize(Info i, MainFrame f, Tracker t)

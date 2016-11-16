@@ -12,10 +12,18 @@ public class GUIHandler
     ButtonDisplayHandler button;
     TileHandler tile;
     FrameHandler frame;
+    private static GUIHandler instance;
 
-    public GUIHandler(Handler h)
+    private GUIHandler()
     {
-        label = new LabelHandler(h);
+        label = new LabelHandler();
+    }
+
+    public static GUIHandler getInstance()
+    {
+        if (instance == null)
+            instance = new GUIHandler();
+        return (instance);
     }
 
     public LabelHandler label()

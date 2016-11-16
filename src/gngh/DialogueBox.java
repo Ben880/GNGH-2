@@ -11,16 +11,16 @@ import javax.swing.JOptionPane;
 public class DialogueBox
 {
 
-    Handler handler;
+    GUIHandler gui;
 
     public DialogueBox()
     {
-        handler = Handler.getInstance();
+        gui = GUIHandler.getInstance();
     }
 
     public int troops()
     {
-        String s = JOptionPane.showInputDialog(handler.gui().frame().getFrame(), "How many troops do you want to send", "Attack", -1);
+        String s = JOptionPane.showInputDialog(gui.frame().getFrame(), "How many troops do you want to send", "Attack", -1);
         int troops = Integer.parseInt(s);
         return troops;
     }

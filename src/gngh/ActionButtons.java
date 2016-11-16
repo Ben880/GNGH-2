@@ -15,7 +15,8 @@ public class ActionButtons extends JPanel
 {
 
     //singleton declarations
-    Handler handler;
+    ActionHandler action;
+    GUIHandler gui;
     //Left panel
     JPanel leftCol = new JPanel();
     JPanel leftInner = new JPanel();
@@ -53,7 +54,8 @@ public class ActionButtons extends JPanel
 
     public ActionButtons()
     {
-        handler = Handler.instance;
+        gui = GUIHandler.getInstance();
+        action = ActionHandler.getInstance();
         setLayout(new BorderLayout());
         //main holder
         leftCol.setPreferredSize(sideD);
@@ -79,7 +81,7 @@ public class ActionButtons extends JPanel
             actionButton[i].addActionListener(new ActionButtons.ActionPress());
             actionButton[i].setActionCommand(String.valueOf(i));
             leftInner.add(actionButton[i]);
-            actionButton[i].setText(handler.gui().label().getButtonText(i));
+            actionButton[i].setText(gui.label().getButtonText(i));
             i++;
         }
 
@@ -171,16 +173,15 @@ public class ActionButtons extends JPanel
         @Override
         public void actionPerformed(ActionEvent event)
         {
-            handler = Handler.getInstance();
             int btnNumber = -1;
             try
             {
                 btnNumber = Integer.parseInt(event.getActionCommand());
-                handler.action.button.actionClick(btnNumber);
+                action.button.actionClick(btnNumber);
             } catch (NumberFormatException e)
             {
                 String source = event.getActionCommand();
-                handler.action.button.actionClick(source);
+                action.button.actionClick(source);
             } catch (Exception e)
             {
                 System.out.println("Unhandled Exception caught " + e);

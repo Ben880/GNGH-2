@@ -27,7 +27,6 @@ class MainFrame extends JFrame
     AudioPlayer sound;
     Info info;
     Tracker tracker;
-    Handler handler;
     //distasteful palet here
     Color forest = new Color(0, 100, 0);
     Color desert = new Color(255, 209, 114);
@@ -47,11 +46,12 @@ class MainFrame extends JFrame
     {
         info = Info.getInstance();
         tracker = Tracker.getInstance();
-        handler = Handler.getInstance();
-        tracker.day().Initialize(tracker, handler);
-        handler.gui().passFrame(this);
-        handler.gui().label().initialize(info, this, tracker);
-        handler.action().button().initialize(info, tracker, this);
+        GUIHandler gui = GUIHandler.getInstance();
+        ActionHandler action = ActionHandler.getInstance();
+        tracker.day().Initialize(tracker);
+        gui.passFrame(this);
+        gui.label().initialize(info, this, tracker);
+        action.button().initialize(info, tracker, this);
     }
 
     public void buildGUI()

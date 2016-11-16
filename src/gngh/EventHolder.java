@@ -8,7 +8,7 @@ public class EventHolder
 {
 
     Info info;
-    Handler handler;
+    GUIHandler gui;
 
     //reserved types
     //scout 0
@@ -38,16 +38,16 @@ public class EventHolder
     public void finish()
     {
         info = Info.getInstance();
-        handler = Handler.getInstance();
+        gui = GUIHandler.getInstance();
         if (console)
-            handler.gui().frame().getFrame().console(message);
+            gui.frame().getFrame().console(message);
         if (dispBiomeSquare)
-            handler.gui().frame().getFrame().dispBiomeSquare(x, y);
+            gui.frame().getFrame().dispBiomeSquare(x, y);
         if (setStatsVisible)
             info.visible.setStatsVisible(x, y, true);
         info.resources().setFood(food + info.resources().getFood());
         info.resources().setPeople(people + info.resources().getPeople());
-        handler.gui().label().resourceUpdate();
+        gui.label().resourceUpdate();
         if (setEnemies)
         {
             info.enemy.setAmount(x, y, enemies);
@@ -56,7 +56,7 @@ public class EventHolder
                 info.enemy.setSkill(x, y, 0);
                 info.enemy.setType(x, y, -1);
             }
-            handler.gui().frame().getFrame().dispBiomeSquare(x, y);
+            gui.frame().getFrame().dispBiomeSquare(x, y);
             info.visible.setStatsVisible(x, y, true);
             info.resources().setTroops(info.resources().getTroops() + troops);
 

@@ -9,10 +9,18 @@ public class ActionHandler
 {
 
     ButtonHandler button;
+    private static ActionHandler instance;
 
-    public ActionHandler(Handler h)
+    private ActionHandler()
     {
-        button = new ButtonHandler(h);
+        button = new ButtonHandler();
+    }
+
+    public static ActionHandler getInstance()
+    {
+        if (instance == null)
+            instance = new ActionHandler();
+        return instance;
     }
 
     public ButtonHandler button()

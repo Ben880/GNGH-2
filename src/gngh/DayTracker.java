@@ -9,17 +9,18 @@ public class DayTracker
 
     private int day;
     Tracker tracker;
-    Handler handler;
+    GUIHandler gui;
 
     public DayTracker(Tracker t)
     {
         tracker = t;
         day = 0;
+        gui = GUIHandler.getInstance();
     }
 
-    public void Initialize(Tracker t, Handler h)
+    public void Initialize(Tracker t)
     {
-        handler = h;
+
     }
 
     public void incriment(int amount)
@@ -36,7 +37,7 @@ public class DayTracker
             production.dayChange();
             i++;
         }
-        handler.gui().label().resourceUpdate();
+        gui.label().resourceUpdate();
     }
 
     public int getDay()
