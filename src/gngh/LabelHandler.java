@@ -11,10 +11,11 @@ public class LabelHandler
     Tracker tracker;
     MainFrame frame;
     Info info;
+    CoLabelHandler text;
 
     public LabelHandler()
     {
-
+        text = new CoLabelHandler();
     }
 
     public void initialize(Info i, MainFrame f, Tracker t)
@@ -90,104 +91,7 @@ public class LabelHandler
 
     public String getDefaultText(int l, int i)
     {
-        if (l == 0)
-        {
-            switch (i)
-            {
-                case 1:
-                    return "Day: 0";
-                case 2:
-                    return "";
-                case 3:
-                    return "Biome: ";
-                case 4:
-                    return "Fertility: ";
-                case 5:
-                    return "Mining: ";
-                case 6:
-                    return "Lumber: ";
-                case 7:
-                    return "Ownership: ";
-                case 8:
-                    return "Enemy Type: ";
-                case 9:
-                    return "Enemy Count: ";
-                case 10:
-                    return "Enemy Skill";
-                case 11:
-                    return "Atribute: ";
-                case 12:
-                    return "Atribute: ";
-                case 13:
-                    return "Atribute: ";
-            }
-        }//end if
-        if (l == 1)
-        {
-            switch (i)
-            {
-                case 1:
-                    return "Day: 0";
-                case 2:
-                    return "";
-                case 3:
-                    return "defense";
-                case 4:
-                    return "free space";
-                case 5:
-                    return "walls";
-                case 6:
-                    return "buildings";
-                case 7:
-                    return "more";
-            }
-        }//end if
-        if (l == 2)
-        {
-            switch (i)
-            {
-                case 1:
-                    return "Day: 0";
-                case 2:
-                    return "";
-                case 3:
-                    return "food: " + info.resources().getFood();
-                case 4:
-                    return "lumber: " + info.resources().getLumber();
-                case 5:
-                    return "stone: " + info.resources().getStone();
-                case 6:
-                    return "ore: " + info.resources().getOre();
-                case 7:
-                    return "people: " + info.resources().getPeople();
-                case 8:
-                    return "troops: " + info.resources().getTroops();
-                case 9:
-                    return "tools: " + info.resources().getTools();
-                case 10:
-                    return "horses: " + info.resources().getHorses();
-                case 11:
-                    return "livestock: " + info.resources().getAnimals();
-                case 12:
-                    return "medicine: " + info.resources().getMedicine();
-            }
-        }//end if
-        if (l == 3)
-        {
-            switch (i)
-            {
-                case 1:
-                    return "Day: 0";
-                case 2:
-                    return "";
-                case 3:
-                    return "";
-                case 4:
-                    return " army farming smithing scouting ect";
-                case 5:
-            }
-        }
-        return "";
+        return text.getText(l, i);
     }
 
     public String getButtonText(int i)
