@@ -8,7 +8,7 @@ package gngh;
 public class CoLabelHandler
 {
 
-    private String[][] text = new String[4][20];
+    private String[][] text = new String[4][40];
 
     public CoLabelHandler()
     {
@@ -24,7 +24,7 @@ public class CoLabelHandler
     {
         for (int i = 0; i < 4; i++)
         {
-            for (int j = 0; j < 20; i++)
+            for (int j = 0; j < 40; j++)
             {
                 text[i][j] = " ";
             }

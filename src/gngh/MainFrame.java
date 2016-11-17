@@ -272,11 +272,6 @@ class MainFrame extends JFrame
         }
     }
 
-    public void setInfoLable(int l, int i, String s)
-    {
-        infoLabel.setText(l, i, s);
-    }
-
     public void setActionVisible(int i, boolean b)
     {
         //nul pointer when tile is clicked

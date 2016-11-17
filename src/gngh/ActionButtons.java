@@ -81,7 +81,7 @@ public class ActionButtons extends JPanel
             actionButton[i].addActionListener(new ActionButtons.ActionPress());
             actionButton[i].setActionCommand(String.valueOf(i));
             leftInner.add(actionButton[i]);
-            actionButton[i].setText(gui.label().getButtonText(i));
+            actionButton[i].setText(gui.button().getButtonText(i));
             i++;
         }
 
