@@ -54,7 +54,7 @@ public class LabelHandler
     {
         info = Info.getInstance();
         int i = y * 20 + x;
-        if (info.visible.getStatsVisible(x, y) || frame.debug)
+        if (info.visible.getStatsVisible(x, y) || info.debug().getDebug())
         {
             label.setText(0, 3, "Biome: " + info.visible.getBiomeString(x, y));
             label.setText(0, 4, "Fertility: " + info.visible.getFertility(x, y));
@@ -64,7 +64,7 @@ public class LabelHandler
             label.setText(0, 8, "Enemy Type: " + info.enemy.getTypeString(x, y));
             label.setText(0, 9, "Enemy Count: " + info.enemy.getAmount(x, y));
             label.setText(0, 10, "Enemy Skill: " + info.enemy.getSkill(x, y));
-            if (frame.debug)
+            if (info.debug().getDebug())
             {
                 frame.infoLabel.buttonInfo.setText("  Button: " + i + " (" + x + "," + y + ")");
                 frame.infoLabel.isOwned.setText("  Owned: " + info.owned.getOwned(x, y));
@@ -83,7 +83,7 @@ public class LabelHandler
             label.setText(0, 9, "Enemy Count: ??");
             label.setText(0, 10, "Enemy Skill: ??");
 
-            if (frame.debug)
+            if (info.debug().getDebug())
             {
                 frame.infoLabel.buttonInfo.setText("  Button: " + i + " (" + x + "," + y + ")");
                 frame.infoLabel.isOwned.setText("  Owned: " + info.owned.getOwned(x, y));

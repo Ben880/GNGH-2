@@ -39,7 +39,7 @@ public class ButtonHandler
 
     public void actionClick(String source)
     {
-        if (frame.debug && source != "debugToggle")
+        if (info.debug().getDebug() && source != "debugToggle")
             frame.console("actionClick source: " + source);
         if (source == "plusDays")
             frame.setSliderDay(frame.getSliderDay() + 10);

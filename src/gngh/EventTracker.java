@@ -38,7 +38,7 @@ public class EventTracker
             {
                 events.get(i).finish();
             }
-            if (gui.frame().getFrame().debug)
+            if (info.debug().getDebug())
             {
                 gui.frame().getFrame().console("Event #" + i + " type: " + events.get(i).getType() + " is to compleet on " + events.get(i).getCompleet());
             }
