@@ -56,6 +56,7 @@ public class ActionButtons extends JPanel
     {
         gui = GUIHandler.getInstance();
         action = ActionHandler.getInstance();
+        gui.button().initialize(this);
         setLayout(new BorderLayout());
         //main holder
         leftCol.setPreferredSize(sideD);
