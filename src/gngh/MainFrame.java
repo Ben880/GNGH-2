@@ -21,8 +21,6 @@ class MainFrame extends JFrame
     public static int currX = 19;
     public static int currY = 19;
     //following sould not be controlled by this class
-    boolean debug = false;
-    boolean dispFog = true;
     //Classs import
     AudioPlayer sound;
     Info info;
@@ -228,7 +226,7 @@ class MainFrame extends JFrame
 
     public void draw()
     {
-        if (dispFog)
+        if (info.visible().fog)
         {
             dispAllBiome();
             drawFog();
@@ -240,16 +238,16 @@ class MainFrame extends JFrame
 
     public void debug()
     {
-        if (debug)
+        if (info.debug().getDebug())
         {
-            debug = false;
+            info.debug().setDebug(false);
             console("Debug: false");
             action.toggleDebug(false);
             infoLabel.toggleDebug(false);
 
         } else
         {
-            debug = true;
+            info.debug().setDebug(true);
             console("Debug: true");
             action.toggleDebug(true);
             infoLabel.toggleDebug(true);
@@ -258,16 +256,16 @@ class MainFrame extends JFrame
 
     public void toggleFog()
     {
-        if (dispFog)
+        if (info.visible().fog)
         {
             console("Fog: false");
-            dispFog = false;
+            info.visible().toggleFog();
             draw();
 
         } else
         {
             console("Fog: true");
-            dispFog = true;
+            info.visible().toggleFog();
             draw();
         }
     }
