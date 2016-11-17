@@ -14,9 +14,11 @@ public class ButtonHandler
     Info info;
     Tracker tracker;
     MainFrame frame;
+    GUIHandler gui;
 
     public ButtonHandler()
     {
+        gui = GUIHandler.getInstance();
         //handler = h;
     }
 
@@ -30,7 +32,7 @@ public class ButtonHandler
     public void gameClick(int x, int y)
     {
 
-        //handler.gui().label().clickUpdate(x, y);
+        gui.label().clickUpdate(x, y);
         this.x = x;
         this.y = y;
     }
