@@ -22,4 +22,9 @@ public class DebugInfo
     {
         return debug;
     }
+
+    public void setDebug(boolean b)
+    {
+        debug = b;
+    }
 }
