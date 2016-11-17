@@ -20,9 +20,11 @@ public class Info
     OwnershipInfo owned;
     EnemyInfo enemy;
     ResourceInfo resources;
+    DebugInfo debug;
 
     private Info()
     {
+        debug = new DebugInfo();
         visible = new VisibleInfo();
         owned = new OwnershipInfo();
         enemy = new EnemyInfo();
@@ -54,5 +56,10 @@ public class Info
     public ResourceInfo resources()
     {
         return resources;
+    }
+
+    public DebugInfo debug()
+    {
+        return debug;
     }
 }
