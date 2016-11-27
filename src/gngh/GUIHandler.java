@@ -18,6 +18,7 @@ public class GUIHandler
     {
         label = new LabelHandler();
         button = new ButtonDisplayHandler();
+        tile = new TileHandler();
     }
 
     public static GUIHandler getInstance()

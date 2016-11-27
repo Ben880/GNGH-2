@@ -42,7 +42,7 @@ public class EventHolder
         if (console)
             gui.frame().getFrame().console(message);
         if (dispBiomeSquare)
-            gui.frame().getFrame().dispBiomeSquare(x, y);
+            gui.tile().dispBiomeSquare(x, y);
         if (setStatsVisible)
             info.visible.setStatsVisible(x, y, true);
         info.resources().setFood(food + info.resources().getFood());
@@ -56,7 +56,7 @@ public class EventHolder
                 info.enemy.setSkill(x, y, 0);
                 info.enemy.setType(x, y, -1);
             }
-            gui.frame().getFrame().dispBiomeSquare(x, y);
+            gui.tile().dispBiomeSquare(x, y);
             info.visible.setStatsVisible(x, y, true);
             info.resources().setTroops(info.resources().getTroops() + troops);
 

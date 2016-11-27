@@ -64,7 +64,7 @@ class MainFrame extends JFrame
         add(console, BorderLayout.PAGE_END);
         add(tile, BorderLayout.CENTER);
         MenuBar menuBar = new MenuBar();
-        this.setJMenuBar(menuBar);
+        setJMenuBar(menuBar);
     }
 
     public void console(String string)
@@ -114,67 +114,64 @@ class MainFrame extends JFrame
         }
     }
 
-    public void dispBiome(int x, int y)
-    {
-        info.visible.setBiomeVisible(x, y, true);
-        if (info.visible.getBiome(x, y, false) == 0)
-        {
-            tile.setText(x, y, ",.");
-            tile.setColor(x, y, Color.green);
-        }
-        if (info.visible.getBiome(x, y, false) == 1)
-        {
-            tile.setText(x, y, "^");
-            tile.setColor(x, y, Color.gray);
-        }
-        if (info.visible.getBiome(x, y, false) == 2)
-        {
-            tile.setText(x, y, "~");
-            tile.setColor(x, y, Color.blue);
-        }
-        if (info.visible.getBiome(x, y, false) == 3)
-        {
-            tile.setText(x, y, "||");
-            tile.setColor(x, y, forest);
-        }
-        if (info.visible.getBiome(x, y, false) == 4)
-        {
-            tile.setText(x, y, "_");
-            tile.setColor(x, y, desert);
-        }
-        if (info.visible.getBiome(x, y, false) == -1)
-        {
-            tile.setText(x, y, "b");
-            tile.setColor(x, y, Color.red);
-        }
-    } //end method
-
-    public void dispBiomeSquare(int x, int y)
-    {
-        dispBiome(x, y);
-        if (getBiome(x - 1, y - 1) != -2)
-            dispBiome(x - 1, y - 1);
-        if (getBiome(x, y - 1) != -2)
-            dispBiome(x, y - 1);
-        if (getBiome(x + 1, y - 1) != -2)
-            dispBiome(x + 1, y - 1);
-        if (getBiome(x + 1, y) != -2)
-            dispBiome(x + 1, y);
-        if (getBiome(x + 1, y + 1) != -2)
-            dispBiome(x + 1, y + 1);
-        if (getBiome(x, y + 1) != -2)
-            dispBiome(x, y + 1);
-        if (getBiome(x - 1, y + 1) != -2)
-            dispBiome(x - 1, y + 1);
-        if (getBiome(x - 1, y) != -2)
-            dispBiome(x - 1, y);
-    } //end method
-
-    public void dispBiomeSquare()
-    {
-        dispBiomeSquare(currX, currY);
-    }
-
+//    public void dispBiome(int x, int y)
+//    {
+//        info.visible.setBiomeVisible(x, y, true);
+//        if (info.visible.getBiome(x, y, false) == 0)
+//        {
+//            tile.setText(x, y, ",.");
+//            tile.setColor(x, y, Color.green);
+//        }
+//        if (info.visible.getBiome(x, y, false) == 1)
+//        {
+//            tile.setText(x, y, "^");
+//            tile.setColor(x, y, Color.gray);
+//        }
+//        if (info.visible.getBiome(x, y, false) == 2)
+//        {
+//            tile.setText(x, y, "~");
+//            tile.setColor(x, y, Color.blue);
+//        }
+//        if (info.visible.getBiome(x, y, false) == 3)
+//        {
+//            tile.setText(x, y, "||");
+//            tile.setColor(x, y, forest);
+//        }
+//        if (info.visible.getBiome(x, y, false) == 4)
+//        {
+//            tile.setText(x, y, "_");
+//            tile.setColor(x, y, desert);
+//        }
+//        if (info.visible.getBiome(x, y, false) == -1)
+//        {
+//            tile.setText(x, y, "b");
+//            tile.setColor(x, y, Color.red);
+//        }
+//    } //end method
+//    public void dispBiomeSquare(int x, int y)
+//    {
+//        dispBiome(x, y);
+//        if (getBiome(x - 1, y - 1) != -2)
+//            dispBiome(x - 1, y - 1);
+//        if (getBiome(x, y - 1) != -2)
+//            dispBiome(x, y - 1);
+//        if (getBiome(x + 1, y - 1) != -2)
+//            dispBiome(x + 1, y - 1);
+//        if (getBiome(x + 1, y) != -2)
+//            dispBiome(x + 1, y);
+//        if (getBiome(x + 1, y + 1) != -2)
+//            dispBiome(x + 1, y + 1);
+//        if (getBiome(x, y + 1) != -2)
+//            dispBiome(x, y + 1);
+//        if (getBiome(x - 1, y + 1) != -2)
+//            dispBiome(x - 1, y + 1);
+//        if (getBiome(x - 1, y) != -2)
+//            dispBiome(x - 1, y);
+//    } //end method
+//    public void dispBiomeSquare()
+//    {
+//        dispBiomeSquare(currX, currY);
+//    }
     public void dispAllBiome()
     {
         info = Info.getInstance();

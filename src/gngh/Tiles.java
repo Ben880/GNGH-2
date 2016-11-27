@@ -34,6 +34,7 @@ public class Tiles extends JPanel
     public Tiles()
     {
         action = ActionHandler.getInstance();
+        GUIHandler.getInstance().tile().initialize(this);
         //builds tiles
         setLayout(new BorderLayout());
         main.setLayout(new GridLayout(20, 20));
