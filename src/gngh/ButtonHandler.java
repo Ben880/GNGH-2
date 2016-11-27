@@ -48,7 +48,7 @@ public class ButtonHandler
         if (source == "debugToggle")
             frame.debug();
         if (source == "toggleFog")
-            frame.toggleFog();
+            gui.tile().toggleFog();
         if (source == "setBiome")
         {
             Object[] possibilities =
@@ -65,8 +65,7 @@ public class ButtonHandler
                     possibilities,
                     0);
             info.visible.setBiome(x, y, newBiome);
-            frame.draw();
-
+            gui.tile().draw();
         }
         if (source == "setBiome" || source == "calcValues")
         {

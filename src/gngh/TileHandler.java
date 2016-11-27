@@ -148,12 +148,17 @@ public class TileHandler
 
     public void toggleFog()
     {
+
         if (info.visible.fog)
         {
+            info.visible.fog = false;
             draw();
+
         } else
         {
+            info.visible.fog = true;
             draw();
+
         }
     }
 }

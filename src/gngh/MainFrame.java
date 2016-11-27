@@ -35,7 +35,7 @@ class MainFrame extends JFrame
         initialize();
         buildGUI();
         create();
-        draw();
+        GUIHandler.getInstance().tile().draw();
         action.setSliderDay(10);
         sound.playStartSound();
     }
@@ -80,40 +80,38 @@ class MainFrame extends JFrame
         generate = null;
     } //end method
 
-    public int getBiome(int x, int y)
-    {
-        int bCheck = -2;
-        try
-        {
-            bCheck = info.visible.getBiome(x, y, true);
-        } catch (Exception e)
-        {
-        }
-        return (bCheck);
-    } //end method
-
-    public void drawFog()
-    {
-        int i = 0;
-        int x = 0;
-        int y = 0;
-        while (i < 400)
-        {
-            if (x == 20)
-            {
-                x = 0;
-                y++;
-            }
-            if (info.visible.getFog(x, y, info.visible.fog))
-            {
-                tile.setColor(x, y, Color.black);
-                tile.setText(x, y, "");
-            }
-            i++;
-            x++;
-        }
-    }
-
+//    public int getBiome(int x, int y)
+//    {
+//        int bCheck = -2;
+//        try
+//        {
+//            bCheck = info.visible.getBiome(x, y, true);
+//        } catch (Exception e)
+//        {
+//        }
+//        return (bCheck);
+//    } //end method
+//    public void drawFog()
+//    {
+//        int i = 0;
+//        int x = 0;
+//        int y = 0;
+//        while (i < 400)
+//        {
+//            if (x == 20)
+//            {
+//                x = 0;
+//                y++;
+//            }
+//            if (info.visible.getFog(x, y, info.visible.fog))
+//            {
+//                tile.setColor(x, y, Color.black);
+//                tile.setText(x, y, "");
+//            }
+//            i++;
+//            x++;
+//        }
+//    }
 //    public void dispBiome(int x, int y)
 //    {
 //        info.visible.setBiomeVisible(x, y, true);
@@ -172,67 +170,65 @@ class MainFrame extends JFrame
 //    {
 //        dispBiomeSquare(currX, currY);
 //    }
-    public void dispAllBiome()
-    {
-        info = Info.getInstance();
-        int i = 0;
-        int x = 0;
-        int y = 0;
-        while (i < 400)
-        {
-            if (x == 20)
-            {
-                x = 0;
-                y++;
-            }
-            //dispBiome(x, y);
-            if (info.visible.getBiome(x, y, true) == 0)
-            {
-                tile.setText(x, y, ",.");
-                tile.setColor(x, y, Color.green);
-            }
-            if (info.visible.getBiome(x, y, true) == 1)
-            {
-                tile.setText(x, y, "^");
-                tile.setColor(x, y, Color.gray);
-            }
-            if (info.visible.getBiome(x, y, true) == 2)
-            {
-                tile.setText(x, y, "~");
-                tile.setColor(x, y, Color.blue);
-            }
-            if (info.visible.getBiome(x, y, true) == 3)
-            {
-                tile.setText(x, y, "||");
-                tile.setColor(x, y, forest);
-            }
-            if (info.visible.getBiome(x, y, true) == 4)
-            {
-                tile.setText(x, y, "_");
-                tile.setColor(x, y, desert);
-            }
-            if (info.visible.getBiome(x, y, true) == -1)
-            {
-                tile.setText(x, y, "b");
-                tile.setColor(x, y, Color.red);
-            }
-            i++;
-            x++;
-        }
-    } //end method
-
-    public void draw()
-    {
-        if (info.visible().fog)
-        {
-            dispAllBiome();
-            drawFog();
-        } else
-        {
-            dispAllBiome();
-        }
-    } //end method
-
+//    public void dispAllBiome()
+//    {
+//        info = Info.getInstance();
+//        int i = 0;
+//        int x = 0;
+//        int y = 0;
+//        while (i < 400)
+//        {
+//            if (x == 20)
+//            {
+//                x = 0;
+//                y++;
+//            }
+//            //dispBiome(x, y);
+//            if (info.visible.getBiome(x, y, true) == 0)
+//            {
+//                tile.setText(x, y, ",.");
+//                tile.setColor(x, y, Color.green);
+//            }
+//            if (info.visible.getBiome(x, y, true) == 1)
+//            {
+//                tile.setText(x, y, "^");
+//                tile.setColor(x, y, Color.gray);
+//            }
+//            if (info.visible.getBiome(x, y, true) == 2)
+//            {
+//                tile.setText(x, y, "~");
+//                tile.setColor(x, y, Color.blue);
+//            }
+//            if (info.visible.getBiome(x, y, true) == 3)
+//            {
+//                tile.setText(x, y, "||");
+//                tile.setColor(x, y, forest);
+//            }
+//            if (info.visible.getBiome(x, y, true) == 4)
+//            {
+//                tile.setText(x, y, "_");
+//                tile.setColor(x, y, desert);
+//            }
+//            if (info.visible.getBiome(x, y, true) == -1)
+//            {
+//                tile.setText(x, y, "b");
+//                tile.setColor(x, y, Color.red);
+//            }
+//            i++;
+//            x++;
+//        }
+//    } //end method
+//    public void draw()
+//    {
+//        if (info.visible().fog)
+//        {
+//            dispAllBiome();
+//            drawFog();
+//        } else
+//        {
+//            dispAllBiome();
+//        }
+//    } //end method
     public void debug()
     {
         if (info.debug().getDebug())
@@ -251,22 +247,21 @@ class MainFrame extends JFrame
         }
     }
 
-    public void toggleFog()
-    {
-        if (info.visible().fog)
-        {
-            console("Fog: false");
-            info.visible().toggleFog();
-            draw();
-
-        } else
-        {
-            console("Fog: true");
-            info.visible().toggleFog();
-            draw();
-        }
-    }
-
+//    public void toggleFog()
+//    {
+//        if (info.visible().fog)
+//        {
+//            console("Fog: false");
+//            info.visible().toggleFog();
+//            draw();
+//
+//        } else
+//        {
+//            console("Fog: true");
+//            info.visible().toggleFog();
+//            draw();
+//        }
+//    }
     public void setActionVisible(int i, boolean b)
     {
         //nul pointer when tile is clicked
