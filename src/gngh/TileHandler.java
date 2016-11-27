@@ -50,7 +50,7 @@ public class TileHandler
 
     public void dispBiome(int x, int y)
     {
-        switch (info.visible.getBiome(x, y, false))
+        switch (info.visible.getBiome(x, y, true))
         {
             case 0:
                 tiles.setText(x, y, ",.");
@@ -129,6 +129,7 @@ public class TileHandler
             return true;
         } catch (Exception e)
         {
+            System.out.println("invalid tile");
             return false;
         }
     } //end method
