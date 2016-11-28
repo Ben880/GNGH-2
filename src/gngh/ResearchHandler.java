@@ -31,7 +31,7 @@ public class ResearchHandler
     {
         if (researching)
         {
-            frame.console("You are already researching a project");
+            GUIHandler.getInstance().console().append("You are already researching a project");
         } else
         {
             //project selector

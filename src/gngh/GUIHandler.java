@@ -12,6 +12,7 @@ public class GUIHandler
     ButtonDisplayHandler button;
     TileHandler tile;
     FrameHandler frame;
+    ConsoleHandler console;
     private static GUIHandler instance;
 
     private GUIHandler()
@@ -19,6 +20,7 @@ public class GUIHandler
         label = new LabelHandler();
         button = new ButtonDisplayHandler();
         tile = new TileHandler();
+        console = new ConsoleHandler();
     }
 
     public static GUIHandler getInstance()
@@ -46,6 +48,11 @@ public class GUIHandler
     public FrameHandler frame()
     {
         return frame;
+    }
+
+    public ConsoleHandler console()
+    {
+        return console;
     }
 
     public void passFrame(MainFrame f)

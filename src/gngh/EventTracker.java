@@ -40,13 +40,13 @@ public class EventTracker
             }
             if (info.debug().getDebug())
             {
-                gui.frame().getFrame().console("Event #" + i + " type: " + events.get(i).getType() + " is to compleet on " + events.get(i).getCompleet());
+                gui.console().append("Event #" + i + " type: " + events.get(i).getType() + " is to compleet on " + events.get(i).getCompleet());
             }
             i++;
 
             if (rand.nextInt(100) == 90)
             {
-                gui.frame().getFrame().console("Random Event Trigger");
+                gui.console().append("Random Event Trigger");
             }
         }
     }
@@ -60,7 +60,7 @@ public class EventTracker
         events.get(eventNumber).setCompleet(calc.scoutDays(x, y));
         events.get(eventNumber).setMessage("Scouts returned and found a " + info.visible.getBiomeString(x, y) + " biome.");
         calc = null;
-        gui.frame().getFrame().console("scouts are to return on day " + events.get(eventNumber).getCompleet());
+        gui.console().append("scouts are to return on day " + events.get(eventNumber).getCompleet());
         eventNumber++;
     }
 
@@ -79,7 +79,7 @@ public class EventTracker
         gui.label().resourceUpdate();
 
         calc = null;
-        gui.frame().getFrame().console("foaragers are to return on day " + events.get(eventNumber).getCompleet());
+        gui.console().append("foaragers are to return on day " + events.get(eventNumber).getCompleet());
         eventNumber++;
     }
 
@@ -96,7 +96,7 @@ public class EventTracker
         events.get(eventNumber).setCompleet((int) (calc.scoutDays(x, y) * 1.3));
         calc.attack(x, y, troops, events.get(eventNumber));
         events.get(eventNumber).setMessage("Attack on " + x + ", " + y + " compleet!");
-        gui.frame().getFrame().console("Attackers are to return on day " + events.get(eventNumber).getCompleet());
+        gui.console().append("Attackers are to return on day " + events.get(eventNumber).getCompleet());
         info.resources().setTroops(info.resources().getTroops() - troops);
         labels.resourceUpdate();
         info.resources().setFood(info.resources().getFood() - (50 * (events.get(eventNumber).getCompleet() - tracker.day().getDay())));

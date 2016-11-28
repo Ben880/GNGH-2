@@ -40,7 +40,7 @@ public class EventHolder
         info = Info.getInstance();
         gui = GUIHandler.getInstance();
         if (console)
-            gui.frame().getFrame().console(message);
+            gui.console().append(message);
         if (dispBiomeSquare)
             gui.tile().dispBiomeSquare(x, y);
         if (setStatsVisible)

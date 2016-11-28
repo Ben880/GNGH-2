@@ -67,12 +67,6 @@ class MainFrame extends JFrame
         setJMenuBar(menuBar);
     }
 
-    public void console(String string)
-    {
-        console.append(string);
-        sound.playBing();
-    }
-
     public void create() //0
     {
         LandGeneration generate = new LandGeneration();
@@ -85,14 +79,14 @@ class MainFrame extends JFrame
         if (info.debug().getDebug())
         {
             info.debug().setDebug(false);
-            console("Debug: false");
+            GUIHandler.getInstance().console().append("Debug: false");
             action.toggleDebug(false);
             infoLabel.toggleDebug(false);
 
         } else
         {
             info.debug().setDebug(true);
-            console("Debug: true");
+            GUIHandler.getInstance().console().append("Debug: true");
             action.toggleDebug(true);
             infoLabel.toggleDebug(true);
         }
