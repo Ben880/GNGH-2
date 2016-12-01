@@ -3,6 +3,7 @@ package gngh;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JFrame;
+import util.SoundPlayer;
 
 /*
     BenjaminWilcox
@@ -20,9 +21,8 @@ class MainFrame extends JFrame
     //Game variables
     public static int currX = 19;
     public static int currY = 19;
-    //following sould not be controlled by this class
     //Classs import
-    AudioPlayer sound;
+    SoundPlayer sound = new SoundPlayer();
     Info info;
     Tracker tracker;
     //distasteful palet here
@@ -37,7 +37,7 @@ class MainFrame extends JFrame
         create();
         GUIHandler.getInstance().tile().draw();
         action.setSliderDay(10);
-        sound.playStartSound();
+        sound.playStart();
     }
 
     public void initialize()

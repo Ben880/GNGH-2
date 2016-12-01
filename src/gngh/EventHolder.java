@@ -63,12 +63,11 @@ public class EventHolder
         }
     }
 
-    public void createGenericEvent(int compleet)
-    {
-        this.compleet = compleet;
-        type = 6;
-    }
-
+//    public void createGenericEvent(int compleet)
+//    {
+//        this.compleet = compleet;
+//        type = 6;
+//    }
     public void createEvent(int type, int compleet)
     {
         this.compleet = compleet;

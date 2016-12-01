@@ -1,5 +1,7 @@
 package gngh;
 
+import util.SoundPlayer;
+
 /*
     BenjaminWilcox
     Nov 27, 2016
@@ -8,7 +10,7 @@ package gngh;
 public class ConsoleHandler
 {
 
-    AudioPlayer sound;
+    SoundPlayer sound = new SoundPlayer();
     Console console;
 
     public void initialize(Console s)
