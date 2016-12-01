@@ -10,7 +10,6 @@ public class Tracker
 
     private DayTracker day;
     private EventTracker event;
-    private ResearchTracker research;
 
     private static Tracker instance = null;
 

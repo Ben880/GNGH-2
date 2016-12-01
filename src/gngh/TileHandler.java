@@ -1,6 +1,7 @@
 package gngh;
 
 import java.awt.Color;
+import util.TilePallet;
 
 /*
     BenjaminWilcox
@@ -13,12 +14,12 @@ public class TileHandler
     //needs to be iniitalized
     Tiles tiles;
     Info info;
-    Pallet pallet;
+    TilePallet pallet;
 
     public TileHandler()
     {
         info = Info.getInstance();
-        pallet = Pallet.getInstance();
+        pallet = new TilePallet();
     }
 
     public void initialize(Tiles t)
