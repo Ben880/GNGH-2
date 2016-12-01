@@ -26,4 +26,10 @@ public class Location
     {
         return y;
     }
+
+    public double baseDistance()
+    {
+        double distance = (new LocationDistance().distance(this, new Location(19, 19)));
+        return distance;
+    }
 }
