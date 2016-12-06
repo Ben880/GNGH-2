@@ -10,12 +10,12 @@ public class Enemy
 
     int type;
     int skill;
-    int amount;
+    int health;
 
-    public Enemy(int t, int s, int a)
+    public Enemy(int t, int s, int h)
     {
         type = t;
         skill = s;
-        amount = a;
+        health = h;
     }
 }
