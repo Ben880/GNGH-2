@@ -1,7 +1,6 @@
 package biome;
 
 import java.awt.Color;
-import java.awt.Image;
 
 /*
     BenjaminWilcox
@@ -15,6 +14,25 @@ public class Biome
     int type;
     Color color;
     String text;
-    Image image;
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public int getType()
+    {
+        return type;
+    }
+
+    public Color getColor()
+    {
+        return color;
+    }
+
+    public String getText()
+    {
+        return text;
+    }
 
 }

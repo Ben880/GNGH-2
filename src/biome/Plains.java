@@ -11,7 +11,7 @@ public class Plains extends Biome
 {
 
     //0
-    Plains()
+    public Plains()
     {
         type = 0;
         name = "Plains";

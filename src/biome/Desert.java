@@ -10,7 +10,7 @@ import java.awt.Color;
 public class Desert extends Biome
 {
 
-    Desert()
+    public Desert()
     {
         name = "Desert";
         type = 4;

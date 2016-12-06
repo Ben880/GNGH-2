@@ -10,7 +10,7 @@ import java.awt.Color;
 public class Mountian extends Biome
 {
 
-    Mountian()
+    public Mountian()
     {
         type = 1;
         name = "Mountian";

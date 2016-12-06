@@ -10,7 +10,7 @@ import java.awt.Color;
 public class Water extends Biome
 {
 
-    Water()
+    public Water()
     {
         type = 2;
         name = "Water";

@@ -11,7 +11,7 @@ public class Forest extends Biome
 {
 
     //3
-    Forest()
+    public Forest()
     {
         type = 3;
         name = "Forest";
