@@ -31,4 +31,10 @@ public class Visible
         this.stats = stats;
     }
 
+    public void setAllVisible(boolean b)
+    {
+        biome = b;
+        stats = b;
+    }
+
 }

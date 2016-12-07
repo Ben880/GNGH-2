@@ -15,22 +15,22 @@ public class Cell
     Visible visible = new Visible();
     Biome biome;
 
-    public Ownership getOwned()
+    public Ownership owned()
     {
         return owned;
     }
 
-    public Resources getResources()
+    public Resources resources()
     {
         return resources;
     }
 
-    public Visible getVisible()
+    public Visible visible()
     {
         return visible;
     }
 
-    public Biome getBiome()
+    public Biome biome()
     {
         return biome;
     }

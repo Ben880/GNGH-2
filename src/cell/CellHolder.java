@@ -27,4 +27,9 @@ public class CellHolder
     {
         return cell[l.getX()][l.getY()];
     }
+
+    public Cell getCell(int x, int y)
+    {
+        return cell[x][y];
+    }
 }

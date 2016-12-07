@@ -8,36 +8,36 @@ package cell;
 public class Resources
 {
 
-    private int mining;
-    private int lumber;
-    private int fertility;
+    private double mining;
+    private double lumber;
+    private double fertility;
 
-    public int getMining()
+    public double getMining()
     {
         return mining;
     }
 
-    public void setMining(int mining)
+    public void setMining(double mining)
     {
         this.mining = mining;
     }
 
-    public int getLumber()
+    public double getLumber()
     {
         return lumber;
     }
 
-    public void setLumber(int lumber)
+    public void setLumber(double lumber)
     {
         this.lumber = lumber;
     }
 
-    public int getFertility()
+    public double getFertility()
     {
         return fertility;
     }
 
-    public void setFertility(int fertility)
+    public void setFertility(double fertility)
     {
         this.fertility = fertility;
     }
