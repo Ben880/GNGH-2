@@ -20,36 +20,26 @@ public class EnemyGeneration
     {
         //enemy types
         //
-        int i = 0;
-        int x = 0;
-        int y = 0;
-        while (i < 400)
+        for (int x = 0; x < 20; x++)
         {
-            if (x == 20)
+            for (int y = 0; y < 20; y++)
             {
-                x = 0;
-                y++;
-            }
-            if (!(cell.getCell(x, y).biome().getType() == 2))
-            {
-                if (rand.nextInt(100) < 35)
+                if (!(cell.getCell(x, y).biome().getType() == 2))
                 {
-                    enemy.setType(x, y, rand.nextInt(25));
-                    enemy.setSkill(x, y, 19 - (int) Math.round(Math.sqrt(rand.nextInt(400))));
-                    enemy.setAmount(x, y, 19 - (int) Math.round(Math.sqrt(rand.nextInt(400))));
-
-                }//end create enemy if
-                else
-                {
-                    enemy.setType(x, y, -1);
-                }
-            }//end land check if
-            else
-            {
-                enemy.setType(x, y, -1);
+                    if (rand.nextInt(100) < 35)
+                    {
+                        cell.getCell(x, y).setEnemy(rand.nextInt(25));
+                        cell.getCell(x, y).enemy().setNumber(19 - (int) Math.round(Math.sqrt(rand.nextInt(400))));
+                    } else
+                        setNone(x, y);
+                } else
+                    setNone(x, y);
             }
-            i++;
-            x++;
         }
+    }
+
+    void setNone(int x, int y)
+    {
+        cell.getCell(x, y).setEnemy(0);
     }
 }

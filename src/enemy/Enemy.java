@@ -9,13 +9,44 @@ public class Enemy
 {
 
     int type;
-    int skill;
-    int health;
+    String name;
+    double health;
+    int defense;
+    int attack;
+    int number;
 
-    public Enemy(int t, int s, int h)
+    public int getType()
     {
-        type = t;
-        skill = s;
-        health = h;
+        return type;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public double getDefense()
+    {
+        return defense;
+    }
+
+    public double getAttack()
+    {
+        return attack;
+    }
+
+    public int getAmount()
+    {
+        return number;
+    }
+
+    public void setNumber(int i)
+    {
+        number = i;
+    }
+
+    public void setHealth(double d)
+    {
+        health = d;
     }
 }
