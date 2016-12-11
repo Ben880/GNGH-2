@@ -12,6 +12,8 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+import render.RenderFog;
+import render.RenderTile;
 
 /*
        //  Author: Benjamin Wilcox
@@ -33,8 +35,11 @@ public class Tiles extends JPanel
 
     public Tiles()
     {
-        action = ActionHandler.getInstance();
-        GUIHandler.getInstance().tile().initialize(this);
+        RenderTile tile = new RenderTile();
+        tile.initialize(this);
+        RenderFog fog = new RenderFog();
+        fog.initialize(this);
+
         //builds tiles
         setLayout(new BorderLayout());
         main.setLayout(new GridLayout(20, 20));

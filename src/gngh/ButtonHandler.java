@@ -1,6 +1,7 @@
 package gngh;
 
 import javax.swing.JOptionPane;
+import render.RenderTiles;
 
 /*
        //  Author: Benjamin Wilcox
@@ -15,6 +16,7 @@ public class ButtonHandler
     Tracker tracker;
     MainFrame frame;
     GUIHandler gui;
+    RenderTiles render = new RenderTiles();
 
     public ButtonHandler()
     {
@@ -48,7 +50,17 @@ public class ButtonHandler
         if (source == "debugToggle")
             frame.debug();
         if (source == "toggleFog")
-            gui.tile().toggleFog();
+        {
+            if (info.visible().fog)
+            {
+                info.visible().fog = false;
+                render.renderAll();
+            } else
+            {
+                info.visible().fog = true;
+                render.render();
+            }
+        }
         if (source == "setBiome")
         {
             Object[] possibilities =
@@ -65,7 +77,7 @@ public class ButtonHandler
                     possibilities,
                     0);
             info.visible.setBiome(x, y, newBiome);
-            gui.tile().draw();
+            render.render();
         }
         if (source == "setBiome" || source == "calcValues")
         {

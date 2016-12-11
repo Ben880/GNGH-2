@@ -11,6 +11,13 @@ public class CellHolder
 {
 
     private static Cell[][] cell = new Cell[20][20];
+    private static boolean initialize = true;
+
+    public CellHolder()
+    {
+        if (initialize)
+            initialize();
+    }
 
     public void initialize()
     {
@@ -21,6 +28,7 @@ public class CellHolder
                 cell[x][y] = new Cell();
             }
         }
+        initialize = false;
     }
 
     public Cell getCell(Location l)

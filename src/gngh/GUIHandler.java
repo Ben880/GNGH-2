@@ -10,7 +10,6 @@ public class GUIHandler
 
     LabelHandler label;
     ButtonDisplayHandler button;
-    TileHandler tile;
     FrameHandler frame;
     ConsoleHandler console;
     private static GUIHandler instance;
@@ -19,7 +18,6 @@ public class GUIHandler
     {
         label = new LabelHandler();
         button = new ButtonDisplayHandler();
-        tile = new TileHandler();
         console = new ConsoleHandler();
     }
 
@@ -38,11 +36,6 @@ public class GUIHandler
     public ButtonDisplayHandler button()
     {
         return button;
-    }
-
-    public TileHandler tile()
-    {
-        return tile;
     }
 
     public FrameHandler frame()

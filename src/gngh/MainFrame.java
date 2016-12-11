@@ -1,8 +1,11 @@
 package gngh;
 
+import cell.CellHolder;
+import generation.Generator;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JFrame;
+import render.RenderTiles;
 import util.SoundPlayer;
 
 /*
@@ -32,10 +35,10 @@ class MainFrame extends JFrame
     MainFrame(String s)
     {
         super(s);
-        initialize();
         buildGUI();
+        initialize();
+
         create();
-        GUIHandler.getInstance().tile().draw();
         action.setSliderDay(10);
         sound.playStart();
     }
@@ -50,6 +53,12 @@ class MainFrame extends JFrame
         gui.passFrame(this);
         gui.label().initialize(info, this, tracker);
         action.button().initialize(info, tracker, this);
+        CellHolder cells = new CellHolder();
+        cells.initialize();
+        Generator generate = new Generator();
+        generate.generateDefault();
+        RenderTiles render = new RenderTiles();
+        render.render();
     }
 
     public void buildGUI()
