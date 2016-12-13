@@ -55,10 +55,6 @@ class MainFrame extends JFrame
         action.button().initialize(info, tracker, this);
         CellHolder cells = new CellHolder();
         cells.initialize();
-        Generator generate = new Generator();
-        generate.generateDefault();
-        RenderTiles render = new RenderTiles();
-        render.render();
     }
 
     public void buildGUI()
@@ -78,9 +74,11 @@ class MainFrame extends JFrame
 
     public void create() //0
     {
-        LandGeneration generate = new LandGeneration();
-        generate.generate();
+        Generator generate = new Generator();
+        generate.generateDefault();
         generate = null;
+        RenderTiles render = new RenderTiles();
+        render.render();
     }
 
     public void debug()

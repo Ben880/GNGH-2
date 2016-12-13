@@ -1,5 +1,7 @@
 package gngh;
 
+import cell.CellHolder;
+
 /*
        //  Author: Benjamin Wilcox
        //  Project GNGH
@@ -7,6 +9,7 @@ package gngh;
 public class LabelHandler
 {
 
+    CellHolder cell = new CellHolder();
     ActionHandler handler;
     Tracker tracker;
     Info info;
@@ -54,16 +57,17 @@ public class LabelHandler
     {
         info = Info.getInstance();
         int i = y * 20 + x;
-        if (info.visible.getStatsVisible(x, y) || info.debug().getDebug())
+        if (cell.getCell(x, y).visible().isStatsVisible() || info.debug().getDebug())
         {
-            label.setText(0, 3, "Biome: " + info.visible.getBiomeString(x, y));
-            label.setText(0, 4, "Fertility: " + info.visible.getFertility(x, y));
-            label.setText(0, 5, "Mining: " + info.visible.getMining(x, y));
-            label.setText(0, 6, "Lumber: " + info.visible.getLumber(x, y));
-            label.setText(0, 7, "Owned: " + info.owned.getOwned(x, y));
-            label.setText(0, 8, "Enemy Type: " + info.enemy.getTypeString(x, y));
-            label.setText(0, 9, "Enemy Count: " + info.enemy.getAmount(x, y));
-            label.setText(0, 10, "Enemy Skill: " + info.enemy.getSkill(x, y));
+            label.setText(0, 3, "Biome: " + cell.getCell(x, y).biome().getName());
+            label.setText(0, 4, "Fertility: " + cell.getCell(x, y).resources().getFertility());
+            label.setText(0, 5, "Mining: " + cell.getCell(x, y).resources().getMining());
+            label.setText(0, 6, "Lumber: " + cell.getCell(x, y).resources().getLumber());
+            label.setText(0, 7, "Owned: " + cell.getCell(x, y).owned().isOwned());
+            label.setText(0, 8, "Enemy Type: " + cell.getCell(x, y).enemy().getName());
+            label.setText(0, 9, "Enemy Count: " + cell.getCell(x, y).enemy().getAmount());
+            label.setText(0, 10, "Enemy Skill: " + cell.getCell(x, y).enemy().getAttack());
+            label.setText(0, 11, "Enemy Skill: " + cell.getCell(x, y).enemy().getDefense());
             if (info.debug().getDebug())
             {
                 frame.infoLabel.buttonInfo.setText("  Button: " + i + " (" + x + "," + y + ")");

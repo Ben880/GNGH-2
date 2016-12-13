@@ -18,7 +18,6 @@ public class ResourceInfo
     private int people;
     private int troops;
     private int medicine;
-    Calculator calc;
 
     public ResourceInfo()
     {

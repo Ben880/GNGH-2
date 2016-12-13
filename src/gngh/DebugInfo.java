@@ -8,7 +8,7 @@ package gngh;
 public class DebugInfo
 {
 
-    private boolean debug = false;
+    private static boolean debug = false;
 
     public void toggleDebug()
     {

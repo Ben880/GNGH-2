@@ -49,6 +49,8 @@ public class Cell
             biome = new Forest();
         else if (i == 4)
             biome = new Desert();
+        else if (i == -1)
+            biome = new Base();
     }
 
     public Enemy enemy()

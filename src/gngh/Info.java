@@ -18,7 +18,7 @@ public class Info
     private static Info instance = null;
     VisibleInfo visible;
     OwnershipInfo owned;
-    EnemyInfo enemy;
+
     ResourceInfo resources;
     DebugInfo debug;
 
@@ -27,7 +27,7 @@ public class Info
         debug = new DebugInfo();
         visible = new VisibleInfo();
         owned = new OwnershipInfo();
-        enemy = new EnemyInfo();
+
         resources = new ResourceInfo();
     }
 
@@ -46,11 +46,6 @@ public class Info
     public OwnershipInfo owned()
     {
         return owned;
-    }
-
-    public EnemyInfo enemy()
-    {
-        return enemy;
     }
 
     public ResourceInfo resources()

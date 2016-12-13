@@ -49,11 +49,11 @@ public class Generator
         cell.getCell(x, y).setBiome(-1);
         cell.getCell(x - 1, y - 0).setBiome(0);
         cell.getCell(x - 1, y - 1).setBiome(0);
-        cell.getCell(x - 0, y - 0).setBiome(0);
+        cell.getCell(x - 0, y - 1).setBiome(0);
         cell.getCell(x, y).visible().setAllVisible(true);
         cell.getCell(x - 1, y - 0).visible().setAllVisible(true);
         cell.getCell(x - 1, y - 1).visible().setAllVisible(true);
-        cell.getCell(x - 0, y - 0).visible().setAllVisible(true);
+        cell.getCell(x - 0, y - 1).visible().setAllVisible(true);
         cell.getCell(x, y).owned().setOwned(true);
 
     } //end method

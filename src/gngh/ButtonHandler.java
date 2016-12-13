@@ -1,5 +1,6 @@
 package gngh;
 
+import generation.ResourceGeneration;
 import javax.swing.JOptionPane;
 import render.RenderTiles;
 
@@ -81,7 +82,7 @@ public class ButtonHandler
         }
         if (source == "setBiome" || source == "calcValues")
         {
-            LandGeneration generate = new LandGeneration();
+            ResourceGeneration generate = new ResourceGeneration();
             generate.fertility();
             generate.mining();
             generate.lumber();

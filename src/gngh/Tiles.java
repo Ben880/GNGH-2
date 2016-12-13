@@ -26,7 +26,7 @@ public class Tiles extends JPanel
     Border emptyBorder = BorderFactory.createEmptyBorder();
     Border lineBorder = BorderFactory.createLineBorder(new Color(100, 100, 100), 1);
     //the buttons themselves
-    ActionHandler action;
+    ActionHandler action = ActionHandler.getInstance();
     JButton[][] btn = new JButton[20][20];
     //holder for the buttons
     JPanel main = new JPanel();

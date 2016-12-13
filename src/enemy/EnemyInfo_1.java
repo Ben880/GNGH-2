@@ -6,7 +6,7 @@ import java.util.Random;
        //  Author: Benjamin Wilcox
        //  Project GNGH
  */
-public class EnemyInfo
+public class EnemyInfo_1
 {
 
     private int[][] type = new int[20][20];
@@ -15,7 +15,7 @@ public class EnemyInfo
     private int[][] skill = new int[20][20];
     Random rand = new Random();
 
-    public EnemyInfo()
+    public EnemyInfo_1()
     {
 
     }
