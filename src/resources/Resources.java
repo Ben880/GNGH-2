@@ -1,25 +1,25 @@
-package gngh;
+package resources;
 
 /*
        //  Author: Benjamin Wilcox
        //  Project GNGH
  */
-public class ResourceInfo
+public class Resources
 {
 
     //tracks current amount of resources
-    private int food;
-    private int lumber;
-    private int stone;
-    private int ore;
-    private int tools;
-    private int animals;
-    private int horses;
-    private int people;
-    private int troops;
-    private int medicine;
+    private static int food;
+    private static int lumber;
+    private static int stone;
+    private static int ore;
+    private static int tools;
+    private static int animals;
+    private static int horses;
+    private static int people;
+    private static int troops;
+    private static int medicine;
 
-    public ResourceInfo()
+    public Resources()
     {
         food = 2000;
         lumber = 300;

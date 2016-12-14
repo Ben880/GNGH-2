@@ -1,4 +1,4 @@
-package gngh;
+package debug;
 
 /*
     BenjaminWilcox
@@ -9,6 +9,10 @@ public class DebugInfo
 {
 
     private static boolean debug = false;
+
+    public DebugInfo()
+    {
+    }
 
     public void toggleDebug()
     {

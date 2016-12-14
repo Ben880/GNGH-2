@@ -1,6 +1,7 @@
 package gngh;
 
 import cell.CellHolder;
+import debug.DebugInfo;
 import generation.Generator;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -26,8 +27,8 @@ class MainFrame extends JFrame
     public static int currY = 19;
     //Classs import
     SoundPlayer sound = new SoundPlayer();
-    Info info;
     DayTracker day = new DayTracker();
+    DebugInfo debug = new DebugInfo();
     //distasteful palet here
     Color forest = new Color(0, 100, 0);
     Color desert = new Color(255, 209, 114);
@@ -44,12 +45,11 @@ class MainFrame extends JFrame
 
     public void initialize()
     {
-        info = Info.getInstance();
         GUIHandler gui = GUIHandler.getInstance();
         ActionHandler action = ActionHandler.getInstance();
         gui.passFrame(this);
-        gui.label().initialize(info, this);
-        action.button().initialize(info, this);
+        gui.label().initialize(this);
+        action.button().initialize(this);
         CellHolder cells = new CellHolder();
         cells.initialize();
 
@@ -85,16 +85,16 @@ class MainFrame extends JFrame
 
     public void debug()
     {
-        if (info.debug().getDebug())
+        if (debug.getDebug())
         {
-            info.debug().setDebug(false);
+            debug.setDebug(false);
             GUIHandler.getInstance().console().append("Debug: false");
             action.toggleDebug(false);
             infoLabel.toggleDebug(false);
 
         } else
         {
-            info.debug().setDebug(true);
+            debug.setDebug(true);
             GUIHandler.getInstance().console().append("Debug: true");
             action.toggleDebug(true);
             infoLabel.toggleDebug(true);

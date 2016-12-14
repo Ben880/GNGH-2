@@ -1,5 +1,6 @@
 package gngh;
 
+import resources.ResourceProduction;
 import event.EventDispatcher;
 
 /*

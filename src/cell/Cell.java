@@ -66,7 +66,7 @@ public class Cell
                 enemy = new None();
                 break;
             case 0:
-                enemy = new Default();
+                enemy = new None();
                 break;
             case 1:
                 enemy = new Bandits();

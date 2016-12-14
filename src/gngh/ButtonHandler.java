@@ -1,5 +1,7 @@
 package gngh;
 
+import cell.CellHolder;
+import debug.DebugInfo;
 import event.UserCreatedEvent;
 import generation.ResourceGeneration;
 import javax.swing.JOptionPane;
@@ -15,21 +17,22 @@ public class ButtonHandler
 
     int x;
     int y;
-    Info info;
     MainFrame frame;
     GUIHandler gui;
     RenderTiles render = new RenderTiles();
     DayTracker day = new DayTracker();
     UserCreatedEvent event = new UserCreatedEvent();
+    CellHolder cell = new CellHolder();
+    DebugInfo debug = new DebugInfo();
 
     public ButtonHandler()
     {
         gui = GUIHandler.getInstance();
+
     }
 
-    public void initialize(Info i, MainFrame f)
+    public void initialize(MainFrame f)
     {
-        info = i;
         frame = f;
     }
 
@@ -43,7 +46,7 @@ public class ButtonHandler
 
     public void actionClick(String source)
     {
-        if (info.debug().getDebug() && source != "debugToggle")
+        if (debug.getDebug() && source != "debugToggle")
             gui.console().append("actionClick source: " + source);
         if (source == "plusDays")
             frame.setSliderDay(frame.getSliderDay() + 10);
@@ -53,13 +56,13 @@ public class ButtonHandler
             frame.debug();
         if (source == "toggleFog")
         {
-            if (info.visible().fog)
+            if (cell.fog)
             {
-                info.visible().fog = false;
+                cell.fog = false;
                 render.renderAll();
             } else
             {
-                info.visible().fog = true;
+                cell.fog = true;
                 render.render();
             }
         }
@@ -78,7 +81,7 @@ public class ButtonHandler
                     null,
                     possibilities,
                     0);
-            info.visible.setBiome(x, y, newBiome);
+            cell.getCell(x, y).setBiome(newBiome);
             render.render();
         }
         if (source == "setBiome" || source == "calcValues")

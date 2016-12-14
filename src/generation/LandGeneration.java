@@ -1,7 +1,6 @@
 package generation;
 
 import cell.CellHolder;
-import gngh.Info;
 import java.util.Random;
 
 /*
@@ -146,7 +145,7 @@ public class LandGeneration
             int shape = rand.nextInt(5);
             int y = mountian / 20;
             int x = mountian % 20;
-            if (Info.getInstance().visible().getBiome(x, y, true) == 0)
+            if (cell.getCell(x, y).biome().getType() == 0)
             {
                 fail = false;
                 if (shape >= 0)

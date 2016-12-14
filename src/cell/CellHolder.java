@@ -10,6 +10,7 @@ import util.Location;
 public class CellHolder
 {
 
+    public static boolean fog = true;
     private static Cell[][] cell = new Cell[20][20];
     private static boolean initialize = true;
 
