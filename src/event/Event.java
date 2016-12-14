@@ -2,7 +2,7 @@ package event;
 
 /*
     BenjaminWilcox
-    Nov 30, 2016
+    Dec 13, 2016
     GNGH_2
  */
 public class Event
@@ -10,6 +10,7 @@ public class Event
 
     String message;
     int compleet;
+    int eventId;
 
     public void setCompleet(int c)
     {
@@ -29,6 +30,16 @@ public class Event
     public String getMessage()
     {
         return message;
+    }
+
+    public int getId()
+    {
+        return eventId;
+    }
+
+    public void end()
+    {
+
     }
 
 }

@@ -1,5 +1,7 @@
 package gngh;
 
+import event.EventDispatcher;
+
 /*
        //  Author: Benjamin Wilcox
        //  Project GNGH
@@ -10,6 +12,7 @@ public class DayTracker
     private int day;
     Tracker tracker;
     GUIHandler gui;
+    EventDispatcher event = new EventDispatcher();
 
     public DayTracker(Tracker t)
     {
@@ -33,7 +36,7 @@ public class DayTracker
         while (i < amount)
         {
             day++;
-            tracker.event().dayChange(day);
+            event.dayChange(day);
             production.dayChange();
             i++;
         }

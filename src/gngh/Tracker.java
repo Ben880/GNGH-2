@@ -9,16 +9,12 @@ public class Tracker
 {
 
     private DayTracker day;
-    private EventTracker event;
 
     private static Tracker instance = null;
 
     private Tracker()
     {
         day = new DayTracker(this);
-        event = new EventTracker(this);
-        // not used yet
-        //research = new ResearchTracker(this);
     }
 
     public static Tracker getInstance()
@@ -31,11 +27,6 @@ public class Tracker
     public DayTracker day()
     {
         return day;
-    }
-
-    public EventTracker event()
-    {
-        return event;
     }
 
 }

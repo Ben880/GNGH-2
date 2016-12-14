@@ -33,7 +33,7 @@ public class Console extends JPanel
 
     public void append(String string)
     {
-        sb.insert(0, ">" + string + "\n");
+        sb.insert(0, "   " + string + "\n");
         feed.setText(sb.toString());
         feed.setCaretPosition(0);
     }

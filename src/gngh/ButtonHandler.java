@@ -1,8 +1,10 @@
 package gngh;
 
+import event.UserCreatedEvent;
 import generation.ResourceGeneration;
 import javax.swing.JOptionPane;
 import render.RenderTiles;
+import util.Location;
 
 /*
        //  Author: Benjamin Wilcox
@@ -99,18 +101,20 @@ public class ButtonHandler
 //        //causes nullpointer
 //        if (frame.debug)
 //            frame.console("ButtonHandler actionClick btnNumber: " + i);
+
+        UserCreatedEvent event = new UserCreatedEvent();
         switch (i)
         {
             case -1:
                 break;
             case 0:
-                tracker.event().scout(x, y);
+                event.create(new Location(x, y), 0);
                 break;
             case 1:
-                tracker.event().attack(x, y);
+                //tracker.event().attack(x, y);
                 break;
             case 2:
-                tracker.event().forage(x, y);
+                //tracker.event().forage(x, y);
                 break;
             case 6:
                 break;
