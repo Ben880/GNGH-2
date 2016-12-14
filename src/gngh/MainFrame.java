@@ -27,7 +27,7 @@ class MainFrame extends JFrame
     //Classs import
     SoundPlayer sound = new SoundPlayer();
     Info info;
-    Tracker tracker;
+    DayTracker day = new DayTracker();
     //distasteful palet here
     Color forest = new Color(0, 100, 0);
     Color desert = new Color(255, 209, 114);
@@ -37,7 +37,6 @@ class MainFrame extends JFrame
         super(s);
         buildGUI();
         initialize();
-
         create();
         action.setSliderDay(10);
         sound.playStart();
@@ -46,15 +45,14 @@ class MainFrame extends JFrame
     public void initialize()
     {
         info = Info.getInstance();
-        tracker = Tracker.getInstance();
         GUIHandler gui = GUIHandler.getInstance();
         ActionHandler action = ActionHandler.getInstance();
-        tracker.day().Initialize(tracker);
         gui.passFrame(this);
-        gui.label().initialize(info, this, tracker);
-        action.button().initialize(info, tracker, this);
+        gui.label().initialize(info, this);
+        action.button().initialize(info, this);
         CellHolder cells = new CellHolder();
         cells.initialize();
+
     }
 
     public void buildGUI()
@@ -79,6 +77,10 @@ class MainFrame extends JFrame
         generate = null;
         RenderTiles render = new RenderTiles();
         render.render();
+
+        GUIHandler gui = GUIHandler.getInstance();
+        gui.label().clickUpdate(19, 19);
+        gui.label().resourceUpdate();
     }
 
     public void debug()

@@ -11,7 +11,7 @@ public class LabelHandler
 
     CellHolder cell = new CellHolder();
     ActionHandler handler;
-    Tracker tracker;
+    DayTracker day = new DayTracker();
     Info info;
     CoLabelHandler text;
     InfoLabels label;
@@ -22,10 +22,9 @@ public class LabelHandler
         text = new CoLabelHandler();
     }
 
-    public void initialize(Info i, MainFrame f, Tracker t)
+    public void initialize(Info i, MainFrame f)
     {
         info = i;
-        tracker = t;
         frame = f;
     }
 
@@ -36,10 +35,10 @@ public class LabelHandler
 
     public void resourceUpdate()
     {
-        label.setText(0, 1, "Day: " + tracker.day().getDay());
-        label.setText(1, 1, "Day: " + tracker.day().getDay());
-        label.setText(2, 1, "Day: " + tracker.day().getDay());
-        label.setText(3, 1, "Day: " + tracker.day().getDay());
+        label.setText(0, 1, "Day: " + day.getDay());
+        label.setText(1, 1, "Day: " + day.getDay());
+        label.setText(2, 1, "Day: " + day.getDay());
+        label.setText(3, 1, "Day: " + day.getDay());
         label.setText(2, 3, "food: " + info.resources().getFood());
         label.setText(2, 4, "lumber: " + info.resources().getLumber());
         label.setText(2, 5, "stone: " + info.resources().getStone());

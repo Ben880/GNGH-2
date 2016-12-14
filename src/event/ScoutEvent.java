@@ -1,9 +1,9 @@
 package event;
 
 import cell.CellHolder;
+import gngh.DayTracker;
 import gngh.GUIHandler;
 import gngh.Info;
-import gngh.Tracker;
 import render.RenderTiles;
 import util.Location;
 
@@ -20,15 +20,15 @@ public class ScoutEvent extends Event
     int days;
     CellHolder cell = new CellHolder();
     Info info = Info.getInstance();
-    Tracker tracker = Tracker.getInstance();
+    DayTracker day = new DayTracker();
     GUIHandler gui = GUIHandler.getInstance();
 
     public void create(Location l)
     {
         people = 10;
         location = l;
-        days = (int) Math.round(location.baseDistance() * 1.5);
-        setCompleet(days + tracker.day().getDay());
+        days = (int) Math.round(location.baseDistance() * 4);
+        setCompleet(days + day.getDay());
         setMessage("Scouts have returned and found a " + cell.getCell(l).biome().getName() + " biome!");
         info.resources().setPeople(info.resources().getPeople() - 10);
         info.resources().setFood(people * days);

@@ -9,19 +9,11 @@ import event.EventDispatcher;
 public class DayTracker
 {
 
-    private int day;
-    Tracker tracker;
-    GUIHandler gui;
-    EventDispatcher event = new EventDispatcher();
+    private static int day = 0;
+    private static GUIHandler gui = GUIHandler.getInstance();
+    private static EventDispatcher event = new EventDispatcher();
 
-    public DayTracker(Tracker t)
-    {
-        tracker = t;
-        day = 0;
-        gui = GUIHandler.getInstance();
-    }
-
-    public void Initialize(Tracker t)
+    public DayTracker()
     {
 
     }

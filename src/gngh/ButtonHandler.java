@@ -16,21 +16,20 @@ public class ButtonHandler
     int x;
     int y;
     Info info;
-    Tracker tracker;
     MainFrame frame;
     GUIHandler gui;
     RenderTiles render = new RenderTiles();
+    DayTracker day = new DayTracker();
+    UserCreatedEvent event = new UserCreatedEvent();
 
     public ButtonHandler()
     {
         gui = GUIHandler.getInstance();
-        //handler = h;
     }
 
-    public void initialize(Info i, Tracker t, MainFrame f)
+    public void initialize(Info i, MainFrame f)
     {
         info = i;
-        tracker = t;
         frame = f;
     }
 
@@ -91,18 +90,12 @@ public class ButtonHandler
         }
         if (source == "dayStart")
         {
-            tracker.day().incriment(frame.getSliderDay() / 10);
-            //frame.infoLabels[1].setText("    Day: " + day.getDay());
+            day.incriment(frame.getSliderDay() / 10);
         }
     }
 
     public void actionClick(int i)
     {
-//        //causes nullpointer
-//        if (frame.debug)
-//            frame.console("ButtonHandler actionClick btnNumber: " + i);
-
-        UserCreatedEvent event = new UserCreatedEvent();
         switch (i)
         {
             case -1:
