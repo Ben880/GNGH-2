@@ -26,7 +26,9 @@ public class UserCreatedEvent
             dispatch.storeEvent(scout);
         } else if (type == 1) //attack
         {
-
+            AttackEvent attack = new AttackEvent();
+            attack.create(l);
+            dispatch.storeEvent(attack);
         } else if (type == 2) //attack
         {
 
