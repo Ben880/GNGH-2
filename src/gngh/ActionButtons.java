@@ -16,7 +16,6 @@ public class ActionButtons extends JPanel
 
     //singleton declarations
     ActionHandler action;
-    GUIHandler gui;
     //Left panel
     JPanel leftCol = new JPanel();
     JPanel leftInner = new JPanel();
@@ -54,9 +53,9 @@ public class ActionButtons extends JPanel
 
     public ActionButtons()
     {
-        gui = GUIHandler.getInstance();
+        ButtonDisplayHandler button = new ButtonDisplayHandler();
+        button.initialize(this);
         action = ActionHandler.getInstance();
-        gui.button().initialize(this);
         setLayout(new BorderLayout());
         //main holder
         leftCol.setPreferredSize(sideD);
@@ -82,7 +81,7 @@ public class ActionButtons extends JPanel
             actionButton[i].addActionListener(new ActionButtons.ActionPress());
             actionButton[i].setActionCommand(String.valueOf(i));
             leftInner.add(actionButton[i]);
-            actionButton[i].setText(gui.button().getButtonText(i));
+            actionButton[i].setText(button.getButtonText(i));
             i++;
         }
 

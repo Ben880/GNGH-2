@@ -31,13 +31,14 @@ public class InfoLabels extends JPanel
     Color panel = new Color(170, 170, 170);
     Dimension sideD = new Dimension(300, 15);
     Dimension debugInfoD = new Dimension(290, 145);
-    
+    LabelHandler label = new LabelHandler();
+
     InfoTabs tp;
 
     InfoLabels()
     {
         setLayout(new BorderLayout());
-        GUIHandler.getInstance().label.init2(this);
+        label.init2(this);
         //main holder
         rightCol.setPreferredSize(sideD);
         rightCol.setBackground(background);

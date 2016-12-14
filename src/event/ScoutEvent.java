@@ -1,8 +1,8 @@
 package event;
 
 import cell.CellHolder;
+import gngh.ConsoleHandler;
 import gngh.DayTracker;
-import gngh.GUIHandler;
 import render.RenderTiles;
 import resources.Resources;
 import util.Location;
@@ -20,8 +20,8 @@ public class ScoutEvent extends Event
     int days;
     CellHolder cell = new CellHolder();
     DayTracker day = new DayTracker();
-    GUIHandler gui = GUIHandler.getInstance();
     Resources resources = new Resources();
+    ConsoleHandler console = new ConsoleHandler();
 
     public void create(Location l)
     {
@@ -32,13 +32,13 @@ public class ScoutEvent extends Event
         setMessage("Scouts have returned and found a " + cell.getCell(l).biome().getName() + " biome!");
         resources.setPeople(resources.getPeople() - 10);
         resources.setFood(people * days);
-        gui.console().append("Scouts are to return on day: " + compleet);
+        console.append("Scouts are to return on day: " + compleet);
     }
 
     @Override
     public void end()
     {
-        gui.console().append(message);
+        console.append(message);
         resources.setPeople(resources.getPeople() + 10);
         cell.getCell(location).visible().setAllVisible(true);
         cell.getCell(location.getX() - 1, location.getY()).visible().setBiomeVisible(true);

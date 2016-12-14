@@ -19,13 +19,12 @@ public class TabPanel extends JPanel
     Color panel = new Color(170, 170, 170);
     Border emptyBorder = BorderFactory.createEmptyBorder();
     JLabel[] label = new JLabel[80];
-    GUIHandler gui;
+    LabelHandler labelHandler = new LabelHandler();
     int index;
 
     public TabPanel(int j)
     {
         index = j;
-        gui = GUIHandler.getInstance();
         setLayout(new GridLayout(40, 1));
         for (int i = 0; i < 40; i++)
         {
@@ -33,7 +32,7 @@ public class TabPanel extends JPanel
             label[i].setText("    " + i);
             add(label[i]);
             label[i].setFont(new Font("Arial", Font.PLAIN, 12));
-            setText(i, gui.label().getDefaultText(index, i));
+            setText(i, labelHandler.getDefaultText(index, i));
         }
         this.setBackground(panel);
         this.setBorder(emptyBorder);

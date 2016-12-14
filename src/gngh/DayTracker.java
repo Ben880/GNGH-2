@@ -1,7 +1,7 @@
 package gngh;
 
-import resources.ResourceProduction;
 import event.EventDispatcher;
+import resources.ResourceProduction;
 
 /*
        //  Author: Benjamin Wilcox
@@ -11,7 +11,7 @@ public class DayTracker
 {
 
     private static int day = 0;
-    private static GUIHandler gui = GUIHandler.getInstance();
+    private static LabelHandler label = new LabelHandler();
     private static EventDispatcher event = new EventDispatcher();
 
     public DayTracker()
@@ -33,7 +33,7 @@ public class DayTracker
             production.dayChange();
             i++;
         }
-        gui.label().resourceUpdate();
+        label.resourceUpdate();
     }
 
     public int getDay()

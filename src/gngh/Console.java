@@ -20,7 +20,7 @@ public class Console extends JPanel
     Console()
     {
         setLayout(new BorderLayout());
-        GUIHandler.getInstance().console().initialize(this);
+        new ConsoleHandler().initialize(this);
         feed.setEditable(false);
         feed.setBackground(Color.black);
         feed.setForeground(Color.white);

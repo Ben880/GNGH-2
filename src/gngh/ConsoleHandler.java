@@ -10,8 +10,8 @@ import util.SoundPlayer;
 public class ConsoleHandler
 {
 
-    SoundPlayer sound = new SoundPlayer();
-    Console console;
+    private static SoundPlayer sound = new SoundPlayer();
+    private static Console console;
 
     public void initialize(Console s)
     {

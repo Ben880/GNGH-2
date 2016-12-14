@@ -15,19 +15,19 @@ import util.Location;
 public class ButtonHandler
 {
 
-    int x;
-    int y;
-    MainFrame frame;
-    GUIHandler gui;
-    RenderTiles render = new RenderTiles();
-    DayTracker day = new DayTracker();
-    UserCreatedEvent event = new UserCreatedEvent();
-    CellHolder cell = new CellHolder();
-    DebugInfo debug = new DebugInfo();
+    private static int x;
+    private static int y;
+    private static MainFrame frame;
+    private static RenderTiles render = new RenderTiles();
+    private static DayTracker day = new DayTracker();
+    private static UserCreatedEvent event = new UserCreatedEvent();
+    private static CellHolder cell = new CellHolder();
+    private static DebugInfo debug = new DebugInfo();
+    private static LabelHandler label = new LabelHandler();
+    private static ConsoleHandler console = new ConsoleHandler();
 
     public ButtonHandler()
     {
-        gui = GUIHandler.getInstance();
 
     }
 
@@ -39,7 +39,7 @@ public class ButtonHandler
     public void gameClick(int x, int y)
     {
 
-        gui.label().clickUpdate(x, y);
+        label.clickUpdate(x, y);
         this.x = x;
         this.y = y;
     }
@@ -47,7 +47,7 @@ public class ButtonHandler
     public void actionClick(String source)
     {
         if (debug.getDebug() && source != "debugToggle")
-            gui.console().append("actionClick source: " + source);
+            console.append("actionClick source: " + source);
         if (source == "plusDays")
             frame.setSliderDay(frame.getSliderDay() + 10);
         if (source == "minusDays")

@@ -1,7 +1,5 @@
 package gngh;
 
-import javax.swing.JOptionPane;
-
 /*
     BenjaminWilcox
     Oct 6, 2016
@@ -11,18 +9,16 @@ import javax.swing.JOptionPane;
 public class DialogueBox
 {
 
-    GUIHandler gui;
-
     public DialogueBox()
     {
-        gui = GUIHandler.getInstance();
+
     }
 
     public int troops()
     {
-        String s = JOptionPane.showInputDialog(gui.frame().getFrame(), "How many troops do you want to send", "Attack", -1);
-        int troops = Integer.parseInt(s);
-        return troops;
+        //String s = JOptionPane.showInputDialog(gui.frame().getFrame(), "How many troops do you want to send", "Attack", -1);
+        //int troops = Integer.parseInt(s);
+        return 10;
     }
 
 }

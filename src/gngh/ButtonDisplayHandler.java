@@ -9,7 +9,7 @@ public class ButtonDisplayHandler
 {
 //still needs to be initialized
 
-    ActionButtons buttons;
+    private static ActionButtons buttons;
 
     public ButtonDisplayHandler()
     {

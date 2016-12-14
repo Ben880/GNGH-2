@@ -11,14 +11,15 @@ import resources.Resources;
 public class LabelHandler
 {
 
-    CellHolder cell = new CellHolder();
-    ActionHandler handler;
-    DayTracker day = new DayTracker();
-    Resources resources = new Resources();
-    DebugInfo debug = new DebugInfo();
-    CoLabelHandler text;
-    InfoLabels label;
-    MainFrame frame;
+    private static CellHolder cell = new CellHolder();
+    private static ActionHandler handler;
+    private static DayTracker day = new DayTracker();
+    private static Resources resources = new Resources();
+    private static DebugInfo debug = new DebugInfo();
+    private static ButtonDisplayHandler dispButton = new ButtonDisplayHandler();
+    private static CoLabelHandler text;
+    private static InfoLabels label;
+    private static MainFrame frame;
 
     public LabelHandler()
     {
@@ -73,9 +74,10 @@ public class LabelHandler
                 frame.infoLabel.buttonInfo.setText("  Button: " + i + " (" + x + "," + y + ")");
                 frame.infoLabel.isOwned.setText("  Owned: " + cell.getCell(x, y).owned().isOwned());
             }
-            frame.setActionVisible(0, !cell.getCell(x, y).visible().isStatsVisible());
-            frame.setActionVisible(1, !cell.getCell(x, y).owned().isOwned());
-            frame.setActionVisible(2, cell.getCell(x, y).visible().isStatsVisible());
+
+            dispButton.setVisible(0, !cell.getCell(x, y).visible().isStatsVisible());
+            dispButton.setVisible(1, !cell.getCell(x, y).owned().isOwned());
+            dispButton.setVisible(2, cell.getCell(x, y).visible().isStatsVisible());
         } else
         {
             label.setText(0, 3, "Biome: ??");
@@ -92,9 +94,9 @@ public class LabelHandler
                 frame.infoLabel.buttonInfo.setText("  Button: " + i + " (" + x + "," + y + ")");
                 frame.infoLabel.isOwned.setText("  Owned: " + cell.getCell(x, y).owned().isOwned());
             }
-            frame.setActionVisible(0, !cell.getCell(x, y).visible().isStatsVisible());
-            frame.setActionVisible(1, !cell.getCell(x, y).owned().isOwned());
-            frame.setActionVisible(2, cell.getCell(x, y).visible().isStatsVisible());
+            dispButton.setVisible(0, !cell.getCell(x, y).visible().isStatsVisible());
+            dispButton.setVisible(1, !cell.getCell(x, y).owned().isOwned());
+            dispButton.setVisible(2, cell.getCell(x, y).visible().isStatsVisible());
         }
 
     }

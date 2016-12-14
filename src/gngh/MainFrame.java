@@ -29,6 +29,7 @@ class MainFrame extends JFrame
     SoundPlayer sound = new SoundPlayer();
     DayTracker day = new DayTracker();
     DebugInfo debug = new DebugInfo();
+    LabelHandler label = new LabelHandler();
     //distasteful palet here
     Color forest = new Color(0, 100, 0);
     Color desert = new Color(255, 209, 114);
@@ -45,10 +46,9 @@ class MainFrame extends JFrame
 
     public void initialize()
     {
-        GUIHandler gui = GUIHandler.getInstance();
+
         ActionHandler action = ActionHandler.getInstance();
-        gui.passFrame(this);
-        gui.label().initialize(this);
+        label.initialize(this);
         action.button().initialize(this);
         CellHolder cells = new CellHolder();
         cells.initialize();
@@ -77,25 +77,24 @@ class MainFrame extends JFrame
         generate = null;
         RenderTiles render = new RenderTiles();
         render.render();
-
-        GUIHandler gui = GUIHandler.getInstance();
-        gui.label().clickUpdate(19, 19);
-        gui.label().resourceUpdate();
+        label.clickUpdate(19, 19);
+        label.resourceUpdate();
     }
 
     public void debug()
     {
+        ConsoleHandler console = new ConsoleHandler();
         if (debug.getDebug())
         {
             debug.setDebug(false);
-            GUIHandler.getInstance().console().append("Debug: false");
+            console.append("Debug: false");
             action.toggleDebug(false);
             infoLabel.toggleDebug(false);
 
         } else
         {
             debug.setDebug(true);
-            GUIHandler.getInstance().console().append("Debug: true");
+            console.append("Debug: true");
             action.toggleDebug(true);
             infoLabel.toggleDebug(true);
         }
