@@ -16,6 +16,7 @@ public class Console extends JPanel
     JScrollPane feedScroll = new JScrollPane();
     JScrollBar consolScroll = new JScrollBar();
     StringBuilder sb = new StringBuilder();
+    DayTracker day = new DayTracker();
 
     Console()
     {
@@ -33,7 +34,8 @@ public class Console extends JPanel
 
     public void append(String string)
     {
-        sb.insert(0, "   " + string + "\n");
+
+        sb.insert(0, "  " + day.getDay() + " > " + string + "\n");
         feed.setText(sb.toString());
         feed.setCaretPosition(0);
     }
