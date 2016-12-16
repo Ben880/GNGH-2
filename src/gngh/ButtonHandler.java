@@ -107,10 +107,10 @@ public class ButtonHandler
                 event.create(new Location(x, y), 0);
                 break;
             case 1:
-                //tracker.event().attack(x, y);
+                event.create(new Location(x, y), 1);
                 break;
             case 2:
-                //tracker.event().forage(x, y);
+                event.create(new Location(x, y), 2);
                 break;
             case 6:
                 break;
