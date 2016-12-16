@@ -1,10 +1,5 @@
 package event;
 
-import cell.CellHolder;
-import gngh.ConsoleHandler;
-import gngh.DayTracker;
-import render.RenderTiles;
-import resources.Resources;
 import util.Location;
 
 /*
@@ -18,10 +13,6 @@ public class ScoutEvent extends Event
     Location location;
     int people;
     int days;
-    CellHolder cell = new CellHolder();
-    DayTracker day = new DayTracker();
-    Resources resources = new Resources();
-    ConsoleHandler console = new ConsoleHandler();
 
     public void create(Location l)
     {
@@ -33,6 +24,7 @@ public class ScoutEvent extends Event
         resources.setPeople(resources.getPeople() - 10);
         resources.setFood(people * days);
         console.append("Scouts are to return on day: " + compleet);
+        label.resourceUpdate();
     }
 
     @Override
@@ -45,8 +37,7 @@ public class ScoutEvent extends Event
         cell.getCell(location.getX() + 1, location.getY()).visible().setBiomeVisible(true);
         cell.getCell(location.getX(), location.getY() - 1).visible().setBiomeVisible(true);
         cell.getCell(location.getX(), location.getY() + 1).visible().setBiomeVisible(true);
-        RenderTiles render = new RenderTiles();
         render.render();
-
+        label.resourceUpdate();
     }
 }

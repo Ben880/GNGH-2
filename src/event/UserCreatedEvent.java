@@ -19,19 +19,22 @@ public class UserCreatedEvent
 
     public void create(Location l, int type)
     {
+        System.out.println("User CreatedEvent");
         if (type == 0) //scout
         {
             ScoutEvent scout = new ScoutEvent();
             scout.create(l);
             dispatch.storeEvent(scout);
+            scout = null;
         } else if (type == 1) //attack
         {
             AttackEvent attack = new AttackEvent();
             attack.create(l);
             dispatch.storeEvent(attack);
+            attack = null;
         } else if (type == 2) //attack
         {
-
+            dispatch.storeEvent(new ForageEvent(l));
         }
     }
 
