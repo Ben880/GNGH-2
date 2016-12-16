@@ -1,5 +1,6 @@
 package gngh;
 
+import conditions.LoseCondition;
 import event.EventDispatcher;
 import resources.ResourceProduction;
 
@@ -13,6 +14,7 @@ public class DayTracker
     private static int day = 0;
     private static LabelHandler label = new LabelHandler();
     private static EventDispatcher event = new EventDispatcher();
+    LoseCondition loss = new LoseCondition();
 
     public DayTracker()
     {
@@ -29,8 +31,10 @@ public class DayTracker
         while (i < amount)
         {
             day++;
+
             event.dayChange(day);
             production.dayChange();
+            loss.dayChange(day);
             i++;
         }
         label.resourceUpdate();
