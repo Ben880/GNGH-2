@@ -1,6 +1,6 @@
 package conditions;
 
-import resources.Resources;
+import resources.ResourceHolder;
 
 /*
     BenjaminWilcox
@@ -10,7 +10,7 @@ import resources.Resources;
 public class PeopleCondition
 {
 
-    Resources resources = new Resources();
+    ResourceHolder resources = new ResourceHolder();
 
     public PeopleCondition()
     {
@@ -19,7 +19,7 @@ public class PeopleCondition
 
     public boolean compare()
     {
-        if (resources.getPeople() <= 0)
+        if (resources.people().get() <= 0)
             return true;
         return false;
     }
