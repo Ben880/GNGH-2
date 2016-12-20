@@ -11,7 +11,7 @@ public class ResourceProduction
 
     private Resource food = new Resource();
     private static ResourceProduction instance = null;
-    Resources resources = new Resources();
+    ResourceHolder resources = new ResourceHolder();
 
     private ResourceProduction()
     {
@@ -22,18 +22,18 @@ public class ResourceProduction
     {
         food.setNumStipulations(5);
         food.modifyStipulation(0, 100, 1);
-        food.modifyStipulation(1, resources.getPeople(), -2);
-        food.modifyStipulation(2, resources.getTroops(), -3);
-        food.modifyStipulation(3, resources.getAnimals(), -4);
-        food.modifyStipulation(4, resources.getHorses(), -5);
+        food.modifyStipulation(1, resources.people().get(), -2);
+        food.modifyStipulation(2, resources.troops().get(), -3);
+        food.modifyStipulation(3, resources.animals().get(), -4);
+        food.modifyStipulation(4, resources.horses().get(), -5);
     }
 
     private void update()
     {
-        food.modifyBase(1, resources.getPeople());
-        food.modifyBase(2, resources.getTroops());
-        food.modifyBase(3, resources.getAnimals());
-        food.modifyBase(4, resources.getHorses());
+        food.modifyBase(1, resources.people().get());
+        food.modifyBase(2, resources.troops().get());
+        food.modifyBase(3, resources.animals().get());
+        food.modifyBase(4, resources.horses().get());
     }
 
     public static ResourceProduction getInstance()
@@ -48,11 +48,7 @@ public class ResourceProduction
     public void dayChange()
     {
         update();
-        resources.setFood(resources.getFood() + food());
-        resources.setLumber(resources.getLumber() + 50);
-        resources.setStone(resources.getStone() + 10);
-        resources.setOre(resources.getOre() + 5);
-        resources.setPeople(resources.getPeople() + 2);
+        resources.food().set(resources.food().get() + food());
     }
 
     public int food()
