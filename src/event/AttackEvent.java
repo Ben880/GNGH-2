@@ -21,8 +21,8 @@ public class AttackEvent extends Event
         days = (int) Math.round(location.baseDistance() * 4.0);
         setCompleet(days + day.getDay());
         setMessage("Troops have returned");
-        resources.setTroops(resources.getTroops() - 10);
-        resources.setFood(troops * days);
+        resources.troops().subtrat(10);
+        resources.food().subtrat(troops * days);
         console.append("Troops set to return on day " + compleet);
         label.resourceUpdate();
     }
@@ -30,7 +30,7 @@ public class AttackEvent extends Event
     public void end()
     {
         console.append(message);
-        resources.setTroops(resources.getTroops() + 10);
+        resources.troops().add(10);
         cell.getCell(location).visible().setAllVisible(true);
         cell.getCell(location.getX() - 1, location.getY()).visible().setBiomeVisible(true);
         cell.getCell(location.getX() + 1, location.getY()).visible().setBiomeVisible(true);

@@ -28,7 +28,7 @@ public class ForageEvent extends Event
         days = (int) Math.round(location.baseDistance() * 6);
         setCompleet(days + day.getDay());
         setMessage("Foragers have returned with " + food + " units of food");
-        resources.setPeople(resources.getPeople() - people);
+        resources.people().subtrat(people);
         console.append("Foragers set to return on day " + compleet);
         label.resourceUpdate();
     }
@@ -36,8 +36,8 @@ public class ForageEvent extends Event
     public void end()
     {
         console.append(message);
-        resources.setFood(resources.getFood() + food);
-        resources.setPeople(resources.getPeople() + people);
+        resources.food().add(food);
+        resources.people().add(people);
         label.resourceUpdate();
     }
 

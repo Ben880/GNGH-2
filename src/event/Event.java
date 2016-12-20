@@ -5,7 +5,7 @@ import gngh.ConsoleHandler;
 import gngh.DayTracker;
 import gngh.LabelHandler;
 import render.RenderTiles;
-import resources.Resources;
+import resources.ResourceHolder;
 
 /*
     BenjaminWilcox
@@ -21,7 +21,7 @@ public class Event
     static RenderTiles render = new RenderTiles();
     static DayTracker day = new DayTracker();
     static CellHolder cell = new CellHolder();
-    static Resources resources = new Resources();
+    static ResourceHolder resources = new ResourceHolder();
     static ConsoleHandler console = new ConsoleHandler();
     static LabelHandler label = new LabelHandler();
 
