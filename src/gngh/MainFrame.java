@@ -7,6 +7,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JFrame;
 import render.RenderTiles;
+import resources.ResourceHolder;
 import util.SoundPlayer;
 
 /*
@@ -52,6 +53,7 @@ class MainFrame extends JFrame
         action.button().initialize(this);
         CellHolder cells = new CellHolder();
         cells.initialize();
+        ResourceHolder resources = new ResourceHolder();
 
     }
 
