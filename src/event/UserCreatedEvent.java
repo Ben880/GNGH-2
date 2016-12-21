@@ -38,4 +38,18 @@ public class UserCreatedEvent
         }
     }
 
+    public void create(int type)
+    {
+        if (type == 3)
+        {
+            RecruitEvent recruit = new RecruitEvent();
+            recruit.create();
+            dispatch.storeEvent(recruit);
+        }
+        if (type == 4)
+        {
+
+        }
+    }
+
 }
