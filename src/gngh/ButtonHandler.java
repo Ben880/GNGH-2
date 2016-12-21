@@ -112,6 +112,12 @@ public class ButtonHandler
             case 2:
                 event.create(new Location(x, y), 2);
                 break;
+            case 3:
+                event.create(3);
+                break;
+            case 4:
+                event.create(4);
+                break;
             case 6:
                 break;
         }

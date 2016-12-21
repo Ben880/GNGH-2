@@ -42,9 +42,9 @@ public class ButtonDisplayHandler
             case 2:
                 return "Forage";
             case 3:
-                return " ";
+                return "Recruit";
             case 4:
-                return "";
+                return "Train";
             case 5:
                 return " ";
             case 6:
