@@ -48,7 +48,9 @@ public class UserCreatedEvent
         }
         if (type == 4)
         {
-
+            TrainEvent train = new TrainEvent();
+            train.create();
+            dispatch.storeEvent(train);
         }
     }
 
