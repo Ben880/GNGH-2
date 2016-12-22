@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import util.GUIPallet;
 
 /*
        //  Author: Benjamin Wilcox
@@ -38,11 +39,7 @@ public class ActionButtons extends JPanel
     JButton setBiome = new JButton();
     JButton toggleFog = new JButton();
     //distasteful palet here
-    Color myGrey = new Color(225, 225, 225);
-    Color background = new Color(100, 100, 100);
-    Color panel = new Color(170, 170, 170);
-    Color forest = new Color(0, 100, 0);
-    Color desert = new Color(255, 209, 114);
+    GUIPallet pallet = new GUIPallet();
     Dimension sideD = new Dimension(300, 15);
     Dimension rightSideD = new Dimension(290, 610);
     Dimension leftSideD = new Dimension(290, 460);
@@ -59,14 +56,14 @@ public class ActionButtons extends JPanel
         setLayout(new BorderLayout());
         //main holder
         leftCol.setPreferredSize(sideD);
-        leftCol.setBackground(background);
+        leftCol.setBackground(pallet.getBackground());
         add(leftCol, BorderLayout.LINE_START);
         //main heading
         actionsLabel.setFont(new Font("Arial", Font.BOLD, 20));
         leftCol.add(actionsLabel);
         //sub holder
         leftInner.setPreferredSize(leftSideD);
-        leftInner.setBackground(panel);
+        leftInner.setBackground(pallet.getPanel());
         leftInner.setLayout(new GridLayout(20, 2));
         leftCol.add(leftInner);
         //buttons
@@ -74,8 +71,8 @@ public class ActionButtons extends JPanel
         while (i < 40)
         {
             actionButton[i] = new JButton();
-            actionButton[i].setBackground(panel);
-            actionButton[i].setBorder(BorderFactory.createLineBorder(background, 1));
+            actionButton[i].setBackground(pallet.getPanel());
+            actionButton[i].setBorder(BorderFactory.createLineBorder(pallet.getBackground(), 1));
             actionButton[i].setFont(new Font("Arial", Font.PLAIN, 12));
             actionButton[i].setText("" + i);
             actionButton[i].addActionListener(new ActionButtons.ActionPress());
@@ -88,19 +85,19 @@ public class ActionButtons extends JPanel
         //Day stuff
         //day holder
         daysActions.setPreferredSize(dayD);
-        daysActions.setBackground(panel);
+        daysActions.setBackground(pallet.getPanel());
         leftCol.add(daysActions);
         //Info lable
         dayDisplay.setFont(new Font("Arial", Font.PLAIN, 12));
         dayDisplay.setText("    Days: 5    ");
-        dayDisplay.setBackground(panel);
+        dayDisplay.setBackground(pallet.getPanel());
         dayDisplay.setBorder(BorderFactory.createEmptyBorder());
         daysActions.add(dayDisplay);
         //slider
         dayIncriment.setPreferredSize(sliderD);
         dayIncriment.setSnapToTicks(true);
         dayIncriment.setPaintTicks(true);
-        dayIncriment.setBackground(panel);
+        dayIncriment.setBackground(pallet.getPanel());
         dayIncriment.setForeground(Color.BLACK);
         dayIncriment.addChangeListener((ChangeListener) new ActionButtons.SliderHandler());
         dayIncriment.setMajorTickSpacing(10);
@@ -121,14 +118,14 @@ public class ActionButtons extends JPanel
         //Debug Actions
         debugActions.setPreferredSize(debugD);
         debugActions.setLayout(new BorderLayout());
-        debugActions.setBackground(panel);
+        debugActions.setBackground(pallet.getPanel());
         debugToggle.setText("Debug");
         calculateLand.setText("Calac Land Values");
         setBiome.setText("Set Biome");
         toggleFog.setText("Toggle Fog");
         debugHolder.setSize(280, 140);
         debugHolder.setLayout(new GridLayout(5, 2));
-        debugHolder.setBackground(panel);
+        debugHolder.setBackground(pallet.getPanel());
         debugHolder.add(calculateLand);
         debugHolder.add(setBiome);
         debugHolder.add(toggleFog);

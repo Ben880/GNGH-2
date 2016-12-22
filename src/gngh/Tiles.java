@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 import render.RenderFog;
 import render.RenderTile;
+import util.GUIPallet;
 
 /*
        //  Author: Benjamin Wilcox
@@ -31,7 +32,7 @@ public class Tiles extends JPanel
     //holder for the buttons
     JPanel main = new JPanel();
     JPanel mainHolder = new JPanel();
-    Color background = new Color(100, 100, 100);
+    GUIPallet pallet = new GUIPallet();
 
     public Tiles()
     {
@@ -43,10 +44,10 @@ public class Tiles extends JPanel
         //builds tiles
         setLayout(new BorderLayout());
         main.setLayout(new GridLayout(20, 20));
-        main.setBackground(background);
+        main.setBackground(pallet.getBackground());
         main.setSize(1000, 1000);
         mainHolder.add(main);
-        mainHolder.setBackground(background);
+        mainHolder.setBackground(pallet.getBackground());
         add(mainHolder, BorderLayout.CENTER);
         int i = 0;
         int x = 0;

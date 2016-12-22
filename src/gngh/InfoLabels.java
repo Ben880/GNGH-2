@@ -1,7 +1,6 @@
 package gngh;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -10,6 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
+import util.GUIPallet;
 
 /*
        //  Author: Benjamin Wilcox
@@ -27,8 +27,7 @@ public class InfoLabels extends JPanel
     JLabel buttonInfo = new JLabel();
     JLabel isOwned = new JLabel();
     //palet
-    Color background = new Color(100, 100, 100);
-    Color panel = new Color(170, 170, 170);
+    GUIPallet pallet = new GUIPallet();
     Dimension sideD = new Dimension(300, 15);
     Dimension debugInfoD = new Dimension(290, 145);
     LabelHandler label = new LabelHandler();
@@ -41,7 +40,7 @@ public class InfoLabels extends JPanel
         label.init2(this);
         //main holder
         rightCol.setPreferredSize(sideD);
-        rightCol.setBackground(background);
+        rightCol.setBackground(pallet.getBackground());
         add(rightCol, BorderLayout.LINE_END);
         //main heading
         infoLabel.setFont(new Font("Arial", Font.BOLD, 20));
@@ -49,7 +48,7 @@ public class InfoLabels extends JPanel
 
         //debug panel (migrate to sub class)
         debugInfo.setLayout(new GridLayout(4, 1));
-        debugInfo.setBackground(panel);
+        debugInfo.setBackground(pallet.getPanel());
         debugInfo.setPreferredSize(debugInfoD);
         buttonInfo.setText("  Button: ? ([x][y])");
         buttonInfo.setBorder(BorderFactory.createEmptyBorder());
@@ -59,16 +58,16 @@ public class InfoLabels extends JPanel
         debugInfo.add(isOwned);
         debugInfo.setVisible(false);
         //looks and feels of tabbs
-        UIManager.put("TabbedPane.selected", panel);
+        UIManager.put("TabbedPane.selected", pallet.getPanel());
         UIManager.getDefaults().put("TabbedPane.contentBorderInsets", new Insets(0, 0, 0, 0));
         UIManager.getDefaults().put("TabbedPane.tabAreaInsets", new Insets(0, 0, 0, 0));
-        UIManager.put("TabbedPane.selected", panel);
-        UIManager.put("TabbedPane.borderHightlightColor", panel);
-        UIManager.put("TabbedPane.hilight", panel);
-        UIManager.put("TabbedPane.selectHighlight", panel);
-        UIManager.put("TabbedPane.focus", panel);
-        UIManager.put("TabbedPane.darkShadow", background);
-        UIManager.put("TabbedPane.light", background);
+        UIManager.put("TabbedPane.selected", pallet.getPanel());
+        UIManager.put("TabbedPane.borderHightlightColor", pallet.getPanel());
+        UIManager.put("TabbedPane.hilight", pallet.getPanel());
+        UIManager.put("TabbedPane.selectHighlight", pallet.getPanel());
+        UIManager.put("TabbedPane.focus", pallet.getPanel());
+        UIManager.put("TabbedPane.darkShadow", pallet.getBackground());
+        UIManager.put("TabbedPane.light", pallet.getBackground());
         //creation of tabbed panel
         tp = new InfoTabs();
         //add stuff

@@ -1,12 +1,12 @@
 package gngh;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+import util.GUIPallet;
 
 /*
        //  Author: Benjamin Wilcox
@@ -15,8 +15,7 @@ import javax.swing.border.Border;
 public class TabPanel extends JPanel
 {
 
-    Color background = new Color(100, 100, 100);
-    Color panel = new Color(170, 170, 170);
+    GUIPallet pallet = new GUIPallet();
     Border emptyBorder = BorderFactory.createEmptyBorder();
     JLabel[] label = new JLabel[80];
     LabelHandler labelHandler = new LabelHandler();
@@ -34,7 +33,7 @@ public class TabPanel extends JPanel
             label[i].setFont(new Font("Arial", Font.PLAIN, 12));
             setText(i, labelHandler.getDefaultText(index, i));
         }
-        this.setBackground(panel);
+        this.setBackground(pallet.getPanel());
         this.setBorder(emptyBorder);
     }
 
