@@ -1,5 +1,9 @@
 package debug;
 
+import gngh.ButtonDisplayHandler;
+import gngh.ConsoleHandler;
+import gngh.LabelHandler;
+
 /*
     BenjaminWilcox
     Nov 17, 2016
@@ -9,6 +13,9 @@ public class DebugInfo
 {
 
     private static boolean debug = false;
+    private static ConsoleHandler console = new ConsoleHandler();
+    private static ButtonDisplayHandler buttons = new ButtonDisplayHandler();
+    private static LabelHandler labels = new LabelHandler();
 
     public DebugInfo()
     {
@@ -20,6 +27,9 @@ public class DebugInfo
             debug = false;
         else
             debug = true;
+        console.append("Debug: " + debug);
+        buttons.debug(debug);
+        labels.debug(debug);
     }
 
     public boolean getDebug()
@@ -29,6 +39,7 @@ public class DebugInfo
 
     public void setDebug(boolean b)
     {
-        debug = b;
+        if (b != debug)
+            toggleDebug();
     }
 }

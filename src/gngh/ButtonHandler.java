@@ -4,7 +4,6 @@ import cell.CellHolder;
 import debug.DebugInfo;
 import event.UserCreatedEvent;
 import generation.ResourceGeneration;
-import javax.swing.JOptionPane;
 import render.RenderTiles;
 import util.Location;
 
@@ -17,7 +16,8 @@ public class ButtonHandler
 
     private static int x;
     private static int y;
-    private static MainFrame frame;
+//    private static MainFrame frame;
+    ButtonDisplayHandler buttons = new ButtonDisplayHandler();
     private static RenderTiles render = new RenderTiles();
     private static DayTracker day = new DayTracker();
     private static UserCreatedEvent event = new UserCreatedEvent();
@@ -33,7 +33,7 @@ public class ButtonHandler
 
     public void initialize(MainFrame f)
     {
-        frame = f;
+        //frame = f;
     }
 
     public void gameClick(int x, int y)
@@ -49,11 +49,11 @@ public class ButtonHandler
         if (debug.getDebug() && source != "debugToggle")
             console.append("actionClick source: " + source);
         if (source == "plusDays")
-            frame.setSliderDay(frame.getSliderDay() + 10);
+            buttons.setSliderDay(buttons.getSliderDay() + 10);
         if (source == "minusDays")
-            frame.setSliderDay(frame.getSliderDay() - 10);
+            buttons.setSliderDay(buttons.getSliderDay() - 10);
         if (source == "debugToggle")
-            frame.debug();
+            debug.toggleDebug();
         if (source == "toggleFog")
         {
             if (cell.fog)
@@ -68,21 +68,21 @@ public class ButtonHandler
         }
         if (source == "setBiome")
         {
-            Object[] possibilities =
-            {
-                0, 1, 2, 3, 4
-            };
-            int newBiome = (int) JOptionPane.showInputDialog(
-                    frame,
-                    "Change tile: (" + x + ", " + y + ")"
-                    + " to what biome?",
-                    "Biome Change",
-                    JOptionPane.PLAIN_MESSAGE,
-                    null,
-                    possibilities,
-                    0);
-            cell.getCell(x, y).setBiome(newBiome);
-            render.render();
+//            Object[] possibilities =
+//            {
+//                0, 1, 2, 3, 4
+//            };
+//            int newBiome = (int) JOptionPane.showInputDialog(
+//                    frame,
+//                    "Change tile: (" + x + ", " + y + ")"
+//                    + " to what biome?",
+//                    "Biome Change",
+//                    JOptionPane.PLAIN_MESSAGE,
+//                    null,
+//                    possibilities,
+//                    0);
+//            cell.getCell(x, y).setBiome(newBiome);
+//            render.render();
         }
         if (source == "setBiome" || source == "calcValues")
         {
@@ -93,7 +93,7 @@ public class ButtonHandler
         }
         if (source == "dayStart")
         {
-            day.incriment(frame.getSliderDay() / 10);
+            day.incriment(buttons.getSliderDay() / 10);
         }
     }
 

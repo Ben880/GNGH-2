@@ -35,6 +35,11 @@ public class LabelHandler
         label = l;
     }
 
+    public void debug(boolean b)
+    {
+        label.toggleDebug(b);
+    }
+
     public void resourceUpdate()
     {
         label.setText(0, 1, "Day: " + day.getDay());
