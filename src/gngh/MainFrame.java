@@ -4,7 +4,6 @@ import cell.CellHolder;
 import debug.DebugInfo;
 import generation.Generator;
 import java.awt.BorderLayout;
-import java.awt.Color;
 import javax.swing.JFrame;
 import render.RenderTiles;
 import resources.ResourceHolder;
@@ -23,17 +22,12 @@ class MainFrame extends JFrame
     Console console;
     ActionButtons action;
     InfoLabels infoLabel;
-    //Game variables
-    public static int currX = 19;
-    public static int currY = 19;
+    MenuBar menuBar;
     //Classs import
     SoundPlayer sound = new SoundPlayer();
     DayTracker day = new DayTracker();
     DebugInfo debug = new DebugInfo();
     LabelHandler label = new LabelHandler();
-    //distasteful palet here
-    Color forest = new Color(0, 100, 0);
-    Color desert = new Color(255, 209, 114);
 
     MainFrame(String s)
     {
@@ -64,11 +58,11 @@ class MainFrame extends JFrame
         action = new ActionButtons();
         infoLabel = new InfoLabels();
         setLayout(new BorderLayout());
+        menuBar = new MenuBar();
         add(infoLabel, BorderLayout.LINE_END);
         add(action, BorderLayout.LINE_START);
         add(console, BorderLayout.PAGE_END);
         add(tile, BorderLayout.CENTER);
-        MenuBar menuBar = new MenuBar();
         setJMenuBar(menuBar);
     }
 
@@ -83,39 +77,22 @@ class MainFrame extends JFrame
         label.resourceUpdate();
     }
 
-    public void debug()
-    {
-        ConsoleHandler console = new ConsoleHandler();
-        if (debug.getDebug())
-        {
-            debug.setDebug(false);
-            console.append("Debug: false");
-            action.toggleDebug(false);
-            infoLabel.toggleDebug(false);
-
-        } else
-        {
-            debug.setDebug(true);
-            console.append("Debug: true");
-            action.toggleDebug(true);
-            infoLabel.toggleDebug(true);
-        }
-    }
-
-    public void setActionVisible(int i, boolean b)
-    {
-        //nul pointer when tile is clicked
-        //button handler line 52 gngh 516
-        action.setVisible(i, b);
-    }
-
-    public int getSliderDay()
-    {
-        return action.getSliderDay();
-    }
-
-    public void setSliderDay(int days)
-    {
-        action.setSliderDay(days);
-    }
+//    public void debug()
+//    {
+//        //ConsoleHandler console = new ConsoleHandler();
+//        if (debug.getDebug())
+//        {
+//            debug.setDebug(false);
+//            console.append("Debug: false");
+//            action.toggleDebug(false);
+//            infoLabel.toggleDebug(false);
+//
+//        } else
+//        {
+//            debug.setDebug(true);
+//            console.append("Debug: true");
+//            action.toggleDebug(true);
+//            infoLabel.toggleDebug(true);
+//        }
+//    }
 } //end
