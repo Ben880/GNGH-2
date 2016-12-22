@@ -41,10 +41,7 @@ class MainFrame extends JFrame
 
     public void initialize()
     {
-
-        ActionHandler action = ActionHandler.getInstance();
         label.initialize(this);
-        action.button().initialize(this);
         CellHolder cells = new CellHolder();
         cells.initialize();
         ResourceHolder resources = new ResourceHolder();

@@ -15,8 +15,7 @@ import util.GUIPallet;
 public class ActionButtons extends JPanel
 {
 
-    //singleton declarations
-    ActionHandler action;
+    ButtonHandler button = new ButtonHandler();
     //Left panel
     JPanel leftCol = new JPanel();
     JPanel leftInner = new JPanel();
@@ -52,7 +51,6 @@ public class ActionButtons extends JPanel
     {
         ButtonDisplayHandler button = new ButtonDisplayHandler();
         button.initialize(this);
-        action = ActionHandler.getInstance();
         setLayout(new BorderLayout());
         //main holder
         leftCol.setPreferredSize(sideD);
@@ -174,11 +172,11 @@ public class ActionButtons extends JPanel
             try
             {
                 btnNumber = Integer.parseInt(event.getActionCommand());
-                action.button.actionClick(btnNumber);
+                button.actionClick(btnNumber);
             } catch (NumberFormatException e)
             {
                 String source = event.getActionCommand();
-                action.button.actionClick(source);
+                button.actionClick(source);
             } catch (Exception e)
             {
                 System.out.println("Unhandled Exception caught " + e);

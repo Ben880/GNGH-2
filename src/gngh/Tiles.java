@@ -27,7 +27,7 @@ public class Tiles extends JPanel
     Border emptyBorder = BorderFactory.createEmptyBorder();
     Border lineBorder = BorderFactory.createLineBorder(new Color(100, 100, 100), 1);
     //the buttons themselves
-    ActionHandler action = ActionHandler.getInstance();
+    ButtonHandler button = new ButtonHandler();
     JButton[][] btn = new JButton[20][20];
     //holder for the buttons
     JPanel main = new JPanel();
@@ -95,7 +95,7 @@ public class Tiles extends JPanel
             int y = i / 20;
             int x = i % 20;
             //display attack options here
-            action.button().gameClick(x, y);
+            button.gameClick(x, y);
 
         }
     } //end press class
