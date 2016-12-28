@@ -12,7 +12,7 @@ public class GUIPallet
 
     Color background = new Color(100, 100, 100);
     Color panel = new Color(170, 170, 170);
-    Color myGrey = new Color(225, 225, 225);
+    Color myGray = new Color(225, 225, 225);
 
     public Color getPanel()
     {
@@ -22,5 +22,10 @@ public class GUIPallet
     public Color getBackground()
     {
         return background;
+    }
+
+    public Color getMyGray()
+    {
+        return myGray;
     }
 }
