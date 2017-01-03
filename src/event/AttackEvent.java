@@ -1,6 +1,7 @@
 package event;
 
 import util.Location;
+import winow.Slider;
 
 /*
     BenjaminWilcox
@@ -16,15 +17,22 @@ public class AttackEvent extends Event
 
     public void create(Location l)
     {
-        troops = 10;
-        location = l;
-        days = (int) Math.round(location.baseDistance() * 4.0);
-        setCompleet(days + day.getDay());
-        setMessage("Troops have returned");
-        resources.troops().subtrat(10);
-        resources.food().subtrat(troops * days);
-        console.append("Troops set to return on day " + compleet);
-        label.resourceUpdate();
+        Slider slider = new Slider();
+        troops = slider.getNumber("send", "troops") / 10;
+        if (troops != 0)
+        {
+            location = l;
+            days = (int) Math.round(location.baseDistance() * 4.0);
+            setCompleet(days + day.getDay());
+            setMessage("Troops have returned");
+            resources.troops().subtrat(troops);
+            resources.food().subtrat(troops * days * 5);
+            console.append("Troops set to return on day " + compleet);
+            label.resourceUpdate();
+        } else
+        {
+            dispatch.cancelEvent();
+        }
     }
 
     public void end()
