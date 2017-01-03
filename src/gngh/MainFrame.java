@@ -74,22 +74,4 @@ class MainFrame extends JFrame
         label.resourceUpdate();
     }
 
-//    public void debug()
-//    {
-//        //ConsoleHandler console = new ConsoleHandler();
-//        if (debug.getDebug())
-//        {
-//            debug.setDebug(false);
-//            console.append("Debug: false");
-//            action.toggleDebug(false);
-//            infoLabel.toggleDebug(false);
-//
-//        } else
-//        {
-//            debug.setDebug(true);
-//            console.append("Debug: true");
-//            action.toggleDebug(true);
-//            infoLabel.toggleDebug(true);
-//        }
-//    }
 } //end
