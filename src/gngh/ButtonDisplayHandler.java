@@ -61,7 +61,7 @@ public class ButtonDisplayHandler
             case 4:
                 return "Train";
             case 5:
-                return " ";
+                return "Chop";
             case 6:
                 return "Generic Event";
             case 7:

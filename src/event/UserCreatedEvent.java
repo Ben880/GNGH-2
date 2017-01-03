@@ -52,6 +52,12 @@ public class UserCreatedEvent
             train.create();
             dispatch.storeEvent(train);
         }
+        if (type == 5)
+        {
+            ChopEvent chop = new ChopEvent();
+            chop.create();
+            dispatch.storeEvent(chop);
+        }
     }
 
 }

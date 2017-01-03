@@ -118,7 +118,8 @@ public class ButtonHandler
             case 4:
                 event.create(4);
                 break;
-            case 6:
+            case 5:
+                event.create(5);
                 break;
         }
     }
