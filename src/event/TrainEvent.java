@@ -2,6 +2,7 @@ package event;
 
 import static event.Event.resources;
 import java.util.Random;
+import winow.Slider;
 
 /*
     BenjaminWilcox
@@ -17,22 +18,28 @@ public class TrainEvent extends Event
 
     public void create()
     {
-        people = rand.nextInt(10);
-        if (people < 3)
-            people = 3;
-        troops = people - (rand.nextInt(3));
-        resources.people().subtrat(people);
-        setCompleet(rand.nextInt(10) + day.getDay() + 5);
-        setMessage(troops + " trainees have compeeted their training. " + (people - troops) + " have failed their training.");
-        console.append(people + " people have been set to train");
-        label.resourceUpdate();
+        Slider slider = new Slider();
+        int desired = slider.getNumber("train", "troops") / 10;
+        if (desired != 0)
+        {
+            troops = desired - rand.nextInt(desired / 2);
+            people = desired - troops;
+            resources.people().subtrat(desired);
+            setCompleet(rand.nextInt(10) + day.getDay() + 5);
+            setMessage(troops + " trainees have compeeted their training. " + (people) + " have failed their training.");
+            console.append(desired + " people have been set to train");
+            label.resourceUpdate();
+        } else
+        {
+            dispatch.cancelEvent();
+        }
     }
 
     public void end()
     {
         console.append(message);
         resources.troops().add(troops);
-        resources.people().add(people - troops);
+        resources.people().add(people);
         label.resourceUpdate();
     }
 }
