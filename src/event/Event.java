@@ -18,6 +18,7 @@ public class Event
     String message;
     int compleet;
     int eventId;
+    static EventDispatcher dispatch = new EventDispatcher();
     static RenderTiles render = new RenderTiles();
     static DayTracker day = new DayTracker();
     static CellHolder cell = new CellHolder();
@@ -48,6 +49,11 @@ public class Event
     public int getId()
     {
         return eventId;
+    }
+
+    public void setID(int i)
+    {
+        eventId = i;
     }
 
     public void end()
