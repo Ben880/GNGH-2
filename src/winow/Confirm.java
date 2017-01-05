@@ -1,0 +1,47 @@
+package winow;
+
+import debug.DebugInfo;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import util.GUIPallet;
+
+/*
+    BenjaminWilcox
+    Dec 22, 2016
+    GNGH_2
+ */
+public class Confirm extends JFrame
+{
+
+    JLabel message = new JLabel();
+    GUIPallet pallet = new GUIPallet();
+    DebugInfo debug = new DebugInfo();
+
+    public boolean confirm(String dialouge, String title)
+    {
+        if (debug.getDebug())
+            return true;
+        UIManager UI = new UIManager();
+        UI.put("OptionPane.background", pallet.getPanel());
+        UI.put("Panel.background", pallet.getPanel());
+        message.setText(dialouge + "?");
+        final JComponent[] inputs = new JComponent[]
+        {
+            message
+        };
+        int result = JOptionPane.showConfirmDialog(null, inputs, title, JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        if (result == JOptionPane.OK_OPTION)
+        {
+            System.out.println("User confirmed dialouge");
+            return true;
+        } else
+        {
+            System.out.println("User canceled or closed the dialog result = " + result);
+            return false;
+        }
+    }
+
+}
