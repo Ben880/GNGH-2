@@ -1,5 +1,6 @@
 package winow;
 
+import debug.DebugInfo;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -16,9 +17,12 @@ public class Message
 
     JLabel message = new JLabel();
     GUIPallet pallet = new GUIPallet();
+    DebugInfo debug = new DebugInfo();
 
     public boolean confirm(String dialouge, String title)
     {
+        if (debug.getDebug())
+            return true;
         UIManager UI = new UIManager();
         UI.put("OptionPane.background", pallet.getPanel());
         UI.put("Panel.background", pallet.getPanel());
