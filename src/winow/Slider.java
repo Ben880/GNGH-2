@@ -49,11 +49,11 @@ public class Slider
         int result = JOptionPane.showConfirmDialog(null, inputs, "", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (result == JOptionPane.OK_OPTION)
         {
-            System.out.println("You entered " + slider.getValue());
+            System.out.println("slider amount entered: " + slider.getValue());
             return slider.getValue();
         } else
         {
-            System.out.println("User canceled / closed the dialog, result = " + result);
+            System.out.println("User canceled or closed the dialog result = " + result);
             return 0;
         }
     }
