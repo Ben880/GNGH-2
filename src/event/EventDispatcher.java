@@ -13,6 +13,7 @@ public class EventDispatcher
     private static EventHandler handler = new EventHandler();
     private static ArrayList<Event> event = new ArrayList<Event>();
     private static boolean cancleNext = false;
+    private static int eventNumber = 0;
 
     public EventDispatcher()
     {
@@ -36,21 +37,23 @@ public class EventDispatcher
         if (!cancleNext)
         {
             event.add(e);
-            e.setID(event.size());
-            System.out.println("Event with id: " + e.getId() + " stored");
+            e.setID(eventNumber);
+            System.out.println("Event stored id: " + eventNumber);
+            eventNumber++;
         }
         cancleNext = false;
     }
 
     public void removeEvent(int i)
     {
-        event.remove(i);
-        System.out.println("Event with id: " + i + " removed");
+        //WIP
+//        event.remove(i);
+//        System.out.println("Event removed id: " + i);
     }
 
     public void cancelEvent()
     {
         cancleNext = true;
-        System.out.println("Event with id: " + event.size() + " cancled");
+        System.out.println("Event cancled id: " + eventNumber);
     }
 }
