@@ -3,6 +3,7 @@ package gngh;
 import conditions.LoseCondition;
 import event.EventDispatcher;
 import resources.ResourceProduction;
+import winow.Confirm;
 
 /*
        //  Author: Benjamin Wilcox
@@ -14,7 +15,8 @@ public class DayTracker
     private static int day = 0;
     private static LabelHandler label = new LabelHandler();
     private static EventDispatcher event = new EventDispatcher();
-    LoseCondition loss = new LoseCondition();
+    private static LoseCondition loss = new LoseCondition();
+    private static Confirm confirm = new Confirm();
 
     public DayTracker()
     {
@@ -28,16 +30,19 @@ public class DayTracker
         ResourceProduction production;
         production = ResourceProduction.getInstance();
 
-        while (i < amount)
+        if (confirm.confirm("Do you want to simulate " + amount + " days", "Start days"))
         {
-            day++;
+            while (i < amount)
+            {
+                day++;
 
-            event.dayChange(day);
-            production.dayChange();
-            loss.dayChange(day);
-            i++;
+                event.dayChange(day);
+                production.dayChange();
+                loss.dayChange(day);
+                i++;
+            }
+            label.resourceUpdate();
         }
-        label.resourceUpdate();
     }
 
     public int getDay()
