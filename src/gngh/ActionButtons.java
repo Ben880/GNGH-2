@@ -192,6 +192,7 @@ public class ActionButtons extends JPanel
         public void stateChanged(ChangeEvent e)
         {
             dayDisplay.setText("Days: " + dayIncriment.getValue() / 10);
-        }
-    }// end sliderhandler
+
+        }// end sliderhandler
+    }
 }

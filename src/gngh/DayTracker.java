@@ -2,6 +2,7 @@ package gngh;
 
 import conditions.LoseCondition;
 import event.EventDispatcher;
+import javax.swing.Timer;
 import resources.ResourceProduction;
 import winow.Confirm;
 
@@ -17,6 +18,7 @@ public class DayTracker
     private static EventDispatcher event = new EventDispatcher();
     private static LoseCondition loss = new LoseCondition();
     private static Confirm confirm = new Confirm();
+    Timer timer;
 
     public DayTracker()
     {
@@ -35,7 +37,7 @@ public class DayTracker
             while (i < amount)
             {
                 day++;
-
+                System.out.println("Day: " + day);
                 event.dayChange(day);
                 production.dayChange();
                 loss.dayChange(day);
