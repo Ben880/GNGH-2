@@ -1,6 +1,9 @@
 package event;
 
+import static event.Event.resources;
+import java.util.Random;
 import util.Location;
+import winow.Slider;
 
 /*
     BenjaminWilcox
@@ -14,6 +17,7 @@ public class ForageEvent extends Event
     int people;
     int days;
     int food;
+    Random rand = new Random();
 
     public ForageEvent(Location l)
     {
@@ -22,15 +26,23 @@ public class ForageEvent extends Event
 
     public void create(Location l)
     {
-        people = 10;
-        location = l;
-        food = (int) Math.round(100 * people * cell.getCell(location).resources().getFertility());
-        days = (int) Math.round(location.baseDistance() * 6);
-        setCompleet(days + day.getDay());
-        setMessage("Foragers have returned with " + food + " units of food");
-        resources.people().subtrat(people);
-        console.append("Foragers set to return on day " + compleet);
-        label.resourceUpdate();
+        Slider slider = new Slider();
+        people = slider.getNumber("send", "people") / 10;
+        if (people != 0)
+        {
+            location = l;
+            food = (int) Math.round(100 * people * cell.getCell(location).resources().getFertility());
+            days = (int) Math.round(location.baseDistance() * 6);
+            setCompleet(days + day.getDay());
+            setMessage("Foragers have returned with " + food + " units of food");
+            resources.people().subtrat(people);
+            console.append("Foragers set to return on day " + compleet);
+            label.resourceUpdate();
+        } else
+        {
+            dispatch.cancelEvent();
+        }
+
     }
 
     public void end()
