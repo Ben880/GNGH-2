@@ -2,6 +2,7 @@ package event;
 
 import static event.Event.day;
 import java.util.Random;
+import winow.Slider;
 
 /*
     BenjaminWilcox
@@ -17,13 +18,21 @@ public class RecruitEvent extends Event
 
     public void create()
     {
-        recruiters = 2;
-        resources.people().subtrat(recruiters);
-        people = rand.nextInt(3) * recruiters;
-        setCompleet(rand.nextInt(10) + day.getDay());
-        setMessage("Recruiters have returned with " + people + " new people");
-        console.append("Recruiters have been sent out");
-        label.resourceUpdate();
+
+        Slider slider = new Slider();
+        int recruiters = slider.getNumber("send", "recruiters") / 10;
+        if (recruiters != 0)
+        {
+            people = (int) Math.round(recruiters * rand.nextDouble() * 2);
+            resources.people().subtrat(recruiters);
+            setCompleet(rand.nextInt(10) + day.getDay());
+            setMessage("Recruiters have returned with " + people + " new people");
+            console.append("Recruiters have been sent out");
+            label.resourceUpdate();
+        } else
+        {
+            dispatch.cancelEvent();
+        }
     }
 
     public void end()

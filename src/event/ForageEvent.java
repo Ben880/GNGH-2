@@ -36,7 +36,7 @@ public class ForageEvent extends Event
             setCompleet(days + day.getDay());
             setMessage("Foragers have returned with " + food + " units of food");
             resources.people().subtrat(people);
-            console.append("Foragers set to return on day " + compleet);
+            console.append(people + " foragers set to return on day " + compleet);
             label.resourceUpdate();
         } else
         {
