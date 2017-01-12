@@ -63,7 +63,7 @@ public class ButtonDisplayHandler
             case 5:
                 return "Chop";
             case 6:
-                return "Generic Event";
+                return "";
             case 7:
                 return " ";
             case 8:
