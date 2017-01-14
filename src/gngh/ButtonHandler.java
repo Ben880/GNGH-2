@@ -94,7 +94,6 @@ public class ButtonHandler
         if (source == "dayStart")
         {
             day.incriment(buttons.getSliderDay() / 10);
-            buttons.setSliderDay(10);
         }
     }
 
