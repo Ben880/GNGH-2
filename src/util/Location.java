@@ -17,6 +17,11 @@ public class Location
         this.y = y;
     }
 
+    public String toString()
+    {
+        return ("(" + x + ", " + y + ")");
+    }
+
     public int getX()
     {
         return x;
