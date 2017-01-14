@@ -41,7 +41,6 @@ class MainFrame extends JFrame
 
     public void initialize()
     {
-        label.initialize(this);
         CellHolder cells = new CellHolder();
         cells.initialize();
         ResourceHolder resources = new ResourceHolder();
