@@ -16,23 +16,23 @@ public class LabelHandler
     private static ResourceHolder resources = new ResourceHolder();
     private static DebugInfo debug = new DebugInfo();
     private static ButtonDisplayHandler dispButton = new ButtonDisplayHandler();
-    private static CoLabelHandler text;
+    private static LabelCoHandler text = new LabelCoHandler();
     private static InfoLabels label;
-    private static MainFrame frame;
+//    private static MainFrame frame;
 
     public LabelHandler()
     {
-        text = new CoLabelHandler();
+
     }
 
-    public void initialize(MainFrame f)
-    {
-        frame = f;
-    }
-
+//    public void initialize(MainFrame f)
+//    {
+//        frame = f;
+//    }
     public void init2(InfoLabels l)
     {
         label = l;
+
     }
 
     public void debug(boolean b)
@@ -42,10 +42,7 @@ public class LabelHandler
 
     public void resourceUpdate()
     {
-        label.setText(0, 1, "Day: " + day.getDay());
-        label.setText(1, 1, "Day: " + day.getDay());
-        label.setText(2, 1, "Day: " + day.getDay());
-        label.setText(3, 1, "Day: " + day.getDay());
+        dayUpdate();
         label.setText(2, 3, "food: " + resources.food().get());
         label.setText(2, 4, "lumber: " + resources.lumber().get());
         label.setText(2, 5, "stone: " + resources.stone().get());
@@ -57,6 +54,14 @@ public class LabelHandler
         label.setText(2, 11, "livestock: " + resources.animals().get());
         label.setText(2, 12, "medicine: " + resources.medicine().get());
 
+    }
+
+    public void dayUpdate()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            label.setText(i, 1, "Day: " + day.getDay());
+        }
     }
 
     public void clickUpdate(int x, int y)
@@ -75,8 +80,8 @@ public class LabelHandler
             label.setText(0, 11, "Enemy Skill: " + cell.getCell(x, y).enemy().getDefense());
             if (debug.getDebug())
             {
-                frame.infoLabel.buttonInfo.setText("  Button: " + i + " (" + x + "," + y + ")");
-                frame.infoLabel.isOwned.setText("  Owned: " + cell.getCell(x, y).owned().isOwned());
+//                frame.infoLabel.buttonInfo.setText("  Button: " + i + " (" + x + "," + y + ")");
+//                frame.infoLabel.isOwned.setText("  Owned: " + cell.getCell(x, y).owned().isOwned());
             }
 
             dispButton.setVisible(0, !cell.getCell(x, y).visible().isStatsVisible());
@@ -95,8 +100,8 @@ public class LabelHandler
 
             if (debug.getDebug())
             {
-                frame.infoLabel.buttonInfo.setText("  Button: " + i + " (" + x + "," + y + ")");
-                frame.infoLabel.isOwned.setText("  Owned: " + cell.getCell(x, y).owned().isOwned());
+//                frame.infoLabel.buttonInfo.setText("  Button: " + i + " (" + x + "," + y + ")");
+//                frame.infoLabel.isOwned.setText("  Owned: " + cell.getCell(x, y).owned().isOwned());
             }
             dispButton.setVisible(0, !cell.getCell(x, y).visible().isStatsVisible());
             dispButton.setVisible(1, !cell.getCell(x, y).owned().isOwned());
