@@ -25,7 +25,7 @@ public class RenderTiles
         {
             for (int y = 0; y < 20; y++)
             {
-                if (cell.getCell(x, y).visible().isBiomeVisible())
+                if (cell.getCell(x, y).visible().isBiomeVisible() || cell.fog == false)
                 {
                     render.render(x, y);
                 } else
