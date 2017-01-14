@@ -20,6 +20,11 @@ public class Enemy
         return type;
     }
 
+    public double getHealth()
+    {
+        return health;
+    }
+
     public String getName()
     {
         return name;
@@ -47,6 +52,9 @@ public class Enemy
 
     public void setHealth(double d)
     {
-        health = d;
+        if (number > 1)
+            health = 100;
+        else
+            health = d;
     }
 }
