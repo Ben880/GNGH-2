@@ -20,7 +20,7 @@ public class RecruitEvent extends Event
     {
 
         Slider slider = new Slider();
-        int recruiters = slider.getNumber("send", "recruiters") / 10;
+        recruiters = slider.getNumber("send", "recruiters") / 10;
         if (recruiters != 0)
         {
             people = (int) Math.round(recruiters * rand.nextDouble() * 2);
