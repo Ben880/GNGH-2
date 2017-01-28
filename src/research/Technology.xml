@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<root>
+    <tech name="None"> 
+        <aquired>true</aquired>
+        <time>0</time>
+        <dependant1>BasicTools</dependant1>
+        <dependant2>BasicTools</dependant2>
+        <multiplier>1.0</multiplier>
+        <stat>none</stat>
+    </tech>
+    <tech name="BasicTools">
+        <aquired>true</aquired>
+        <time>5</time>
+        <dependant1>None</dependant1>
+        <dependant2>None</dependant2>
+        <multiplier>1.0</multiplier>
+        <stat>none</stat>
+    </tech>
+    <tech name="Foraging">
+        <aquired>false</aquired>
+        <time>10</time>
+        <dependant1>None</dependant1>
+        <dependant2>None</dependant2>
+        <multiplier>1.0</multiplier>
+        <stat>none</stat>
+    </tech>
+    <tech name="Farming">
+        <aquired>false</aquired>
+        <time>10</time>
+        <dependant1>BasicTools</dependant1>
+        <dependant2>Foraging</dependant2>
+        <multiplier>1.0</multiplier>
+        <stat>none</stat>
+        
+    </tech>
+    <tech name="Forestry">
+        <aquired>false</aquired>
+        <time>10</time>
+        <dependant1>BasicTools</dependant1>
+        <dependant2>Foraging</dependant2>
+        <multiplier>1.0</multiplier>
+        <stat>none</stat>
+    </tech> 
+    <tech name="WoodWorking">
+        <aquired>false</aquired>
+        <time>10</time>
+        <dependant1>Forestry</dependant1>
+        <dependant2>BasicTools</dependant2>
+        <multiplier>1.0</multiplier>
+        <stat>none</stat>
+    </tech>
+    <tech name="BetterTools">
+        <aquired>false</aquired>
+        <time>10</time>
+        <dependant1>BasicTools</dependant1>
+        <dependant2>WoodWorking</dependant2>
+        <multiplier>1.0</multiplier>
+        <stat>none</stat>
+    </tech> 
+    <tech name="WoodBuildings">
+        <aquired>false</aquired>
+        <time>10</time>
+        <dependant1>BetterTools</dependant1>
+        <dependant2>WoodWorking</dependant2>
+        <multiplier>1.0</multiplier>
+        <stat>none</stat>
+    </tech>
+    <tech name="Mining">
+        <aquired>false</aquired>
+        <time>10</time>
+        <dependant1>BetterTools</dependant1>
+        <dependant2>WoodBuildings</dependant2>
+        <multiplier>1.0</multiplier>
+        <stat>none</stat>
+    </tech>
+    <tech name="Quarrying">
+        <aquired>false</aquired>
+        <time>10</time>
+        <dependant1>BetterTools</dependant1>
+        <dependant2>WoodBuildings</dependant2>
+        <multiplier>1.0</multiplier>
+        <stat>none</stat>
+    </tech>
+    <tech name="Smithing">
+        <aquired>false</aquired>
+        <time>10</time>
+        <dependant1>Quarrying</dependant1>
+        <dependant2>Mining</dependant2>
+        <multiplier>1.0</multiplier>
+        <stat>none</stat>
+    </tech>
+    <tech name="Iron">
+        <aquired>false</aquired>
+        <time>10</time>
+        <dependant1>Smithing</dependant1>
+        <dependant2>BetterToold</dependant2>
+        <multiplier>1.0</multiplier>
+        <stat>none</stat>
+    </tech>
+    <tech name="BetterFarming">
+        <aquired>false</aquired>
+        <time>20</time>
+        <dependant1>Iron</dependant1>
+        <dependant2>Farming</dependant2>
+        <multiplier>1.5</multiplier>
+        <stat>none</stat>
+    </tech>
+    <tech name="BetterForaging">
+        <aquired>false</aquired>
+        <time>20</time>
+        <dependant1>Iron</dependant1>
+        <dependant2>Foraging</dependant2>
+        <multiplier>1.5</multiplier>
+        <stat>none</stat>
+    </tech>
+    <tech name="StoneWorks">
+        <aquired>false</aquired>
+        <time>20</time>
+        <dependant1>Iron</dependant1>
+        <dependant2>WoodWorking</dependant2>
+        <multiplier>1.5</multiplier>
+        <stat>none</stat>
+    </tech>
+    <tech name="StoneBuildings">
+        <aquired>false</aquired>
+        <time>20</time>
+        <dependant1>StoneWorks</dependant1>
+        <dependant2>Iron</dependant2>
+        <multiplier>1.5</multiplier>
+        <stat>none</stat>
+    </tech>
+    <tech name="BetterForestry">
+        <aquired>false</aquired>
+        <time>20</time>
+        <dependant1>Iron</dependant1>
+        <dependant2>Farming</dependant2>
+        <multiplier>1.5</multiplier>
+        <stat>none</stat>
+    </tech>
+    <tech name="BetterFarming">
+        <aquired>false</aquired>
+        <time>20</time>
+        <dependant1>Steel</dependant1>
+        <dependant2>Farming</dependant2>
+        <multiplier>1.5</multiplier>
+        <stat>none</stat>
+    </tech>
+    <tech name="BetterFarming">
+        <aquired>false</aquired>
+        <time>20</time>
+        <dependant1>Steel</dependant1>
+        <dependant2>Farming</dependant2>
+        <multiplier>1.5</multiplier>
+        <stat>none</stat>
+    </tech>
+    
+</root>
