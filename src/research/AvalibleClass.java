@@ -8,7 +8,7 @@ package research;
 public class AvalibleClass
 {
 
-    private static TechHolder tech = new TechHolder();
+    private static TechList tech = new TechList();
 
     public AvalibleClass()
     {
@@ -17,7 +17,8 @@ public class AvalibleClass
 
     public void summary()
     {
-        tech.build();
+        TechBuilder build = new TechBuilder();
+        build.build();
         System.out.println("From Class Tree");
         getCompleetList();
         getAvalibleList();
