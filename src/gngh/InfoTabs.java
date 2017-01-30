@@ -1,4 +1,4 @@
-package gui;
+package gngh;
 
 /*
        //  Author: Benjamin Wilcox

@@ -1,4 +1,4 @@
-package gui;
+package gngh;
 
 import cell.CellHolder;
 import debug.DebugInfo;

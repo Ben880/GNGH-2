@@ -1,4 +1,4 @@
-package gui;
+package gngh;
 
 import util.SoundPlayer;
 

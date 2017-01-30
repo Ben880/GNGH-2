@@ -1,4 +1,4 @@
-package gui;
+package gngh;
 
 import conditions.LoseCondition;
 import event.EventDispatcher;

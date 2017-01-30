@@ -1,7 +1,7 @@
 package render;
 
 import cell.CellHolder;
-import gui.Tiles;
+import gngh.Tiles;
 import java.awt.Color;
 import util.Location;
 
