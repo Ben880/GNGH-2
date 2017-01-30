@@ -1,7 +1,7 @@
 package render;
 
 import biome.Biome;
-import gngh.Tiles;
+import gui.Tiles;
 import java.awt.Color;
 import util.Location;
 

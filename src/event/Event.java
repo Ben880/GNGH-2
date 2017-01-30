@@ -1,9 +1,9 @@
 package event;
 
 import cell.CellHolder;
-import gngh.ConsoleHandler;
-import gngh.DayTracker;
-import gngh.LabelHandler;
+import gui.ConsoleHandler;
+import gui.DayTracker;
+import gui.LabelHandler;
 import render.RenderTiles;
 import resources.ResourceHolder;
 

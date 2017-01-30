@@ -1,6 +1,6 @@
 package conditions;
 
-import gngh.ConsoleHandler;
+import gui.ConsoleHandler;
 
 /*
     BenjaminWilcox
