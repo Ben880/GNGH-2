@@ -1,10 +1,10 @@
 package event;
 
-import cell.CellHolder;
-import gngh.ConsoleHandler;
-import gngh.DayTracker;
-import gngh.LabelHandler;
-import render.RenderTiles;
+import world.CellHolder;
+import gui.main.ConsoleHandler;
+import gui.main.DayTracker;
+import gui.main.LabelHandler;
+import world.render.RenderTiles;
 import resources.ResourceHolder;
 
 /*

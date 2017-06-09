@@ -3,7 +3,7 @@ package event;
 import static event.Event.resources;
 import java.util.Random;
 import util.Location;
-import winow.Slider;
+import gui.winow.Slider;
 
 /*
     BenjaminWilcox

@@ -1,6 +1,6 @@
 package research;
 
-import gngh.DayTracker;
+import gui.main.DayTracker;
 
 /*
     BenjaminWilcox

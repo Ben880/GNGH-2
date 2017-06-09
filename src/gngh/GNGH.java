@@ -1,5 +1,6 @@
 package gngh;
 
+import gui.main.MainFrame;
 import javax.swing.*;
 
 /*

@@ -1,8 +1,8 @@
 package event;
 
-import enemy.Battle;
+import world.enemy.Battle;
 import util.Location;
-import winow.Slider;
+import gui.winow.Slider;
 
 /*
     BenjaminWilcox

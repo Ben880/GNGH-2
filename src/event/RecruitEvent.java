@@ -2,7 +2,7 @@ package event;
 
 import static event.Event.day;
 import java.util.Random;
-import winow.Slider;
+import gui.winow.Slider;
 
 /*
     BenjaminWilcox

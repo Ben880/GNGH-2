@@ -1,8 +1,8 @@
 package debug;
 
-import gngh.ButtonDisplayHandler;
-import gngh.ConsoleHandler;
-import gngh.LabelHandler;
+import gui.main.ButtonDisplayHandler;
+import gui.main.ConsoleHandler;
+import gui.main.LabelHandler;
 
 /*
     BenjaminWilcox
