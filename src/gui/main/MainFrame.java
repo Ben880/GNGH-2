@@ -3,11 +3,11 @@ package gui.main;
 import debug.DebugInfo;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
-import world.render.RenderTiles;
 import resources.ResourceHolder;
 import util.SoundPlayer;
 import world.CellHolder;
 import world.generation.Generator;
+import world.render.RenderTiles;
 
 /*
     BenjaminWilcox
@@ -56,7 +56,7 @@ public class MainFrame extends JFrame
         setLayout(new BorderLayout());
         menuBar = new MenuBar();
         add(infoLabel, BorderLayout.LINE_END);
-        add(action, BorderLayout.LINE_START);
+        //add(action, BorderLayout.LINE_START);
         add(console, BorderLayout.PAGE_END);
         add(tile, BorderLayout.CENTER);
         setJMenuBar(menuBar);

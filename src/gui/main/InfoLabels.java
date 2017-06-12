@@ -20,7 +20,7 @@ public class InfoLabels extends JPanel
 
     LabelHandler lableHandle;
     //info main components
-    JLabel infoLabel = new JLabel("Info");
+    JLabel infoLabel = new JLabel("Actions");
     JPanel rightCol = new JPanel();
     ///debug panel components
     JPanel debugInfo = new JPanel();
@@ -28,7 +28,7 @@ public class InfoLabels extends JPanel
     JLabel isOwned = new JLabel();
     //palet
     GUIPallet pallet = new GUIPallet();
-    Dimension sideD = new Dimension(300, 15);
+    Dimension sideD = new Dimension(400, 15);
     Dimension debugInfoD = new Dimension(290, 145);
     LabelHandler label = new LabelHandler();
 
@@ -73,6 +73,7 @@ public class InfoLabels extends JPanel
         //add stuff
         rightCol.add(tp, BorderLayout.CENTER);
         rightCol.add(debugInfo);
+        rightCol.add(new DayPanel());
 
     }
 

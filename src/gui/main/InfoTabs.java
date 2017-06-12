@@ -16,20 +16,20 @@ public class InfoTabs extends JTabbedPane
     Color background = new Color(100, 100, 100);
     Color panel = new Color(170, 170, 170);
     Border emptyBorder = BorderFactory.createEmptyBorder();
-    TabPanel biome;
-    TabPanel base;
+    TabPanel world;
+    JobTab jobs;
     TabPanel resources;
     TabPanel research;
 
     public InfoTabs()
     {
-        setPreferredSize(new Dimension(290, 595));
-        biome = new TabPanel(0);
-        base = new TabPanel(1);
+        setPreferredSize(new Dimension(390, 595));
+        world = new TabPanel(0);
+        jobs = new JobTab();
         resources = new TabPanel(2);
         research = new TabPanel(3);
-        addTab("Biome", biome);
-        addTab("Base", base);
+        addTab("World", world);
+        addTab("Jobs", jobs);
         addTab("Resources", resources);
         addTab("Research", research);
         setBackgroundAt(0, new Color(250, 250, 250));
@@ -42,9 +42,9 @@ public class InfoTabs extends JTabbedPane
     public void setText(int l, int i, String s)
     {
         if (l == 0)
-            biome.setText(i, s);
-        if (l == 1)
-            base.setText(i, s);
+            world.setText(i, s);
+//        if (l == 1)
+//            jobs.setText(i, s);
         if (l == 2)
             resources.setText(i, s);
         if (l == 3)

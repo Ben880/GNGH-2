@@ -1,6 +1,5 @@
 package gui.main;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -12,9 +11,9 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+import util.GUIPallet;
 import world.render.RenderFog;
 import world.render.RenderTile;
-import util.GUIPallet;
 
 /*
        //  Author: Benjamin Wilcox
@@ -31,7 +30,7 @@ public class Tiles extends JPanel
     JButton[][] btn = new JButton[20][20];
     //holder for the buttons
     JPanel main = new JPanel();
-    JPanel mainHolder = new JPanel();
+//    JPanel mainHolder = new JPanel();
     GUIPallet pallet = new GUIPallet();
 
     public Tiles()
@@ -42,13 +41,13 @@ public class Tiles extends JPanel
         fog.initialize(this);
 
         //builds tiles
-        setLayout(new BorderLayout());
         main.setLayout(new GridLayout(20, 20));
         main.setBackground(pallet.getBackground());
-        main.setSize(1000, 1000);
-        mainHolder.add(main);
-        mainHolder.setBackground(pallet.getBackground());
-        add(mainHolder, BorderLayout.CENTER);
+        main.setPreferredSize(new Dimension(800, 800));
+//        mainHolder.add(main);
+//        mainHolder.setPreferredSize(new Dimension(800, 800));
+        setBackground(pallet.getBackground());
+        //add(mainHolder);
         int i = 0;
         int x = 0;
         int y = 0;
@@ -72,7 +71,7 @@ public class Tiles extends JPanel
             i++;
             x++;
         } //end while
-        add(main, BorderLayout.CENTER);
+        add(main);
     }
 
     public void setColor(int x, int y, Color c)
