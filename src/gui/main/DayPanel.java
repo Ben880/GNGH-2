@@ -24,7 +24,7 @@ public class DayPanel extends JPanel
 
     //Days Actions
     JPanel daysActions = new JPanel();
-    JSlider dayIncriment = new JSlider();
+    JSlider daySlider = new JSlider();
     JButton dayStart = new JButton();
     JLabel dayDisplay = new JLabel();
     JButton plusDays = new JButton();
@@ -32,6 +32,8 @@ public class DayPanel extends JPanel
     Dimension sliderD = new Dimension(270, 35);
     Dimension dayD = new Dimension(290, 100);
     GUIPallet pallet = new GUIPallet();
+
+    DayTracker dayTracker = new DayTracker();
 
     public DayPanel()
     {
@@ -47,14 +49,14 @@ public class DayPanel extends JPanel
         dayDisplay.setBorder(BorderFactory.createEmptyBorder());
         daysActions.add(dayDisplay);
         //slider
-        dayIncriment.setPreferredSize(sliderD);
-        dayIncriment.setSnapToTicks(true);
-        dayIncriment.setPaintTicks(true);
-        dayIncriment.setBackground(pallet.getPanel());
-        dayIncriment.setForeground(Color.BLACK);
-        dayIncriment.addChangeListener(new SliderHandler());
-        dayIncriment.setMajorTickSpacing(10);
-        daysActions.add(dayIncriment);
+        daySlider.setPreferredSize(sliderD);
+        daySlider.setSnapToTicks(true);
+        daySlider.setPaintTicks(true);
+        daySlider.setBackground(pallet.getPanel());
+        daySlider.setForeground(Color.BLACK);
+        daySlider.addChangeListener(new SliderHandler());
+        daySlider.setMajorTickSpacing(10);
+        daysActions.add(daySlider);
         //minus start plus
         minusDays.setText("-");
         minusDays.addActionListener(new ActionPress());
@@ -72,12 +74,12 @@ public class DayPanel extends JPanel
 
     public int getSliderDay()
     {
-        return dayIncriment.getValue();
+        return daySlider.getValue();
     }
 
     public void setSliderDay(int i)
     {
-        dayIncriment.setValue(i);
+        daySlider.setValue(i);
     }
 
     class ActionPress implements ActionListener
@@ -86,21 +88,18 @@ public class DayPanel extends JPanel
         @Override
         public void actionPerformed(ActionEvent event)
         {
-            int btnNumber = -1;
-            try
+            if (event.getSource() == plusDays)
             {
-                btnNumber = Integer.parseInt(event.getActionCommand());
-
-            } catch (NumberFormatException e)
+                System.out.println("day slider +1");
+                setSliderDay(getSliderDay() + 10);
+            } else if (event.getSource() == minusDays)
             {
-                String source = event.getActionCommand();
-
-            } catch (Exception e)
+                setSliderDay(getSliderDay() - 10);
+            } else if (event.getSource() == dayStart)
             {
-                System.out.println("Unhandled Exception caught " + e);
-                //if (debug)
-                //console("Unhandled Exception caught at ActionPress " + e);
+                dayTracker.incriment(getSliderDay() / 10);
             }
+
         }
     }// end action press
 
@@ -109,7 +108,7 @@ public class DayPanel extends JPanel
 
         public void stateChanged(ChangeEvent e)
         {
-            dayDisplay.setText("Days: " + dayIncriment.getValue() / 10);
+            dayDisplay.setText("Days: " + daySlider.getValue() / 10);
 
         }// end sliderhandler
     }

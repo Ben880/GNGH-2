@@ -26,21 +26,20 @@ public class ButtonDisplayHandler
         buttons.setVisible(i, b);
     }
 
-    public void setSlider(int i)
-    {
-        buttons.setSliderDay(i * 10);
-    }
-
-    public int getSliderDay()
-    {
-        return buttons.getSliderDay();
-    }
-
-    public void setSliderDay(int days)
-    {
-        buttons.setSliderDay(days);
-    }
-
+//    public void setSlider(int i)
+//    {
+//        buttons.setSliderDay(i * 10);
+//    }
+//
+//    public int getSliderDay()
+//    {
+//        return buttons.getSliderDay();
+//    }
+//
+//    public void setSliderDay(int days)
+//    {
+//        buttons.setSliderDay(days);
+//    }
     public void debug(boolean b)
     {
         buttons.toggleDebug(b);

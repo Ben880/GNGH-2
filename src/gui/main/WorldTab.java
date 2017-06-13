@@ -8,6 +8,11 @@ package gui.main;
 public class WorldTab
 {
 
+    public WorldTab()
+    {
+        new UpdateGUI().passTab(this);
+    }
+
     void update()
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

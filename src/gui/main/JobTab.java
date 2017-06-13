@@ -33,6 +33,7 @@ public class JobTab extends JPanel
 
     public JobTab()
     {
+        new UpdateGUI().passTab(this);
         //layout
         setLayout(new BorderLayout());
         this.setBackground(pallet.getPanel());

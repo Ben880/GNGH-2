@@ -35,7 +35,6 @@ public class MainFrame extends JFrame
         buildGUI();
         initialize();
         create();
-        action.setSliderDay(10);
         sound.playStart();
     }
 

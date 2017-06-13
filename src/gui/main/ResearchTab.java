@@ -8,6 +8,11 @@ package gui.main;
 public class ResearchTab
 {
 
+    public ResearchTab()
+    {
+        new UpdateGUI().passTab(this);
+    }
+
     void update()
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

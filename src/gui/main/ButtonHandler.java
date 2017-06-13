@@ -1,11 +1,11 @@
 package gui.main;
 
-import world.CellHolder;
 import debug.DebugInfo;
 import event.UserCreatedEvent;
+import util.Location;
+import world.CellHolder;
 import world.generation.ResourceGeneration;
 import world.render.RenderTiles;
-import util.Location;
 
 /*
        //  Author: Benjamin Wilcox
@@ -48,10 +48,10 @@ public class ButtonHandler
     {
         if (debug.getDebug() && source != "debugToggle")
             console.append("actionClick source: " + source);
-        if (source == "plusDays")
-            buttons.setSliderDay(buttons.getSliderDay() + 10);
-        if (source == "minusDays")
-            buttons.setSliderDay(buttons.getSliderDay() - 10);
+//        if (source == "plusDays")
+//            buttons.setSliderDay(buttons.getSliderDay() + 10);
+//        if (source == "minusDays")
+//            buttons.setSliderDay(buttons.getSliderDay() - 10);
         if (source == "debugToggle")
             debug.toggleDebug();
         if (source == "toggleFog")
@@ -91,10 +91,10 @@ public class ButtonHandler
             generate.mining();
             generate.lumber();
         }
-        if (source == "dayStart")
-        {
-            day.incriment(buttons.getSliderDay() / 10);
-        }
+//        if (source == "dayStart")
+//        {
+//            day.incriment(buttons.getSliderDay() / 10);
+//        }
     }
 
     public void actionClick(int i)
