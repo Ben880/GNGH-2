@@ -1,11 +1,13 @@
 package gui.main;
 
+import javax.swing.JPanel;
+
 /*
     BenjaminWilcox
     Jun 11, 2017
     GNGH_2
  */
-class ResourcesTab
+class ResourcesTab extends JPanel
 {
 
     public ResourcesTab()

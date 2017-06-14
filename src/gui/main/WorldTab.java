@@ -1,11 +1,13 @@
 package gui.main;
 
+import javax.swing.JPanel;
+
 /*
     BenjaminWilcox
     Jun 10, 2017
     GNGH_2
  */
-public class WorldTab
+public class WorldTab extends JPanel
 {
 
     public WorldTab()

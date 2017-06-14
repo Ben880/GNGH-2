@@ -20,14 +20,12 @@ public class MainFrame extends JFrame
     //importing sub panels
     Tiles tile;
     Console console;
-    ActionButtons action;
     Actions infoLabel;
     MenuBar menuBar;
     //Classs import
     SoundPlayer sound = new SoundPlayer();
     DayTracker day = new DayTracker();
     DebugInfo debug = new DebugInfo();
-    LabelHandler label = new LabelHandler();
 
     public MainFrame(String s)
     {
@@ -50,7 +48,6 @@ public class MainFrame extends JFrame
     {
         tile = new Tiles();
         console = new Console();
-        action = new ActionButtons();
         infoLabel = new Actions();
         setLayout(new BorderLayout());
         menuBar = new MenuBar();
@@ -68,8 +65,8 @@ public class MainFrame extends JFrame
         generate = null;
         RenderTiles render = new RenderTiles();
         render.render();
-        label.clickUpdate(19, 19);
-        label.resourceUpdate();
+//        label.clickUpdate(19, 19);
+//        label.resourceUpdate();
     }
 
 } //end

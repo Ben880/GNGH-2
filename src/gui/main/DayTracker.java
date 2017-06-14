@@ -2,9 +2,9 @@ package gui.main;
 
 import conditions.LoseCondition;
 import event.EventDispatcher;
+import gui.winow.Confirm;
 import javax.swing.Timer;
 import resources.ResourceProduction;
-import gui.winow.Confirm;
 
 /*
        //  Author: Benjamin Wilcox
@@ -14,7 +14,6 @@ public class DayTracker
 {
 
     private static int day = 0;
-    private static LabelHandler label = new LabelHandler();
     private static EventDispatcher event = new EventDispatcher();
     private static LoseCondition loss = new LoseCondition();
     private static Confirm confirm = new Confirm();
@@ -43,7 +42,7 @@ public class DayTracker
                 loss.dayChange(day);
                 i++;
             }
-            label.resourceUpdate();
+//            label.resourceUpdate();
         }
     }
 

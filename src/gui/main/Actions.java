@@ -17,7 +17,6 @@ import util.GUIPallet;
 public class Actions extends JPanel
 {
 
-    LabelHandler lableHandle;
     //info main components
     JLabel infoLabel = new JLabel("Actions");
     JPanel rightCol = new JPanel();
@@ -27,7 +26,6 @@ public class Actions extends JPanel
     GUIPallet pallet = new GUIPallet();
     Dimension sideD = new Dimension(400, 15);
     Dimension debugInfoD = new Dimension(290, 145);
-    LabelHandler label = new LabelHandler();
 
     InfoTabs tp;
     JPanel bottomHolder = new JPanel();
@@ -36,7 +34,7 @@ public class Actions extends JPanel
     Actions()
     {
         setLayout(new BorderLayout());
-        label.init2(this);
+//        label.init2(this);
         //main holder
         rightCol.setPreferredSize(sideD);
         rightCol.setBackground(pallet.getBackground());
@@ -68,9 +66,8 @@ public class Actions extends JPanel
 
     }
 
-    public void setText(int l, int i, String s)
-    {
-        tp.setText(l, i, s);
-    }
-
+//    public void setText(int l, int i, String s)
+//    {
+//        tp.setText(l, i, s);
+//    }
 }

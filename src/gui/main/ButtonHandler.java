@@ -18,8 +18,6 @@ public class ButtonHandler
 //    private static DebugInfo debug = new DebugInfo();
 //    private static ConsoleHandler console = new ConsoleHandler();
 
-    private static LabelHandler label = new LabelHandler();
-
     public ButtonHandler()
     {
 
@@ -27,8 +25,8 @@ public class ButtonHandler
 
     public void gameClick(int x, int y)
     {
-
-        label.clickUpdate(x, y);
+//
+//        label.clickUpdate(x, y);
         this.x = x;
         this.y = y;
     }
