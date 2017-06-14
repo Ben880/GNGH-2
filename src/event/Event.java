@@ -1,11 +1,10 @@
 package event;
 
-import world.CellHolder;
 import gui.main.ConsoleHandler;
 import gui.main.DayTracker;
-import gui.main.LabelHandler;
-import world.render.RenderTiles;
 import resources.ResourceHolder;
+import world.CellHolder;
+import world.render.RenderTiles;
 
 /*
     BenjaminWilcox
@@ -24,7 +23,6 @@ public class Event
     static CellHolder cell = new CellHolder();
     static ResourceHolder resources = new ResourceHolder();
     static ConsoleHandler console = new ConsoleHandler();
-    static LabelHandler label = new LabelHandler();
 
     public void setCompleet(int c)
     {

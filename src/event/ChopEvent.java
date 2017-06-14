@@ -1,8 +1,8 @@
 package event;
 
 import static event.Event.resources;
-import java.util.Random;
 import gui.winow.Slider;
+import java.util.Random;
 
 /*
     BenjaminWilcox
@@ -29,7 +29,6 @@ public class ChopEvent extends Event
             setCompleet(rand.nextInt(10) + day.getDay());
             setMessage("Chopers have returned with " + wood + " wood");
             console.append("The " + people + " Chopers will return in 10  days");
-            label.resourceUpdate();
         } else
         {
             dispatch.cancelEvent();
@@ -41,7 +40,6 @@ public class ChopEvent extends Event
         console.append(message);
         resources.lumber().add(wood);
         resources.people().add(people);
-        label.resourceUpdate();
     }
 
 }

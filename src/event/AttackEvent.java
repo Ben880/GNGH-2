@@ -1,8 +1,8 @@
 package event;
 
-import world.enemy.Battle;
-import util.Location;
 import gui.winow.Slider;
+import util.Location;
+import world.enemy.Battle;
 
 /*
     BenjaminWilcox
@@ -29,7 +29,7 @@ public class AttackEvent extends Event
             resources.troops().subtrat(troops);
             resources.food().subtrat(troops * days * 5);
             console.append("Troops set to return on day " + compleet);
-            label.resourceUpdate();
+//            label.resourceUpdate();
         } else
         {
             dispatch.cancelEvent();
@@ -65,6 +65,6 @@ public class AttackEvent extends Event
         console.append(message);
         battle.pushEnemyResults(location);
         resources.troops().add(battle.troopResults());
-        label.resourceUpdate();
+//        label.resourceUpdate();
     }
 }

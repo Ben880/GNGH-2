@@ -1,8 +1,7 @@
 package debug;
 
-import gui.main.ButtonDisplayHandler;
 import gui.main.ConsoleHandler;
-import gui.main.LabelHandler;
+
 
 /*
     BenjaminWilcox
@@ -14,8 +13,6 @@ public class DebugInfo
 
     private static boolean debug = false;
     private static ConsoleHandler console = new ConsoleHandler();
-    private static ButtonDisplayHandler buttons = new ButtonDisplayHandler();
-    private static LabelHandler labels = new LabelHandler();
 
     public DebugInfo()
     {

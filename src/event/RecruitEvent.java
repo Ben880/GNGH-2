@@ -1,8 +1,8 @@
 package event;
 
 import static event.Event.day;
-import java.util.Random;
 import gui.winow.Slider;
+import java.util.Random;
 
 /*
     BenjaminWilcox
@@ -28,7 +28,6 @@ public class RecruitEvent extends Event
             setCompleet(rand.nextInt(10) + day.getDay());
             setMessage("Recruiters have returned with " + people + " new people");
             console.append("Recruiters have been sent out");
-            label.resourceUpdate();
         } else
         {
             dispatch.cancelEvent();
@@ -40,6 +39,5 @@ public class RecruitEvent extends Event
         console.append(message);
         resources.people().add(recruiters);
         resources.people().add(people);
-        label.resourceUpdate();
     }
 }

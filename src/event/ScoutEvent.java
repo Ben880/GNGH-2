@@ -24,7 +24,6 @@ public class ScoutEvent extends Event
         resources.people().subtrat(10);
         resources.food().subtrat(people * days);
         console.append("Scouts are to return on day: " + compleet);
-        label.resourceUpdate();
     }
 
     @Override
@@ -38,6 +37,5 @@ public class ScoutEvent extends Event
         cell.getCell(location.getX(), location.getY() - 1).visible().setBiomeVisible(true);
         cell.getCell(location.getX(), location.getY() + 1).visible().setBiomeVisible(true);
         render.render();
-        label.resourceUpdate();
     }
 }

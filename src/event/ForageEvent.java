@@ -1,9 +1,9 @@
 package event;
 
 import static event.Event.resources;
+import gui.winow.Slider;
 import java.util.Random;
 import util.Location;
-import gui.winow.Slider;
 
 /*
     BenjaminWilcox
@@ -37,7 +37,6 @@ public class ForageEvent extends Event
             setMessage("Foragers have returned with " + food + " units of food");
             resources.people().subtrat(people);
             console.append(people + " foragers set to return on day " + compleet);
-            label.resourceUpdate();
         } else
         {
             dispatch.cancelEvent();
@@ -50,7 +49,6 @@ public class ForageEvent extends Event
         console.append(message);
         resources.food().add(food);
         resources.people().add(people);
-        label.resourceUpdate();
     }
 
 }

@@ -1,8 +1,8 @@
 package event;
 
 import static event.Event.resources;
-import java.util.Random;
 import gui.winow.Slider;
+import java.util.Random;
 
 /*
     BenjaminWilcox
@@ -28,7 +28,7 @@ public class TrainEvent extends Event
             setCompleet(rand.nextInt(10) + day.getDay() + 5);
             setMessage(troops + " trainees have compeeted their training. " + (people) + " have failed their training.");
             console.append(desired + " people have been set to train");
-            label.resourceUpdate();
+
         } else
         {
             dispatch.cancelEvent();
@@ -40,6 +40,6 @@ public class TrainEvent extends Event
         console.append(message);
         resources.troops().add(troops);
         resources.people().add(people);
-        label.resourceUpdate();
+
     }
 }
