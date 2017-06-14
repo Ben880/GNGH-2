@@ -28,8 +28,8 @@ public class DebugInfo
         else
             debug = true;
         console.append("Debug: " + debug);
-        buttons.debug(debug);
-        labels.debug(debug);
+//        buttons.debug(debug);
+//        labels.debug(debug);
     }
 
     public boolean getDebug()

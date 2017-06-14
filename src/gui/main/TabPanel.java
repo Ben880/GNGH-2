@@ -31,7 +31,7 @@ public class TabPanel extends JPanel
             label[i].setText("    " + i);
             add(label[i]);
             label[i].setFont(new Font("Arial", Font.PLAIN, 12));
-            setText(i, labelHandler.getDefaultText(index, i));
+//            setText(i, labelHandler.getDefaultText(index, i));
         }
         this.setBackground(pallet.getPanel());
         this.setBorder(emptyBorder);

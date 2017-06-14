@@ -1,8 +1,8 @@
 package gui.main;
 
-import world.CellHolder;
 import debug.DebugInfo;
 import resources.ResourceHolder;
+import world.CellHolder;
 
 /*
        //  Author: Benjamin Wilcox
@@ -16,8 +16,8 @@ public class LabelHandler
     private static ResourceHolder resources = new ResourceHolder();
     private static DebugInfo debug = new DebugInfo();
     private static ButtonDisplayHandler dispButton = new ButtonDisplayHandler();
-    private static LabelCoHandler text = new LabelCoHandler();
-    private static InfoLabels label;
+//    private static LabelCoHandler text = new LabelCoHandler();
+    private static Actions label;
 //    private static MainFrame frame;
 
     public LabelHandler()
@@ -29,15 +29,10 @@ public class LabelHandler
 //    {
 //        frame = f;
 //    }
-    public void init2(InfoLabels l)
+    public void init2(Actions l)
     {
         label = l;
 
-    }
-
-    public void debug(boolean b)
-    {
-        label.toggleDebug(b);
     }
 
     public void resourceUpdate()
@@ -84,9 +79,6 @@ public class LabelHandler
 //                frame.infoLabel.isOwned.setText("  Owned: " + cell.getCell(x, y).owned().isOwned());
             }
 
-            dispButton.setVisible(0, !cell.getCell(x, y).visible().isStatsVisible());
-            dispButton.setVisible(1, !cell.getCell(x, y).owned().isOwned());
-            dispButton.setVisible(2, cell.getCell(x, y).visible().isStatsVisible());
         } else
         {
             label.setText(0, 3, "Biome: ??");
@@ -103,16 +95,14 @@ public class LabelHandler
 //                frame.infoLabel.buttonInfo.setText("  Button: " + i + " (" + x + "," + y + ")");
 //                frame.infoLabel.isOwned.setText("  Owned: " + cell.getCell(x, y).owned().isOwned());
             }
-            dispButton.setVisible(0, !cell.getCell(x, y).visible().isStatsVisible());
-            dispButton.setVisible(1, !cell.getCell(x, y).owned().isOwned());
-            dispButton.setVisible(2, cell.getCell(x, y).visible().isStatsVisible());
+
         }
 
     }
-
-    public String getDefaultText(int l, int i)
-    {
-        return text.getText(l, i);
-    }
+//
+//    public String getDefaultText(int l, int i)
+//    {
+//        return text.getText(l, i);
+//    }
 
 }

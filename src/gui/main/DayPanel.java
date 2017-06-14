@@ -23,14 +23,13 @@ public class DayPanel extends JPanel
 {
 
     //Days Actions
-    JPanel daysActions = new JPanel();
     JSlider daySlider = new JSlider();
     JButton dayStart = new JButton();
     JLabel dayDisplay = new JLabel();
     JButton plusDays = new JButton();
     JButton minusDays = new JButton();
-    Dimension sliderD = new Dimension(270, 35);
-    Dimension dayD = new Dimension(290, 100);
+    Dimension sliderD = new Dimension(180, 35);
+    Dimension dayD = new Dimension(200, 100);
     GUIPallet pallet = new GUIPallet();
 
     DayTracker dayTracker = new DayTracker();
@@ -39,15 +38,14 @@ public class DayPanel extends JPanel
     {
         //Day stuff
         //day holder
-        daysActions.setPreferredSize(dayD);
-        daysActions.setBackground(pallet.getPanel());
-        add(daysActions);
+        setPreferredSize(dayD);
+        setBackground(pallet.getPanel());
         //Info lable
         dayDisplay.setFont(new Font("Arial", Font.PLAIN, 12));
         dayDisplay.setText("    Days: 5    ");
         dayDisplay.setBackground(pallet.getPanel());
         dayDisplay.setBorder(BorderFactory.createEmptyBorder());
-        daysActions.add(dayDisplay);
+        add(dayDisplay);
         //slider
         daySlider.setPreferredSize(sliderD);
         daySlider.setSnapToTicks(true);
@@ -56,20 +54,20 @@ public class DayPanel extends JPanel
         daySlider.setForeground(Color.BLACK);
         daySlider.addChangeListener(new SliderHandler());
         daySlider.setMajorTickSpacing(10);
-        daysActions.add(daySlider);
+        add(daySlider);
         //minus start plus
         minusDays.setText("-");
         minusDays.addActionListener(new ActionPress());
         minusDays.setActionCommand("minusDays");
-        daysActions.add(minusDays);
+        add(minusDays);
         dayStart.setText("Start");
         dayStart.addActionListener(new ActionPress());
         dayStart.setActionCommand("dayStart");
-        daysActions.add(dayStart);
+        add(dayStart);
         plusDays.setText("+");
         plusDays.addActionListener(new ActionPress());
         plusDays.setActionCommand("plusDays");
-        daysActions.add(plusDays);
+        add(plusDays);
     }
 
     public int getSliderDay()
@@ -90,7 +88,6 @@ public class DayPanel extends JPanel
         {
             if (event.getSource() == plusDays)
             {
-                System.out.println("day slider +1");
                 setSliderDay(getSliderDay() + 10);
             } else if (event.getSource() == minusDays)
             {

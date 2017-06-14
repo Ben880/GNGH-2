@@ -21,7 +21,7 @@ public class MainFrame extends JFrame
     Tiles tile;
     Console console;
     ActionButtons action;
-    InfoLabels infoLabel;
+    Actions infoLabel;
     MenuBar menuBar;
     //Classs import
     SoundPlayer sound = new SoundPlayer();
@@ -51,7 +51,7 @@ public class MainFrame extends JFrame
         tile = new Tiles();
         console = new Console();
         action = new ActionButtons();
-        infoLabel = new InfoLabels();
+        infoLabel = new Actions();
         setLayout(new BorderLayout());
         menuBar = new MenuBar();
         add(infoLabel, BorderLayout.LINE_END);

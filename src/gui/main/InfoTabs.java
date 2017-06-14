@@ -23,7 +23,7 @@ public class InfoTabs extends JTabbedPane
 
     public InfoTabs()
     {
-        setPreferredSize(new Dimension(390, 595));
+        setPreferredSize(new Dimension(390, 540));
         world = new TabPanel(0);
         jobs = new JobTab();
         resources = new TabPanel(2);
