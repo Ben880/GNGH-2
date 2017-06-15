@@ -1,6 +1,8 @@
 package gui.main;
 
+import java.awt.BorderLayout;
 import javax.swing.JPanel;
+import util.GUIPallet;
 
 /*
     BenjaminWilcox
@@ -10,9 +12,13 @@ import javax.swing.JPanel;
 class ResourcesTab extends JPanel
 {
 
+    GUIPallet pallet = new GUIPallet();
+
     public ResourcesTab()
     {
         new UpdateGUI().passTab(this);
+        setLayout(new BorderLayout());
+        setBackground(pallet.getPanel());
     }
 
     void updte()
