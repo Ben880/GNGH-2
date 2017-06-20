@@ -1,5 +1,10 @@
 package gui.main;
 
+import gui.main.JobTab;
+import gui.main.ResearchTab;
+import gui.main.ResourcesTab;
+import gui.main.WorldTab;
+
 /*
     BenjaminWilcox
     Jun 11, 2017

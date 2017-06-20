@@ -21,9 +21,9 @@ public class ResearchTab extends JPanel
         setBackground(pallet.getPanel());
     }
 
-    void update()
+    public void update()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
 }

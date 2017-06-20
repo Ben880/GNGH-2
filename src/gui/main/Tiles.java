@@ -1,5 +1,6 @@
 package gui.main;
 
+import gui.BackEnd.SelectedTile;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -12,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 import util.GUIPallet;
+import util.Location;
 import world.render.RenderFog;
 import world.render.RenderTile;
 
@@ -26,12 +28,15 @@ public class Tiles extends JPanel
     Border emptyBorder = BorderFactory.createEmptyBorder();
     Border lineBorder = BorderFactory.createLineBorder(new Color(100, 100, 100), 1);
     //the buttons themselves
-    ButtonHandler button = new ButtonHandler();
     JButton[][] btn = new JButton[20][20];
     //holder for the buttons
     JPanel main = new JPanel();
 //    JPanel mainHolder = new JPanel();
     GUIPallet pallet = new GUIPallet();
+
+    //back end
+    SelectedTile selected = new SelectedTile();
+    UpdateGUI updater = new UpdateGUI();
 
     public Tiles()
     {
@@ -94,7 +99,8 @@ public class Tiles extends JPanel
             int y = i / 20;
             int x = i % 20;
             //display attack options here
-            button.gameClick(x, y);
+            selected.setSelected(new Location(x, y));
+            updater.update();
 
         }
     } //end press class

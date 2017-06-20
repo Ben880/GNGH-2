@@ -32,7 +32,7 @@ public class UserCreatedEvent
             attack.create(l);
             dispatch.storeEvent(attack);
             attack = null;
-        } else if (type == 2) //attack
+        } else if (type == 2) //forage
         {
             dispatch.storeEvent(new ForageEvent(l));
         }

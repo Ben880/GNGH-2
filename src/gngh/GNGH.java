@@ -1,6 +1,7 @@
 package gngh;
 
 import gui.main.MainFrame;
+import gui.main.UpdateGUI;
 import javax.swing.*;
 
 /*
@@ -21,6 +22,7 @@ public class GNGH
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setResizable(false);
+        new UpdateGUI().update();
         //frame.getRootPane().setVisible(true);
         //frame.getRootPane().validate();
     }
