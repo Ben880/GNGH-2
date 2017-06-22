@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
-import resources.ResourceHolder;
+import player.resources.ResourceHolder;
 import util.GUIPallet;
 
 /*

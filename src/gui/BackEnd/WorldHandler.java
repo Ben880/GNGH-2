@@ -1,6 +1,6 @@
 package gui.BackEnd;
 
-import event.UserCreatedEvent;
+import world.event.UserCreatedEvent;
 
 /*
     BenjaminWilcox

@@ -1,6 +1,6 @@
 package gngh;
 
-import research.AvalibleClass;
+import player.research.AvalibleClass;
 
 /*
     BenjaminWilcox

@@ -1,10 +1,10 @@
 package gui.main;
 
-import conditions.LoseCondition;
-import event.EventDispatcher;
+import player.conditions.LoseCondition;
+import world.event.EventDispatcher;
 import gui.winow.Confirm;
 import javax.swing.Timer;
-import resources.ResourceProduction;
+import player.resources.ResourceProduction;
 
 /*
        //  Author: Benjamin Wilcox

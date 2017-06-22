@@ -1,9 +1,9 @@
 package gui.main;
 
-import debug.DebugInfo;
+import util.debug.DebugInfo;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
-import resources.ResourceHolder;
+import player.resources.ResourceHolder;
 import util.SoundPlayer;
 import world.CellHolder;
 import world.generation.Generator;
