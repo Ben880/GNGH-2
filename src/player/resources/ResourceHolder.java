@@ -28,6 +28,13 @@ public class ResourceHolder
         return null;
     }
 
+    public Resource getNumber(int i)
+    {
+        if (i < resource.size())
+            return resource.get(i);
+        return null;
+    }
+
     public void createType(String name, int count)
     {
         resource.add(new Resource(name, count));

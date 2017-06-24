@@ -47,8 +47,8 @@ public class JobBox extends JPanel
         JLabel imageLabel = new JLabel();
         try
         {
-            BufferedImage img = ImageIO.read(new File("C:\\Users\\bmwla\\Desktop\\axe.png"));
-            Image image = ImageIO.read(new File("C:\\Users\\bmwla\\Desktop\\axe.png"));
+            BufferedImage img = ImageIO.read(new File(System.getProperty("user.dir") + "\\content\\icons\\job\\axe.png"));
+            Image image = ImageIO.read(new File(System.getProperty("user.dir") + "\\content\\icons\\job\\axe.png"));
             Image resize = image.getScaledInstance(40, 40, 1);
             imageLabel = new JLabel(new ImageIcon(resize));
         } catch (IOException e)

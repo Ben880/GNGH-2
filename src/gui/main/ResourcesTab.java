@@ -26,7 +26,7 @@ class ResourcesTab extends JPanel
         setLayout(new GridLayout(10, 2));
         for (int i = 0; i < NUMRESOURCES; i++)
         {
-            resource[i] = new ResourceBox("generic");
+            resource[i] = new ResourceBox();
             add(resource[i]);
         }
     }

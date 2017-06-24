@@ -101,7 +101,7 @@ public class WorldTab extends JPanel
         //tring some shit
         try
         {
-            Image image = ImageIO.read(new File("C:\\Users\\bmwla\\Desktop\\forest.jpg"));
+            Image image = ImageIO.read(new File(System.getProperty("user.dir") + "\\content\\banners\\forest.jpg"));
             Image resize = image.getScaledInstance(390, 120, 1);
             bannerLabel = new JLabel(new ImageIcon(resize));
         } catch (IOException e)
@@ -157,6 +157,7 @@ public class WorldTab extends JPanel
         if (cells.getCell(tempLocation).visible().isStatsVisible())
         {
             //update all
+            updateBanner(cells.getCell(selected.getSelected()).biome().getName());
             biome.setText("Biome: " + cells.getCell(selected.getSelected()).biome().getName());
             fertility.setText("Fertility: " + cells.getCell(tempLocation).resources().getFertility());
             forestry.setText("Trees: " + cells.getCell(tempLocation).resources().getLumber());
@@ -175,11 +176,13 @@ public class WorldTab extends JPanel
         if (cells.getCell(tempLocation).visible().isBiomeVisible())
         {
             biome.setText("Biome: " + cells.getCell(selected.getSelected()).biome().getName());
+            updateBanner(cells.getCell(selected.getSelected()).biome().getName());
 
         } else
         {
             biome.setText("Biome: ??");
         }
+        updateBanner(cells.getCell(selected.getSelected()).biome().getName());
 
     }
 
@@ -187,7 +190,7 @@ public class WorldTab extends JPanel
     {
         try
         {
-            Image image = ImageIO.read(new File("C:\\Users\\bmwla\\Desktop\\forest.jpg"));
+            Image image = ImageIO.read(new File(System.getProperty("user.dir") + "\\content\\banners\\forest.jpg"));
             Image resize = image.getScaledInstance(390, 120, 1);
             bannerLabel = new JLabel(new ImageIcon(resize));
         } catch (IOException e)

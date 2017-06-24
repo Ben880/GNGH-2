@@ -13,6 +13,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import player.resources.ResourceHolder;
 import util.GUIPallet;
 
 /*
@@ -23,7 +24,6 @@ import util.GUIPallet;
 public class ResourceBox extends JPanel
 {
 
-    String name;
     JPanel imageHolder = new JPanel();
     JLabel imageLabel = new JLabel();
     JPanel infoHolder = new JPanel();
@@ -31,18 +31,18 @@ public class ResourceBox extends JPanel
     JLabel nameLabel = new JLabel();
     GUIPallet pallet = new GUIPallet();
 
-    public ResourceBox(String s)
+    ResourceHolder resources = new ResourceHolder();
+
+    public ResourceBox()
     {
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.gray));
-        name = s;
         imageHolder.setBackground(pallet.getPanel());
         infoHolder.setBackground(pallet.getPanel());
         infoHolder.setLayout(new GridLayout(2, 1));
-        nameLabel.setText(s);
         nameLabel.setFont(new Font("Arial", Font.BOLD, 16));
         info.setText("Count: ?");
-        setImage();
+        setImage("");
         //adding in order?
         add(imageHolder, BorderLayout.WEST);
         add(infoHolder, BorderLayout.CENTER);
@@ -53,15 +53,25 @@ public class ResourceBox extends JPanel
 
     public void update(int i)
     {
-
+        if (resources.getNumber(i) != null)
+        {
+            setImage(resources.getNumber(i).getName());
+            nameLabel.setText(resources.getNumber(i).getName());
+            info.setText("Count: " + resources.getNumber(i).get());
+            setVisible(true);
+        } else
+        {
+            setVisible(false);
+        }
+        validate();
     }
 
-    public void setImage()
+    public void setImage(String s)
     {
         try
         {
-            BufferedImage img = ImageIO.read(new File("C:\\Users\\bmwla\\Desktop\\axe.png"));
-            Image image = ImageIO.read(new File("C:\\Users\\bmwla\\Desktop\\axe.png"));
+            BufferedImage img = ImageIO.read(new File(System.getProperty("user.dir") + "\\content\\icons\\resource\\axe.png"));
+            Image image = ImageIO.read(new File(System.getProperty("user.dir") + "\\content\\icons\\resource\\axe.png"));
             Image resize = image.getScaledInstance(40, 40, 1);
             imageLabel = new JLabel(new ImageIcon(resize));
         } catch (IOException e)
