@@ -1,6 +1,5 @@
 package world.event;
 
-import static world.event.Event.resources;
 import gui.winow.Slider;
 import java.util.Random;
 
@@ -24,7 +23,7 @@ public class ChopEvent extends Event
         people = slider.getNumber("send", "people") / 10;
         if (people != 0)
         {
-            resources.people().subtrat(people);
+//            resources.people().subtrat(people);
             wood = rand.nextInt(3) * people * 10;
             setCompleet(rand.nextInt(10) + day.getDay());
             setMessage("Chopers have returned with " + wood + " wood");
@@ -38,8 +37,8 @@ public class ChopEvent extends Event
     public void end()
     {
         console.append(message);
-        resources.lumber().add(wood);
-        resources.people().add(people);
+//        resources.lumber().add(wood);
+//        resources.people().add(people);
     }
 
 }

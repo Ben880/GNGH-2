@@ -20,20 +20,20 @@ public class ResourceProduction
 
     private void setup()
     {
-        food.setNumStipulations(5);
-        food.modifyStipulation(0, 100, 1);
-        food.modifyStipulation(1, resources.people().get(), -2);
-        food.modifyStipulation(2, resources.troops().get(), -3);
-        food.modifyStipulation(3, resources.animals().get(), -4);
-        food.modifyStipulation(4, resources.horses().get(), -5);
+//        food.setNumStipulations(5);
+//        food.modifyStipulation(0, 100, 1);
+//        food.modifyStipulation(1, resources.people().get(), -2);
+//        food.modifyStipulation(2, resources.troops().get(), -3);
+//        food.modifyStipulation(3, resources.animals().get(), -4);
+//        food.modifyStipulation(4, resources.horses().get(), -5);
     }
 
     private void update()
     {
-        food.modifyBase(1, resources.people().get());
-        food.modifyBase(2, resources.troops().get());
-        food.modifyBase(3, resources.animals().get());
-        food.modifyBase(4, resources.horses().get());
+//        food.modifyBase(1, resources.people().get());
+//        food.modifyBase(2, resources.troops().get());
+//        food.modifyBase(3, resources.animals().get());
+//        food.modifyBase(4, resources.horses().get());
     }
 
     public static ResourceProduction getInstance()
@@ -47,8 +47,8 @@ public class ResourceProduction
 
     public void dayChange()
     {
-        update();
-        resources.food().set(resources.food().get() + food());
+//        update();
+//        resources.food().set(resources.food().get() + food());
     }
 
     public int food()

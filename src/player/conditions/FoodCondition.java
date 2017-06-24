@@ -19,8 +19,8 @@ public class FoodCondition
 
     public boolean compare()
     {
-        if (resources.food().get() <= 0)
-            return true;
+//        if (resources.food().get() <= 0)
+//            return true;
         return false;
     }
 

@@ -8,26 +8,38 @@ package player.resources;
 public class Resource
 {
 
-    int number;
+    String name;
+    int count;
+
+    public Resource(String name, int count)
+    {
+        this.name = name;
+        this.count = count;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
 
     public int get()
     {
-        return number;
+        return count;
     }
 
     public void set(int i)
     {
-        number = i;
+        count = i;
     }
 
     public void add(int i)
     {
-        number += i;
+        count += i;
     }
 
     public void subtrat(int i)
     {
-        number -= i;
+        count -= i;
     }
 
 }

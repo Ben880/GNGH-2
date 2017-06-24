@@ -17,7 +17,7 @@ public class Sound
     Sound(String file)
     {
         new javafx.embed.swing.JFXPanel();
-        String uriString = new File("Sounds\\" + file).toURI().toString();
+        String uriString = new File("gngh\\Sounds\\" + file).toURI().toString();
         player = new MediaPlayer(new Media(uriString));
     }
 

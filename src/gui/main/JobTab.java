@@ -74,7 +74,7 @@ public class JobTab extends JPanel
 
     public void update()
     {
-        header.setText("Citizens: " + resources.people().get());
+        //header.setText("Citizens: " + resources.people().get());
     }
 
     private static class PressEvent implements ActionListener

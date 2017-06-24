@@ -26,8 +26,8 @@ public class AttackEvent extends Event
             location = l;
             days = (int) Math.round(location.baseDistance() * 4.0);
             setCompleet(days + day.getDay());
-            resources.troops().subtrat(troops);
-            resources.food().subtrat(troops * days * 5);
+//            resources.troops().subtrat(troops);
+//            resources.food().subtrat(troops * days * 5);
             console.append("Troops set to return on day " + compleet);
 //            label.resourceUpdate();
         } else
@@ -45,26 +45,26 @@ public class AttackEvent extends Event
             render.render();
             console.append(battle.troopResults() + " troops have returned from battle");
 
-            if (battle.badHealth() && resources.medicine().get() <= 0)
-            {
-                console.append("A troop has returned wounded but died due to lack of medicine");
-                resources.troops().subtrat(1);
-            } else if (battle.badHealth())
-            {
-                console.append("A troop has returned wounded and is being treated");
-                resources.medicine().subtrat(1);
-            } else if (battle.criticalHealth())
-            {
-                console.append("The wounded troop has died");
-                resources.troops().set(1);
-            }
+//            if (battle.badHealth() && resources.medicine().get() <= 0)
+//            {
+//                console.append("A troop has returned wounded but died due to lack of medicine");
+//                resources.troops().subtrat(1);
+//            } else if (battle.badHealth())
+//            {
+//                console.append("A troop has returned wounded and is being treated");
+//                resources.medicine().subtrat(1);
+//            } else if (battle.criticalHealth())
+//            {
+//                console.append("The wounded troop has died");
+//                resources.troops().set(1);
+//            }
         } else
         {
             console.append("Troops have not returned from battle");
         }
         console.append(message);
         battle.pushEnemyResults(location);
-        resources.troops().add(battle.troopResults());
+//        resources.troops().add(battle.troopResults());
 //        label.resourceUpdate();
     }
 }

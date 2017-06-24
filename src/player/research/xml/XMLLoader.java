@@ -30,7 +30,7 @@ public class XMLLoader
         {
             factory = DocumentBuilderFactory.newInstance();
             builder = factory.newDocumentBuilder();
-            doc = builder.parse("../research/xml/technology.xml");
+            doc = builder.parse("C:\\Users\\bmwla\\Desktop\\Ben\\Java\\NetBeans\\GNGH2\\src\\player\\research\\xml\\technology.xml");
             techList = doc.getElementsByTagName("tech");
         } catch (SAXException ex)
         {

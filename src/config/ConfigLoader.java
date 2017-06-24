@@ -1,6 +1,7 @@
 package config;
 
 import java.io.File;
+import java.net.URL;
 
 /*
     BenjaminWilcox
@@ -17,7 +18,10 @@ public class ConfigLoader
 
     public File getConfigFile(String s)
     {
-        File file = new File(s);
+        URL location = getClass().getProtectionDomain().getCodeSource().getLocation();
+        File f = new File(location.getPath());
+        System.out.println(f.getAbsolutePath());
+        File file = new File(System.getProperty("user.dir") + "\\config\\" + s + ".txt");
         return file;
     }
 

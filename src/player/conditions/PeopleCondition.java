@@ -19,8 +19,8 @@ public class PeopleCondition
 
     public boolean compare()
     {
-        if (resources.people().get() <= 0)
-            return true;
+//        if (resources.people().get() <= 0)
+//            return true;
         return false;
     }
 

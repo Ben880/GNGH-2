@@ -1,8 +1,8 @@
 package world.event;
 
-import static world.event.Event.day;
 import gui.winow.Slider;
 import java.util.Random;
+import static world.event.Event.day;
 
 /*
     BenjaminWilcox
@@ -24,7 +24,7 @@ public class RecruitEvent extends Event
         if (recruiters != 0)
         {
             people = (int) Math.round(recruiters * rand.nextDouble() * 2);
-            resources.people().subtrat(recruiters);
+//            resources.people().subtrat(recruiters);
             setCompleet(rand.nextInt(10) + day.getDay());
             setMessage("Recruiters have returned with " + people + " new people");
             console.append("Recruiters have been sent out");
@@ -37,7 +37,7 @@ public class RecruitEvent extends Event
     public void end()
     {
         console.append(message);
-        resources.people().add(recruiters);
-        resources.people().add(people);
+//        resources.people().add(recruiters);
+//        resources.people().add(people);
     }
 }

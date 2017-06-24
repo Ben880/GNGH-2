@@ -1,6 +1,5 @@
 package world.event;
 
-import static world.event.Event.resources;
 import gui.winow.Slider;
 import java.util.Random;
 
@@ -24,7 +23,7 @@ public class TrainEvent extends Event
         {
             troops = desired - rand.nextInt(desired / 2);
             people = desired - troops;
-            resources.people().subtrat(desired);
+//            resources.people().subtrat(desired);
             setCompleet(rand.nextInt(10) + day.getDay() + 5);
             setMessage(troops + " trainees have compeeted their training. " + (people) + " have failed their training.");
             console.append(desired + " people have been set to train");
@@ -38,8 +37,8 @@ public class TrainEvent extends Event
     public void end()
     {
         console.append(message);
-        resources.troops().add(troops);
-        resources.people().add(people);
+//        resources.troops().add(troops);
+//        resources.people().add(people);
 
     }
 }

@@ -1,5 +1,7 @@
 package player.resources;
 
+import java.util.ArrayList;
+
 /*
     BenjaminWilcox
     Dec 16, 2016
@@ -8,74 +10,27 @@ package player.resources;
 public class ResourceHolder
 {
 
-    private static Resource food = new Resource();
-    private static Resource lumber = new Resource();
-    private static Resource stone = new Resource();
-    private static Resource ore = new Resource();
-    private static Resource tools = new Resource();
-    private static Resource animals = new Resource();
-    private static Resource horses = new Resource();
-    private static Resource people = new Resource();
-    private static Resource troops = new Resource();
-    private static Resource medicine = new Resource();
-    private static boolean cfgloaded = false;
+    private static ArrayList<Resource> resource = new ArrayList();
+    private static ResourceLoader loader = new ResourceLoader();
 
     public ResourceHolder()
     {
-        if (!cfgloaded)
+
+    }
+
+    public Resource getType(String name)
+    {
+        for (int i = 0; i < resource.size(); i++)
         {
-            new LoadCFG(this);
-            cfgloaded = true;
+            if (resource.get(i).getName().equalsIgnoreCase(name))
+                return resource.get(i);
         }
+        return null;
     }
 
-    public static Resource food()
+    public void createType(String name, int count)
     {
-        return food;
+
     }
 
-    public static Resource lumber()
-    {
-        return lumber;
-    }
-
-    public static Resource stone()
-    {
-        return stone;
-    }
-
-    public static Resource ore()
-    {
-        return ore;
-    }
-
-    public static Resource tools()
-    {
-        return tools;
-    }
-
-    public static Resource animals()
-    {
-        return animals;
-    }
-
-    public static Resource horses()
-    {
-        return horses;
-    }
-
-    public static Resource people()
-    {
-        return people;
-    }
-
-    public static Resource troops()
-    {
-        return troops;
-    }
-
-    public static Resource medicine()
-    {
-        return medicine;
-    }
 }

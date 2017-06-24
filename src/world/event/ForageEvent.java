@@ -1,6 +1,5 @@
 package world.event;
 
-import static world.event.Event.resources;
 import gui.winow.Slider;
 import java.util.Random;
 import util.Location;
@@ -35,7 +34,7 @@ public class ForageEvent extends Event
             days = (int) Math.round(location.baseDistance() * 6);
             setCompleet(days + day.getDay());
             setMessage("Foragers have returned with " + food + " units of food");
-            resources.people().subtrat(people);
+//            resources.people().subtrat(people);
             console.append(people + " foragers set to return on day " + compleet);
         } else
         {
@@ -47,8 +46,8 @@ public class ForageEvent extends Event
     public void end()
     {
         console.append(message);
-        resources.food().add(food);
-        resources.people().add(people);
+//        resources.food().add(food);
+//        resources.people().add(people);
     }
 
 }
