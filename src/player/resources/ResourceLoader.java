@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.cfl.FileFormatException;
+import util.cfl.NoMatchException;
 import util.cfl.Parse;
 
 /*
@@ -17,6 +18,7 @@ public class ResourceLoader
 
     private ConfigLoader config = new ConfigLoader();
     private Parse parser;
+    ResourceHolder holder = new ResourceHolder();
 
     public ResourceLoader()
     {
@@ -29,6 +31,25 @@ public class ResourceLoader
             Logger.getLogger(ResourceLoader.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        createType("food");
+        createType("lumber");
+        createType("stone");
+        createType("ore");
+        createType("tools");
+        createType("medicine");
+        holder.printResources();
+
+    }
+
+    private void createType(String s)
+    {
+        try
+        {
+            holder.createType(s, Integer.parseInt(parser.getString(s, "count")));
+        } catch (NoMatchException ex)
+        {
+            Logger.getLogger(ResourceLoader.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

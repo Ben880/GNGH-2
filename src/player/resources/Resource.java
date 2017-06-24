@@ -8,8 +8,8 @@ package player.resources;
 public class Resource
 {
 
-    String name;
-    int count;
+    private String name;
+    private int count;
 
     public Resource(String name, int count)
     {

@@ -5,7 +5,7 @@ package util.cfl;
     May 31, 2017
     FileLoader
  */
-class NoMatchException extends Exception
+public class NoMatchException extends Exception
 {
 
     public NoMatchException()

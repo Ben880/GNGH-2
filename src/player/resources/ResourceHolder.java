@@ -30,7 +30,16 @@ public class ResourceHolder
 
     public void createType(String name, int count)
     {
+        resource.add(new Resource(name, count));
+    }
 
+    public void printResources()
+    {
+        System.out.println("----Current Resources----");
+        for (int i = 0; i < resource.size(); i++)
+        {
+            System.out.println(resource.get(i).getName() + ": " + resource.get(i).get());
+        }
     }
 
 }

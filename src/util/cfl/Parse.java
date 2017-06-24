@@ -68,7 +68,7 @@ public class Parse
                 countData = true;
 
         }
-        System.out.println("Number of data:" + numData);
+        //System.out.println("Number of data:" + numData);
         for (int i = 1; i < l.length(); i++)
         {
 

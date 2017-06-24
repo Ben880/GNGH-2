@@ -1,6 +1,6 @@
 key
 {
-starting 
+count
 }
 food
 {
@@ -21,4 +21,8 @@ tools
 medicine
 {
 10
+}
+stone
+{
+100
 }
