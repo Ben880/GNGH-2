@@ -27,6 +27,11 @@ public class CitizenType
         this.count += count;
     }
 
+    public void subtractCitizen(int count)
+    {
+        this.count -= count;
+    }
+
     public int getCount()
     {
         return count;
