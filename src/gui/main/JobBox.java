@@ -13,6 +13,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import player.citizens.CitizenHolder;
 import util.GUIPallet;
 
 /*
@@ -24,15 +25,16 @@ public class JobBox extends JPanel
 {
 
     private String jobName;
-    private int numberWorkers;
     private JLabel nameLabel = new JLabel();
     private JLabel statsLabel = new JLabel();
     private JPanel imageHolder = new JPanel();
     private JPanel textHolder = new JPanel();
+    JLabel imageLabel = new JLabel();
     private Image image;
     GUIPallet pallet = new GUIPallet();
+    private CitizenHolder citizens = new CitizenHolder();
 
-    public JobBox(String name, int number)
+    public JobBox()
     {
         setLayout(new BorderLayout());
         setBackground(pallet.getPanel());
@@ -40,11 +42,8 @@ public class JobBox extends JPanel
         setPreferredSize(new Dimension(190, 50));
         imageHolder.setBackground(pallet.getPanel());
         textHolder.setBackground(pallet.getPanel());
-        jobName = name;
-        numberWorkers = number;
-        nameLabel.setText(jobName + ": " + numberWorkers);
         textHolder.setLayout(new GridLayout(2, 1));
-        JLabel imageLabel = new JLabel();
+
         try
         {
             BufferedImage img = ImageIO.read(new File(System.getProperty("user.dir") + "\\content\\icons\\job\\axe.png"));
@@ -66,27 +65,33 @@ public class JobBox extends JPanel
 
     }
 
-    public void setName(String s)
+    public void update(int i)
     {
-        jobName = s;
-        nameLabel.setText(jobName + ": " + numberWorkers);
+        if (citizens.getNumber(i) != null)
+        {
+            setImage(citizens.getNumber(i).getType());
+            nameLabel.setText(citizens.getNumber(i).getType());
+            statsLabel.setText("Count: " + citizens.getNumber(i).getCount());
+            setVisible(true);
+        } else
+        {
+            setVisible(false);
+        }
+        validate();
     }
 
-    public void addNumber(int i)
+    public void setImage(String s)
     {
-        numberWorkers = numberWorkers = i;
-        nameLabel.setText(jobName + ": " + numberWorkers);
-
-    }
-
-    public void updateStats(String s)
-    {
-        statsLabel.setText(s);
-    }
-
-    public void updateNumber()
-    {
-
+        try
+        {
+            BufferedImage img = ImageIO.read(new File(System.getProperty("user.dir") + "\\content\\icons\\resource\\axe.png"));
+            Image image = ImageIO.read(new File(System.getProperty("user.dir") + "\\content\\icons\\resource\\axe.png"));
+            Image resize = image.getScaledInstance(40, 40, 1);
+            imageLabel = new JLabel(new ImageIcon(resize));
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 
 }

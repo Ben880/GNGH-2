@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+import player.citizens.CitizenHolder;
 import player.resources.ResourceHolder;
 import util.GUIPallet;
 
@@ -21,6 +22,8 @@ import util.GUIPallet;
 public class JobTab extends JPanel
 {
 
+    final int JOBCOUNT = 20;
+    CitizenHolder citizens = new CitizenHolder();
     GUIPallet pallet = new GUIPallet();
     Border emptyBorder = BorderFactory.createEmptyBorder();
     JButton add = new JButton("train");
@@ -30,6 +33,7 @@ public class JobTab extends JPanel
     JPanel right = new JPanel();
     JPanel content = new JPanel();
     ResourceHolder resources = new ResourceHolder();
+    JobBox[] jobs = new JobBox[JOBCOUNT];
 
     public JobTab()
     {
@@ -48,33 +52,36 @@ public class JobTab extends JPanel
         left.setBackground(pallet.getPanel());
 
         //job test
-        JobBox job1 = new JobBox("Lumberjack", 10);
-        JobBox job2 = new JobBox("Lumberjack", 10);
-        JobBox job3 = new JobBox("Lumberjack", 10);
-        job1.updateStats("Health: 50   Attack: 20");
-        job2.updateStats("Health: 50   Attack: 20");
+        addJobs();
         //adding
         headerHolder.add(header);
         add(headerHolder, BorderLayout.NORTH);
         add(content, BorderLayout.CENTER);
         content.add(left);
         content.add(right);
-        left.add(job2);
-        left.add(job3);
-        right.add(job1);
+        left.add(jobs[1]);
+        left.add(jobs[2]);
+        right.add(jobs[3]);
         add(add, BorderLayout.SOUTH);
 
         update();
     }
 
-    public void addJob(String s, int i)
+    public void addJobs()
     {
-
+        for (int i = 0; i < JOBCOUNT; i++)
+        {
+            jobs[i] = new JobBox();
+        }
     }
 
     public void update()
     {
-        //header.setText("Citizens: " + resources.people().get());
+        header.setText("Citizens: " + citizens.getCitizen("citizen").getCount());
+        for (int i = 0; i < JOBCOUNT; i++)
+        {
+            jobs[i].update(i);
+        }
     }
 
     private static class PressEvent implements ActionListener
