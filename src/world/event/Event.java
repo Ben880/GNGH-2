@@ -2,6 +2,7 @@ package world.event;
 
 import gui.main.ConsoleHandler;
 import gui.main.DayTracker;
+import gui.main.UpdateGUI;
 import player.resources.ResourceHolder;
 import world.CellHolder;
 import world.render.RenderTiles;
@@ -23,6 +24,7 @@ public class Event
     static CellHolder cell = new CellHolder();
     static ResourceHolder resources = new ResourceHolder();
     static ConsoleHandler console = new ConsoleHandler();
+    static UpdateGUI gui = new UpdateGUI();
 
     public void setCompleet(int c)
     {

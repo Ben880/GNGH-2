@@ -1,6 +1,7 @@
 package world.event;
 
 import player.citizens.CitizenHolder;
+import player.resources.ResourceHolder;
 
 /*
     BenjaminWilcox
@@ -16,6 +17,7 @@ public class CitizenReleaseEvent
     private int dead = 0;
 
     CitizenHolder holder = new CitizenHolder();
+    ResourceHolder resources = new ResourceHolder();
 
     public CitizenReleaseEvent(String citizen, int count)
     {
@@ -36,9 +38,36 @@ public class CitizenReleaseEvent
         wounded += 1;
     }
 
+    public int getCount()
+    {
+        return count;
+    }
+
+    public int getWounded()
+    {
+        return wounded;
+    }
+
+    public int getDead()
+    {
+        return dead;
+    }
+
+    public String getType()
+    {
+        return name;
+    }
+
     public void release()
     {
         holder.getCitizen(name).addCitizen(count);
+
+    }
+
+    public void releaseWounded()
+    {
+        holder.getCitizen(name).addCitizen(wounded);
+        resources.getType("medicine").subtrat(wounded);
     }
 
 }
