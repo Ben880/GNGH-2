@@ -9,7 +9,7 @@ import java.util.ArrayList;
     May 31, 2017
     FileLoader
  */
-//#bens custom loader
+//#bens custom file loader bcfl
 //#### format ########
 //# the character '#' denotes a comment and will not load to parser
 //# blank lines shold not be used (note 1)
