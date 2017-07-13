@@ -166,4 +166,9 @@ public class Parse
         return list.get(group).getItem(getData(data));
     }
 
+    public int size()
+    {
+        return groups;
+    }
+
 }
