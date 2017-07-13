@@ -171,4 +171,9 @@ public class Parse
         return groups;
     }
 
+    public String getNameAt(int i)
+    {
+        return list.get(i).getName();
+    }
+
 }
