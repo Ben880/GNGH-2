@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -22,6 +23,7 @@ import util.GUIPallet;
 public class JobTab extends JPanel
 {
 
+    ArrayList<JobBox> jobs = new ArrayList();
     final int JOBCOUNT = 20;
     CitizenHolder citizens = new CitizenHolder();
     GUIPallet pallet = new GUIPallet();
@@ -29,11 +31,8 @@ public class JobTab extends JPanel
     JButton add = new JButton("train");
     JPanel headerHolder = new JPanel();
     JLabel header = new JLabel("Citizens: ??");
-    JPanel left = new JPanel();
-    JPanel right = new JPanel();
     JPanel content = new JPanel();
     ResourceHolder resources = new ResourceHolder();
-    JobBox[] jobs = new JobBox[JOBCOUNT];
 
     public JobTab()
     {
@@ -46,24 +45,15 @@ public class JobTab extends JPanel
         headerHolder.setBackground(pallet.getPanel());
         headerHolder.setBorder(emptyBorder);
         add.addActionListener(new PressEvent());
-        content.setLayout(new GridLayout(1, 2));
+        content.setLayout(new GridLayout(10, 2));
         content.setBackground(pallet.getPanel());
-        right.setBackground(pallet.getPanel());
-        left.setBackground(pallet.getPanel());
-
         //job test
         addJobs();
         //adding
         headerHolder.add(header);
         add(headerHolder, BorderLayout.NORTH);
         add(content, BorderLayout.CENTER);
-        content.add(left);
-        content.add(right);
-        left.add(jobs[1]);
-        left.add(jobs[2]);
-        right.add(jobs[3]);
         add(add, BorderLayout.SOUTH);
-
         update();
     }
 
@@ -71,16 +61,17 @@ public class JobTab extends JPanel
     {
         for (int i = 0; i < JOBCOUNT; i++)
         {
-            jobs[i] = new JobBox();
+            jobs.add(new JobBox(i));
+            content.add(jobs.get(i));
         }
     }
 
     public void update()
     {
         header.setText("Citizens: " + citizens.getCitizen("citizen").getCount());
-        for (int i = 0; i < JOBCOUNT; i++)
+        for (int i = 0; i < jobs.size(); i++)
         {
-            jobs[i].update(i);
+            jobs.get(i).update();
         }
     }
 
