@@ -1,11 +1,9 @@
 package gui.main;
 
-import util.debug.DebugInfo;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
-import player.resources.ResourceHolder;
 import util.SoundPlayer;
-import world.CellHolder;
+import util.debug.DebugInfo;
 import world.generation.Generator;
 import world.render.RenderTiles;
 
@@ -31,17 +29,8 @@ public class MainFrame extends JFrame
     {
         super(s);
         buildGUI();
-        initialize();
         create();
         sound.playStart();
-    }
-
-    public void initialize()
-    {
-        CellHolder cells = new CellHolder();
-        cells.initialize();
-        ResourceHolder resources = new ResourceHolder();
-
     }
 
     public void buildGUI()
@@ -65,8 +54,7 @@ public class MainFrame extends JFrame
         generate = null;
         RenderTiles render = new RenderTiles();
         render.render();
-//        label.clickUpdate(19, 19);
-//        label.resourceUpdate();
+        render = null;
     }
 
 } //end
