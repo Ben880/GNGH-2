@@ -42,7 +42,8 @@ public class Parse
 {
 
     private ArrayList<DataGroup> list = new ArrayList();
-    Load l;
+    private Load l;
+    private int groups;
 
     public Parse(File f) throws FileFormatException, FileNotFoundException
     {
@@ -92,6 +93,7 @@ public class Parse
             }
 
         }
+        groups = numGroups;
     }
 
     private void sort()
@@ -157,6 +159,11 @@ public class Parse
     public String getString(String group, String data) throws NoMatchException
     {
         return list.get(getGroup(group)).getItem(getData(data));
+    }
+
+    public String getString(int group, String data) throws NoMatchException
+    {
+        return list.get(group).getItem(getData(data));
     }
 
 }
