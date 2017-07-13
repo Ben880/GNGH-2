@@ -95,12 +95,14 @@ public class Tiles extends JPanel
         @Override
         public void actionPerformed(ActionEvent event)
         {
+            btn[selected.getSelected().getX()][selected.getSelected().getY()].setBorder(emptyBorder);
             int i = Integer.parseInt(event.getActionCommand());
             int y = i / 20;
             int x = i % 20;
             //display attack options here
             selected.setSelected(new Location(x, y));
             updater.update();
+            btn[x][y].setBorder(lineBorder);
 
         }
     } //end press class
@@ -118,8 +120,9 @@ public class Tiles extends JPanel
         @Override
         public void mouseExited(MouseEvent e)
         {
-            JButton btn = (JButton) e.getSource();
-            btn.setBorder(emptyBorder);
+            JButton button = (JButton) e.getSource();
+            button.setBorder(emptyBorder);
+            btn[selected.getSelected().getX()][selected.getSelected().getY()].setBorder(lineBorder);
         }
 
         @Override
