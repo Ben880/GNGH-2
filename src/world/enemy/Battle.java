@@ -15,11 +15,8 @@ public class Battle
 
     private CellHolder cell = new CellHolder();
     private Random rand = new Random();
-    private int troopsLeft;
-    private boolean winResult = true;
     private boolean badHealth = false;
     private boolean criticalHealth = false;
-    private int enemiesLeft;
     private double enemyHealthLeft;
     CitizenReleaseEvent citizens;
 
@@ -28,11 +25,10 @@ public class Battle
         citizens = c;
         double damageRatio = 50 / cell.getCell(l).enemy().getDefense();
         double defenseRatio = cell.getCell(l).enemy().getAttack() / 50;
-        enemiesLeft = cell.getCell(l).enemy().getCount();
         double troopHealth = 100;
         enemyHealthLeft = 100;
-        System.out.println("Battle start: " + l.toString() + ", " + c.getType() + " vs. " + cell.getCell(l).enemy().getName() + ": " + enemiesLeft);
-        while (troopsLeft > 0 && enemiesLeft > 0)
+        System.out.println("Battle start: " + l.toString() + ", " + c.getType() + " vs. " + cell.getCell(l).enemy().getName() + ": " + cell.getCell(l).enemy().getCount());
+        while (citizens.getCount() > 0 && cell.getCell(l).enemy().getCount() > 0)
         {
             while (troopHealth > 0 || enemyHealthLeft > 0)
             {
@@ -42,52 +38,41 @@ public class Battle
             if (troopHealth < 0)
             {
                 System.out.println("Battle sim: troop death");
-                troopsLeft--;
+                citizens.addDead();
                 troopHealth = 100;
             }
             if (enemyHealthLeft < 0)
             {
                 System.out.println("Battle sim: enemy death");
-                enemiesLeft--;
+                cell.getCell(l).enemy().subtract(1);
                 enemyHealthLeft = 100;
 
             }
         }
-        System.out.println("Battle end: " + l.toString() + ", " + troopsLeft + " vs. " + cell.getCell(l).enemy().getName() + ": " + enemiesLeft);
-        if (troopsLeft <= 0)
-            winResult = false;
+        System.out.println("Battle end: " + l.toString() + ", " + citizens.getCount() + " vs. " + cell.getCell(l).enemy().getName() + ": " + cell.getCell(l).enemy().getCount());
         if (troopHealth < 25)
             criticalHealth = true;
         if (troopHealth < 50)
             badHealth = true;
         if (enemyHealthLeft < 35)
         {
-            enemiesLeft--;
+            cell.getCell(l).enemy().subtract(1);
             enemyHealthLeft = 100;
         }
-        System.out.println(troopsLeft + " troops");
+        System.out.println(citizens.getCount() + " troops");
     }
 
     public boolean winResults()
     {
-        return winResult;
-    }
-
-    public int troopResults()
-    {
-        System.out.println("Returning " + troopsLeft + " troops");
-        return troopsLeft;
+        if (citizens.getCount() == 0)
+            return false;
+        return true;
     }
 
     public void pushEnemyResults(Location l)
     {
-        if (winResult)
-        {
+        if (cell.getCell(l).enemy().getCount() == 0)
             cell.getCell(l).enemy().reset();
-        } else
-        {
-            cell.getCell(l).enemy().setCount(enemiesLeft);
-        }
     }
 
     public boolean criticalHealth()
