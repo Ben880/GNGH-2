@@ -28,8 +28,8 @@ public class DayPanel extends JPanel
     JLabel dayDisplay = new JLabel();
     JButton plusDays = new JButton();
     JButton minusDays = new JButton();
-    Dimension sliderD = new Dimension(180, 35);
-    Dimension dayD = new Dimension(200, 100);
+    Dimension sliderD = new Dimension(380, 35);
+    Dimension dayD = new Dimension(390, 100);
     GUIPallet pallet = new GUIPallet();
 
     DayTracker dayTracker = new DayTracker();

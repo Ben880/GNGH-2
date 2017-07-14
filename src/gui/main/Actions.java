@@ -30,7 +30,6 @@ public class Actions extends JPanel
     TabHolder tabHolder;
     JPanel bottomHolder = new JPanel();
     DayPanel dayP = new DayPanel();
-    DebugPanel debugP = new DebugPanel();
 
     Actions()
     {
@@ -62,7 +61,6 @@ public class Actions extends JPanel
         holder.add(tabHolder, BorderLayout.CENTER);
         holder.add(bottomHolder);
         bottomHolder.add(dayP);
-        bottomHolder.add(debugP);
     }
 
 }

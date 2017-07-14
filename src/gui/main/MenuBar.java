@@ -24,14 +24,18 @@ public class MenuBar extends JMenuBar
     JMenu optionsMenu = new JMenu("Options");
     JMenuItem menuReset = new JMenuItem("Reset", KeyEvent.VK_R);
     JMenuItem menuExit = new JMenuItem("Exit", KeyEvent.VK_E);
+    JMenuItem menuDebug = new JMenuItem("Debug", KeyEvent.VK_D);
+
+    Dimension def = new Dimension(200, 30);
 
     public MenuBar()
     {
         //formating things
-        menuOpen.setPreferredSize(new Dimension(200, 30));
-        menuSave.setPreferredSize(new Dimension(200, 30));
-        menuReset.setPreferredSize(new Dimension(200, 30));
-        menuExit.setPreferredSize(new Dimension(200, 30));
+        menuOpen.setPreferredSize(def);
+        menuSave.setPreferredSize(def);
+        menuReset.setPreferredSize(def);
+        menuExit.setPreferredSize(def);
+        menuDebug.setPreferredSize(def);
         //keybord shortcuts
         fileMenu.setMnemonic(KeyEvent.VK_1);
         optionsMenu.setMnemonic(KeyEvent.VK_2);
@@ -39,11 +43,13 @@ public class MenuBar extends JMenuBar
         menuSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
         menuReset.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, ActionEvent.CTRL_MASK));
         menuExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, ActionEvent.CTRL_MASK));
+        menuDebug.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, ActionEvent.CTRL_MASK));
         //action listener
         menuOpen.addActionListener(new Menu());
         menuSave.addActionListener(new Menu());
         menuReset.addActionListener(new Menu());
         menuExit.addActionListener(new Menu());
+        menuDebug.addActionListener(new Menu());
         menuOpen.setActionCommand("Open");
         menuSave.setActionCommand("Save");
         menuReset.setActionCommand("Reset");
@@ -55,6 +61,7 @@ public class MenuBar extends JMenuBar
         //top.add(fileBar);
         optionsMenu.add(menuReset);
         optionsMenu.add(menuExit);
+        optionsMenu.add(menuDebug);
         add(optionsMenu);
         //Finishing things off
         //this.setJMenuBar(menuBar);
@@ -69,9 +76,10 @@ public class MenuBar extends JMenuBar
             //gets and preforms proper action
             if (event.getActionCommand() == "Exit")
                 System.exit(0);
-//            if (event.getActionCommand() == "Save")
-//            if (event.getActionCommand() == "Open")
-//            if (event.getActionCommand() == "Reset")
+            if (event.getSource() == menuDebug)
+            {
+                System.out.println("Debug");
+            }
         }
     }
 }
