@@ -163,17 +163,17 @@ public class Parse
 
     public String getString(int group, String data) throws NoMatchException
     {
-        return list.get(group).getItem(getData(data));
+        return list.get(group + 1).getItem(getData(data));
     }
 
     public int size()
     {
-        return groups;
+        return groups - 1;
     }
 
     public String getNameAt(int i)
     {
-        return list.get(i).getName();
+        return list.get(i + 1).getName();
     }
 
 }

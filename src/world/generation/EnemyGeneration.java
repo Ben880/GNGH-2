@@ -1,8 +1,8 @@
 package world.generation;
 
-import world.CellHolder;
-import world.enemy.EnemyInfo;
 import java.util.Random;
+import world.CellHolder;
+import world.enemy.EnemyTypeHolder;
 
 /*
     BenjaminWilcox
@@ -12,7 +12,7 @@ import java.util.Random;
 public class EnemyGeneration
 {
 
-    EnemyInfo enemy = new EnemyInfo();
+    private static EnemyTypeHolder type = new EnemyTypeHolder();
     CellHolder cell = new CellHolder();
     Random rand = new Random();
 
@@ -28,8 +28,7 @@ public class EnemyGeneration
                 {
                     if (rand.nextInt(100) < 35)
                     {
-                        cell.getCell(x, y).setEnemy(rand.nextInt(25));
-                        cell.getCell(x, y).enemy().setNumber(19 - (int) Math.round(Math.sqrt(rand.nextInt(400))));
+                        createEnemy(x, y);
                     } else
                         setNone(x, y);
                 } else
@@ -38,8 +37,28 @@ public class EnemyGeneration
         }
     }
 
+    private void createEnemy(int x, int y)
+    {
+        int temp = decision();
+        cell.getCell(x, y).enemy().setName(type.getEnemy(temp).getName());
+        cell.getCell(x, y).enemy().setAttack(type.getEnemy(temp).getAttack());
+        cell.getCell(x, y).enemy().setDefense(type.getEnemy(temp).getDefense());
+        cell.getCell(x, y).enemy().setCount((int) Math.ceil(type.getEnemy(temp).getMultiplyer() * rand.nextInt(10)));
+    }
+
+    private int decision()
+    {
+        int temp = 0;
+        while (true)
+        {
+            temp = rand.nextInt(type.size() - 1);
+            if (rand.nextInt(100) <= type.getEnemy(temp).getChance())
+                return temp;
+        }
+    }
+
     void setNone(int x, int y)
     {
-        cell.getCell(x, y).setEnemy(0);
+        cell.getCell(x, y).enemy().reset();
     }
 }

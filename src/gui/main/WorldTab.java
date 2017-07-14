@@ -163,7 +163,7 @@ public class WorldTab extends JPanel
             forestry.setText("Trees: " + cells.getCell(tempLocation).resources().getLumber());
             mining.setText("Ores: " + cells.getCell(tempLocation).resources().getMining());
             enemyName.setText("Enemy type: " + cells.getCell(tempLocation).enemy().getName());
-            enemyCount.setText("Enemy count: " + cells.getCell(tempLocation).enemy().getAmount());
+            enemyCount.setText("Enemy count: " + cells.getCell(tempLocation).enemy().getCount());
         } else
         {
             fertility.setText("Fertility: ??");
