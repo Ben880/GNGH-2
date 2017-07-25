@@ -10,7 +10,7 @@ import util.Location;
 public class CellHolder
 {
 
-    public static boolean fog = true;
+    private static boolean fog = true;
     private static Cell[][] cell = new Cell[20][20];
     private static boolean initialize = true;
 
@@ -30,6 +30,22 @@ public class CellHolder
             }
         }
         initialize = false;
+    }
+
+    public void toggleFog()
+    {
+        if (fog)
+        {
+            fog = false;
+        } else
+        {
+            fog = true;
+        }
+    }
+
+    public boolean getFog()
+    {
+        return fog;
     }
 
     public Cell getCell(Location l)

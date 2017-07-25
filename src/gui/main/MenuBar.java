@@ -8,6 +8,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
+import util.debug.DebugInfo;
 
 /*
     BenjaminWilcox
@@ -18,6 +19,8 @@ import javax.swing.KeyStroke;
 public class MenuBar extends JMenuBar
 {
 
+    DebugInfo debug = new DebugInfo();
+    UpdateGUI gui = new UpdateGUI();
     JMenu fileMenu = new JMenu("File");
     JMenuItem menuOpen = new JMenuItem("Open", KeyEvent.VK_O);
     JMenuItem menuSave = new JMenuItem("Save", KeyEvent.VK_S);
@@ -78,7 +81,8 @@ public class MenuBar extends JMenuBar
                 System.exit(0);
             if (event.getSource() == menuDebug)
             {
-                System.out.println("Debug");
+                debug.toggleDebug();
+                gui.update();
             }
         }
     }

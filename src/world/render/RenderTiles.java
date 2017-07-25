@@ -1,7 +1,7 @@
 package world.render;
 
-import world.CellHolder;
 import util.Location;
+import world.CellHolder;
 
 /*
     BenjaminWilcox
@@ -25,7 +25,7 @@ public class RenderTiles
         {
             for (int y = 0; y < 20; y++)
             {
-                if (cell.getCell(x, y).visible().isBiomeVisible() || cell.fog == false)
+                if (cell.getCell(x, y).visible().isBiomeVisible() || cell.getFog() == false)
                 {
                     render.render(x, y);
                 } else

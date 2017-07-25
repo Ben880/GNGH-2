@@ -15,6 +15,7 @@ public class TabHolder extends JTabbedPane
     JobTab jobs = new JobTab();
     ResourcesTab resources = new ResourcesTab();
     ResearchTab research = new ResearchTab();
+    DebugTab debug = new DebugTab();
 
     public TabHolder()
     {
@@ -23,6 +24,7 @@ public class TabHolder extends JTabbedPane
         addTab("Jobs", jobs);
         addTab("Resources", resources);
         addTab("Research", research);
+        addTab("Debug", debug);
 //        setBackgroundAt(0, new Color(250, 250, 250));
 //        setBackgroundAt(1, new Color(250, 250, 250));
 //        setBackgroundAt(2, new Color(250, 250, 250));

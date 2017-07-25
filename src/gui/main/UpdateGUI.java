@@ -1,10 +1,5 @@
 package gui.main;
 
-import gui.main.JobTab;
-import gui.main.ResearchTab;
-import gui.main.ResourcesTab;
-import gui.main.WorldTab;
-
 /*
     BenjaminWilcox
     Jun 11, 2017
@@ -17,6 +12,7 @@ public class UpdateGUI
     private static ResearchTab research;
     private static WorldTab world;
     private static ResourcesTab resources;
+    private static DebugTab debug;
 
     public UpdateGUI()
     {
@@ -29,6 +25,7 @@ public class UpdateGUI
         research.update();
         world.update();
         resources.updte();
+        debug.update();
     }
 
     public void passTab(JobTab tab)
@@ -49,6 +46,11 @@ public class UpdateGUI
     public void passTab(ResourcesTab tab)
     {
         resources = tab;
+    }
+
+    public void passTab(DebugTab tab)
+    {
+        debug = tab;
     }
 
 }

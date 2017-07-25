@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import util.GUIPallet;
 import util.Location;
+import util.debug.DebugInfo;
 import world.CellHolder;
 
 /*
@@ -29,7 +30,7 @@ public class WorldTab extends JPanel
 {
 
     WorldHandler handler = new WorldHandler();
-
+    DebugInfo debug = new DebugInfo();
     //main components
     //panels in order
     JPanel infoHolder = new JPanel();
@@ -154,7 +155,7 @@ public class WorldTab extends JPanel
         //allways update
         location.setText("Location: (" + tempLocation.getX() + ", " + tempLocation.getY() + ")");
         //conditional updates
-        if (cells.getCell(tempLocation).visible().isStatsVisible())
+        if (cells.getCell(tempLocation).visible().isStatsVisible() || debug.getDebug())
         {
             //update all
             updateBanner(cells.getCell(selected.getSelected()).biome().getName());
@@ -173,7 +174,7 @@ public class WorldTab extends JPanel
             enemyCount.setText("Enemy count: ??");
         }
         //update biome
-        if (cells.getCell(tempLocation).visible().isBiomeVisible())
+        if (cells.getCell(tempLocation).visible().isBiomeVisible() || debug.getDebug())
         {
             biome.setText("Biome: " + cells.getCell(selected.getSelected()).biome().getName());
             updateBanner(cells.getCell(selected.getSelected()).biome().getName());
