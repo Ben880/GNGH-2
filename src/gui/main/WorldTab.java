@@ -3,6 +3,7 @@ package gui.main;
 import gui.BackEnd.SelectedTile;
 import gui.BackEnd.WorldHandler;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -68,7 +69,7 @@ public class WorldTab extends JPanel
 
     //pallet
     GUIPallet pallet = new GUIPallet();
-
+    Color butn = new Color(225, 225, 225);
     SelectedTile selected = new SelectedTile();
     CellHolder cells = new CellHolder();
 
@@ -98,7 +99,7 @@ public class WorldTab extends JPanel
         attack.addActionListener(new ActionPress());
         scout.addActionListener(new ActionPress());
         forage.addActionListener(new ActionPress());
-
+        attack.setBackground(butn);
         //tring some shit
         try
         {

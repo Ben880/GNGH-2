@@ -27,6 +27,10 @@ public class DebugHandler
             cell.toggleFog();
             render.render();
         }
+        if (action.equalsIgnoreCase("Set Biome"))
+        {
+
+        }
     }
 
 }

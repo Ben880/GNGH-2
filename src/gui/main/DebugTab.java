@@ -2,6 +2,7 @@ package gui.main;
 
 import gui.BackEnd.DebugHandler;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -50,9 +51,21 @@ public class DebugTab extends JPanel
             buttons.add(new JButton("default"));
             content.add(buttons.get(i));
             buttons.get(i).addActionListener(new PressEvent());
+            buttons.get(i).setBackground(new Color(255, 150, i));
         }
         //naming buttons
         buttons.get(0).setText("Toggle Fog");
+        buttons.get(1).setText("Set Biome");
+        buttons.get(2).setText("CWRV");
+        buttons.get(3).setText("SWRV");
+        buttons.get(4).setText("Set Resource");
+        buttons.get(5).setText("Kill Enemy");
+        buttons.get(6).setText("Set Enemy");
+        buttons.get(7).setText("Clear Enemies");
+        buttons.get(8).setText("New Enemies");
+        buttons.get(9).setText("New World");
+        buttons.get(10).setText("Add Citizen");
+
         //adding
         headerHolder.add(header);
         add(headerHolder, BorderLayout.NORTH);
