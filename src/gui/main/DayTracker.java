@@ -1,10 +1,9 @@
 package gui.main;
 
-import player.conditions.LoseCondition;
-import world.event.EventDispatcher;
 import gui.winow.Confirm;
-import javax.swing.Timer;
+import player.conditions.LoseCondition;
 import player.resources.ResourceProduction;
+import world.event.EventDispatcher;
 
 /*
        //  Author: Benjamin Wilcox
@@ -17,8 +16,8 @@ public class DayTracker
     private static EventDispatcher event = new EventDispatcher();
     private static LoseCondition loss = new LoseCondition();
     private static Confirm confirm = new Confirm();
-    Timer timer;
 
+    //tracks days
     public DayTracker()
     {
 
@@ -27,7 +26,7 @@ public class DayTracker
     public void incriment(int amount)
     {
         int i = 0;
-        //migrate to hierarchy
+        //code needs updating
         ResourceProduction production;
         production = ResourceProduction.getInstance();
 
@@ -42,9 +41,8 @@ public class DayTracker
                 loss.dayChange(day);
                 i++;
             }
-//            label.resourceUpdate();
         }
-    }
+    }//end incriment
 
     public int getDay()
     {

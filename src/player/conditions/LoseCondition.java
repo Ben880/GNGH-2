@@ -1,6 +1,6 @@
 package player.conditions;
 
-import gui.main.ConsoleHandler;
+import gui.BackEnd.ConsoleHandler;
 
 /*
     BenjaminWilcox

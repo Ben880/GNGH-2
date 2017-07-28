@@ -14,6 +14,7 @@ public class UpdateGUI
     private static ResourcesTab resources;
     private static DebugTab debug;
 
+    //accepts gui elements for use in updating entire gui
     public UpdateGUI()
     {
 

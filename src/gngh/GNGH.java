@@ -13,9 +13,9 @@ public class GNGH
 
     public static void main(String[] args)
     {
-        //testing here
+        //class to execute test files
         new Test().testClasses();
-
+        //constructing main frame
         MainFrame frame = new MainFrame("GNGH");
         frame.setSize(1200, 1028);
         frame.setLocation(250, 2);
@@ -23,7 +23,5 @@ public class GNGH
         frame.setVisible(true);
         frame.setResizable(false);
         new UpdateGUI().update();
-        //frame.getRootPane().setVisible(true);
-        //frame.getRootPane().validate();
     }
 }

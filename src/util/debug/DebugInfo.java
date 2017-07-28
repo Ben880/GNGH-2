@@ -1,6 +1,6 @@
 package util.debug;
 
-import gui.main.ConsoleHandler;
+import gui.BackEnd.ConsoleHandler;
 
 
 /*

@@ -1,6 +1,6 @@
 package world.event;
 
-import gui.main.ConsoleHandler;
+import gui.BackEnd.ConsoleHandler;
 import gui.main.DayTracker;
 import gui.main.UpdateGUI;
 import player.resources.ResourceHolder;

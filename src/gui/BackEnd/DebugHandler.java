@@ -11,14 +11,16 @@ import world.render.RenderTiles;
 public class DebugHandler
 {
 
-    CellHolder cell = new CellHolder();
-    RenderTiles render = new RenderTiles();
+    private CellHolder cell = new CellHolder();
+    private RenderTiles render = new RenderTiles();
 
+    //handles button clicks in debug tab
     public DebugHandler()
     {
 
     }
 
+    //inputs button text and executs proper action
     public void buttonPress(String action)
     {
         System.out.println("Debug action: " + action);
@@ -31,6 +33,7 @@ public class DebugHandler
         {
 
         }
+        //more if statements here
     }
 
 }

@@ -19,17 +19,17 @@ import util.debug.DebugInfo;
 public class MenuBar extends JMenuBar
 {
 
-    DebugInfo debug = new DebugInfo();
-    UpdateGUI gui = new UpdateGUI();
-    JMenu fileMenu = new JMenu("File");
-    JMenuItem menuOpen = new JMenuItem("Open", KeyEvent.VK_O);
-    JMenuItem menuSave = new JMenuItem("Save", KeyEvent.VK_S);
-    JMenu optionsMenu = new JMenu("Options");
-    JMenuItem menuReset = new JMenuItem("Reset", KeyEvent.VK_R);
-    JMenuItem menuExit = new JMenuItem("Exit", KeyEvent.VK_E);
-    JMenuItem menuDebug = new JMenuItem("Debug", KeyEvent.VK_D);
-
     Dimension def = new Dimension(200, 30);
+    private JMenu fileMenu = new JMenu("File");
+    private JMenuItem menuOpen = new JMenuItem("Open", KeyEvent.VK_O);
+    private JMenuItem menuSave = new JMenuItem("Save", KeyEvent.VK_S);
+    private JMenu optionsMenu = new JMenu("Options");
+    private JMenuItem menuReset = new JMenuItem("Reset", KeyEvent.VK_R);
+    private JMenuItem menuExit = new JMenuItem("Exit", KeyEvent.VK_E);
+    private JMenuItem menuDebug = new JMenuItem("Debug", KeyEvent.VK_D);
+    //needed classes
+    private UpdateGUI gui = new UpdateGUI();
+    private DebugInfo debug = new DebugInfo();
 
     public MenuBar()
     {

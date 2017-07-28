@@ -23,20 +23,20 @@ public class DayPanel extends JPanel
 {
 
     //Days Actions
-    JSlider daySlider = new JSlider();
-    JButton dayStart = new JButton();
-    JLabel dayDisplay = new JLabel();
-    JButton plusDays = new JButton();
-    JButton minusDays = new JButton();
-    Dimension sliderD = new Dimension(380, 35);
-    Dimension dayD = new Dimension(390, 100);
-    GUIPallet pallet = new GUIPallet();
+    private JSlider daySlider = new JSlider();
+    private JButton dayStart = new JButton();
+    private JLabel dayDisplay = new JLabel();
+    private JButton plusDays = new JButton();
+    private JButton minusDays = new JButton();
+    //looks
+    private Dimension sliderD = new Dimension(380, 35);
+    private Dimension dayD = new Dimension(390, 100);
+    private GUIPallet pallet = new GUIPallet();
 
     DayTracker dayTracker = new DayTracker();
 
     public DayPanel()
     {
-        //Day stuff
         //day holder
         setPreferredSize(dayD);
         setBackground(pallet.getPanel());
@@ -80,6 +80,7 @@ public class DayPanel extends JPanel
         daySlider.setValue(i);
     }
 
+    //handles buttons
     class ActionPress implements ActionListener
     {
 
@@ -100,6 +101,7 @@ public class DayPanel extends JPanel
         }
     }// end action press
 
+    //handels slider changes
     class SliderHandler implements ChangeListener
     {
 
@@ -107,7 +109,7 @@ public class DayPanel extends JPanel
         {
             dayDisplay.setText("Days: " + daySlider.getValue() / 10);
 
-        }// end sliderhandler
-    }
+        }
+    }// end sliderhandler
 
 }

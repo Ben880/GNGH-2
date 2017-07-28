@@ -13,10 +13,9 @@ import util.GUIPallet;
 class ResourcesTab extends JPanel
 {
 
-    final int NUMRESOURCES = 20;
-    GUIPallet pallet = new GUIPallet();
-
-    ResourceBox[] resource = new ResourceBox[NUMRESOURCES];
+    private final int NUMRESOURCES = 20;
+    private GUIPallet pallet = new GUIPallet();
+    private ResourceBox[] resource = new ResourceBox[NUMRESOURCES];
 
     public ResourcesTab()
     {

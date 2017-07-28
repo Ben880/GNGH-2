@@ -5,6 +5,7 @@ package gui.main;
        //  Project GNGH
  */
 //feed stuff
+import gui.BackEnd.ConsoleHandler;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.*;
@@ -12,12 +13,13 @@ import javax.swing.*;
 public class Console extends JPanel
 {
 
-    JTextArea feed = new JTextArea(10, 50);
-    JScrollPane feedScroll = new JScrollPane();
-    JScrollBar consolScroll = new JScrollBar();
-    StringBuilder sb = new StringBuilder();
-    DayTracker day = new DayTracker();
+    private JTextArea feed = new JTextArea(10, 50);
+    private JScrollPane feedScroll = new JScrollPane();
+    private JScrollBar consolScroll = new JScrollBar();
+    private StringBuilder sb = new StringBuilder();
+    private DayTracker day = new DayTracker();
 
+    //builds console
     Console()
     {
         setLayout(new BorderLayout());
@@ -32,6 +34,7 @@ public class Console extends JPanel
         add(feedScroll, BorderLayout.CENTER);
     }
 
+    //appends string to console preceded by day
     public void append(String string)
     {
 

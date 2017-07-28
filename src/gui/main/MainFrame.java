@@ -16,14 +16,14 @@ public class MainFrame extends JFrame
 {
 
     //importing sub panels
-    Tiles tile;
-    Console console;
-    Actions infoLabel;
-    MenuBar menuBar;
-    //Classs import
-    SoundPlayer sound = new SoundPlayer();
-    DayTracker day = new DayTracker();
-    DebugInfo debug = new DebugInfo();
+    private Tiles tile;
+    private Console console;
+    private Actions actions;
+    private MenuBar menuBar;
+    //class initialization
+    private SoundPlayer sound = new SoundPlayer();
+    private DayTracker day = new DayTracker();
+    private DebugInfo debug = new DebugInfo();
 
     public MainFrame(String s)
     {
@@ -35,26 +35,27 @@ public class MainFrame extends JFrame
 
     public void buildGUI()
     {
+        setLayout(new BorderLayout());
+        //initializing classes
         tile = new Tiles();
         console = new Console();
-        infoLabel = new Actions();
-        setLayout(new BorderLayout());
+        actions = new Actions();
         menuBar = new MenuBar();
-        add(infoLabel, BorderLayout.LINE_END);
-        //add(action, BorderLayout.LINE_START);
-        add(console, BorderLayout.PAGE_END);
-        add(tile, BorderLayout.CENTER);
+        //adding in order
         setJMenuBar(menuBar);
+        add(tile, BorderLayout.CENTER);
+        add(actions, BorderLayout.LINE_END);
+        add(console, BorderLayout.PAGE_END);
+
     }
 
-    public void create() //0
+    //creates world
+    public void create()
     {
         Generator generate = new Generator();
         generate.generateDefault();
         generate = null;
-        RenderTiles render = new RenderTiles();
-        render.render();
-        render = null;
+        new RenderTiles().render();
     }
 
 } //end

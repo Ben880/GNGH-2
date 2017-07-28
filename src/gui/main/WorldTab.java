@@ -30,9 +30,9 @@ import world.CellHolder;
 public class WorldTab extends JPanel
 {
 
+    //needed classes
     WorldHandler handler = new WorldHandler();
     DebugInfo debug = new DebugInfo();
-    //main components
     //panels in order
     JPanel infoHolder = new JPanel();
     JPanel bannerHolder = new JPanel();
@@ -66,7 +66,6 @@ public class WorldTab extends JPanel
     JButton btn1 = new JButton("btn1");
     JButton btn2 = new JButton("btn2");
     JButton btn3 = new JButton("btn3");
-
     //pallet
     GUIPallet pallet = new GUIPallet();
     Color butn = new Color(225, 225, 225);

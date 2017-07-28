@@ -12,6 +12,7 @@ public class SelectedTile
 
     private static Location location = new Location(19, 19);
 
+    //holds last selected tile to render outline
     public SelectedTile()
     {
 

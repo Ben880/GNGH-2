@@ -10,14 +10,16 @@ import world.event.UserCreatedEvent;
 public class WorldHandler
 {
 
-    UserCreatedEvent event = new UserCreatedEvent();
-    SelectedTile selected = new SelectedTile();
+    private UserCreatedEvent event = new UserCreatedEvent();
+    private SelectedTile selected = new SelectedTile();
 
+    //handles button clicks for world tab
     public WorldHandler()
     {
 
     }
 
+    //executes action based on input string
     public void buttonClick(String s)
     {
         System.out.println("WorldHandler recived button click: " + s);

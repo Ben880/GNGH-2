@@ -23,16 +23,20 @@ import util.GUIPallet;
 public class JobTab extends JPanel
 {
 
-    ArrayList<JobBox> jobs = new ArrayList();
-    final int JOBCOUNT = 20;
-    CitizenHolder citizens = new CitizenHolder();
-    GUIPallet pallet = new GUIPallet();
-    Border emptyBorder = BorderFactory.createEmptyBorder();
-    JButton add = new JButton("train");
-    JPanel headerHolder = new JPanel();
-    JLabel header = new JLabel("Citizens: ??");
-    JPanel content = new JPanel();
-    ResourceHolder resources = new ResourceHolder();
+    //gui elements
+    private GUIPallet pallet = new GUIPallet();
+    private JButton add = new JButton("train");
+    private JPanel headerHolder = new JPanel();
+    private JLabel header = new JLabel("Citizens: ??");
+    private JPanel content = new JPanel();
+    //class elements
+    private ArrayList<JobBox> jobs = new ArrayList();
+    private final int JOBCOUNT = 20;
+    //needed classes
+    private CitizenHolder citizens = new CitizenHolder();
+    private Border emptyBorder = BorderFactory.createEmptyBorder();
+
+    private ResourceHolder resources = new ResourceHolder();
 
     public JobTab()
     {
@@ -81,7 +85,7 @@ public class JobTab extends JPanel
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
         }
     }
 

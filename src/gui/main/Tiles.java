@@ -24,35 +24,28 @@ import world.render.RenderTile;
 public class Tiles extends JPanel
 {
 
-    //borders for hover effect
-    Border emptyBorder = BorderFactory.createEmptyBorder();
-    Border lineBorder = BorderFactory.createLineBorder(new Color(100, 100, 100), 1);
-    //the buttons themselves
-    JButton[][] btn = new JButton[20][20];
-    //holder for the buttons
-    JPanel main = new JPanel();
-//    JPanel mainHolder = new JPanel();
-    GUIPallet pallet = new GUIPallet();
-
-    //back end
-    SelectedTile selected = new SelectedTile();
-    UpdateGUI updater = new UpdateGUI();
+    //gui components
+    private JButton[][] btn = new JButton[20][20];
+    private JPanel main = new JPanel();
+    //display components
+    private GUIPallet pallet = new GUIPallet();
+    private Border emptyBorder = BorderFactory.createEmptyBorder();
+    private Border lineBorder = BorderFactory.createLineBorder(new Color(100, 100, 100), 1);
+    //needed classes
+    private SelectedTile selected = new SelectedTile();
+    private UpdateGUI updater = new UpdateGUI();
 
     public Tiles()
     {
-        RenderTile tile = new RenderTile();
-        tile.initialize(this);
-        RenderFog fog = new RenderFog();
-        fog.initialize(this);
-
+        //passing itself to render classes
+        new RenderTile().initialize(this);
+        new RenderFog().initialize(this);
         //builds tiles
         main.setLayout(new GridLayout(20, 20));
         main.setBackground(pallet.getBackground());
         main.setPreferredSize(new Dimension(800, 800));
-//        mainHolder.add(main);
-//        mainHolder.setPreferredSize(new Dimension(800, 800));
         setBackground(pallet.getBackground());
-        //add(mainHolder);
+        //created buttons and adds them
         int i = 0;
         int x = 0;
         int y = 0;

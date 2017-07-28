@@ -10,13 +10,13 @@ import javax.swing.JTabbedPane;
 public class TabHolder extends JTabbedPane
 {
 
-    //
-    WorldTab world = new WorldTab();
-    JobTab jobs = new JobTab();
-    ResourcesTab resources = new ResourcesTab();
-    ResearchTab research = new ResearchTab();
-    DebugTab debug = new DebugTab();
+    private WorldTab world = new WorldTab();
+    private JobTab jobs = new JobTab();
+    private ResourcesTab resources = new ResourcesTab();
+    private ResearchTab research = new ResearchTab();
+    private DebugTab debug = new DebugTab();
 
+    //holds all the tabs
     public TabHolder()
     {
         setPreferredSize(new Dimension(390, 540));
@@ -25,11 +25,6 @@ public class TabHolder extends JTabbedPane
         addTab("Resources", resources);
         addTab("Research", research);
         addTab("Debug", debug);
-//        setBackgroundAt(0, new Color(250, 250, 250));
-//        setBackgroundAt(1, new Color(250, 250, 250));
-//        setBackgroundAt(2, new Color(250, 250, 250));
-//        setBackgroundAt(3, new Color(250, 250, 250));
-
     }
 
 }

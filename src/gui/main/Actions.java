@@ -18,18 +18,15 @@ public class Actions extends JPanel
 {
 
     //main components
-    JLabel heading = new JLabel("Actions");
-    JPanel holder = new JPanel();
-    //DebugPanel
-
+    private JLabel heading = new JLabel("Actions");
+    private JPanel holder = new JPanel();
+    private JPanel bottomHolder = new JPanel();
     //palet
-    GUIPallet pallet = new GUIPallet();
-    Dimension sideD = new Dimension(400, 15);
-    Dimension debugInfoD = new Dimension(290, 145);
+    private GUIPallet pallet = new GUIPallet();
+    private Dimension sideD = new Dimension(400, 15);
     //sub classes
-    TabHolder tabHolder;
-    JPanel bottomHolder = new JPanel();
-    DayPanel dayP = new DayPanel();
+    private TabHolder tabHolder;
+    private DayPanel dayP = new DayPanel();
 
     Actions()
     {

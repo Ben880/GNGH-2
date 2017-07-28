@@ -13,8 +13,6 @@ public class Test
     public void testClasses()
     {
         //testing here
-//        AvalibleXML avalibleX = new AvalibleXML();
-//        avalibleX.summary();
         AvalibleClass avalibleC = new AvalibleClass();
         avalibleC.summary();
     }

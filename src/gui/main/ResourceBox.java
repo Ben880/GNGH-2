@@ -24,12 +24,12 @@ import util.GUIPallet;
 public class ResourceBox extends JPanel
 {
 
-    JPanel imageHolder = new JPanel();
-    JLabel imageLabel = new JLabel();
-    JPanel infoHolder = new JPanel();
-    JLabel info = new JLabel();
-    JLabel nameLabel = new JLabel();
-    GUIPallet pallet = new GUIPallet();
+    private JPanel imageHolder = new JPanel();
+    private JLabel imageLabel = new JLabel();
+    private JPanel infoHolder = new JPanel();
+    private JLabel info = new JLabel();
+    private JLabel nameLabel = new JLabel();
+    private GUIPallet pallet = new GUIPallet();
 
     ResourceHolder resources = new ResourceHolder();
 
