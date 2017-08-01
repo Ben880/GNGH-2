@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import player.citizens.CitizenHolder;
 import util.GUIPallet;
+import util.debug.DebugInfo;
 
 /*
     BenjaminWilcox
@@ -67,6 +68,10 @@ public class JobBox extends JPanel
     {
         if (citizens.getNumber(number) != null)
         {
+            if (new DebugInfo().getDebug())
+            {
+                System.out.println("Job box: " + number + " upatate count: " + citizens.getNumber(number).getCount());
+            }
             nameLabel.setText(citizens.getNumber(number).getType());
             statsLabel.setText("Count: " + citizens.getNumber(number).getCount());
             setVisible(true);

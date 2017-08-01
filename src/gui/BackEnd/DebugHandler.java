@@ -1,5 +1,7 @@
 package gui.BackEnd;
 
+import gui.main.UpdateGUI;
+import player.citizens.CitizenHolder;
 import world.CellHolder;
 import world.render.RenderTiles;
 
@@ -13,6 +15,7 @@ public class DebugHandler
 
     private CellHolder cell = new CellHolder();
     private RenderTiles render = new RenderTiles();
+    private CitizenHolder citizens = new CitizenHolder();
 
     //handles button clicks in debug tab
     public DebugHandler()
@@ -32,6 +35,14 @@ public class DebugHandler
         if (action.equalsIgnoreCase("Set Biome"))
         {
 
+        }
+        if (action.equalsIgnoreCase("Print Citizens"))
+        {
+            citizens.printCitizens();
+        }
+        if (action.equalsIgnoreCase("Update GUI"))
+        {
+            new UpdateGUI().update();
         }
         //more if statements here
     }

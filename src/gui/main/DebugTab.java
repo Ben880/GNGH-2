@@ -65,6 +65,8 @@ public class DebugTab extends JPanel
         buttons.get(8).setText("New Enemies");
         buttons.get(9).setText("New World");
         buttons.get(10).setText("Add Citizen");
+        buttons.get(11).setText("Print Citizens");
+        buttons.get(12).setText("Update GUI");
 
         //adding
         headerHolder.add(header);

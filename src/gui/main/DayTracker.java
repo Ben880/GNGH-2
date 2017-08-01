@@ -4,6 +4,7 @@ import gui.winow.Confirm;
 import player.conditions.LoseCondition;
 import player.resources.ResourceProduction;
 import world.event.EventDispatcher;
+import world.event.random.RandomEventDispatcher;
 
 /*
        //  Author: Benjamin Wilcox
@@ -16,6 +17,7 @@ public class DayTracker
     private static EventDispatcher event = new EventDispatcher();
     private static LoseCondition loss = new LoseCondition();
     private static Confirm confirm = new Confirm();
+    private static RandomEventDispatcher random = new RandomEventDispatcher();
 
     //tracks days
     public DayTracker()
@@ -38,6 +40,7 @@ public class DayTracker
                 System.out.println("Day: " + day);
                 event.dayChange(day);
                 production.dayChange();
+                random.dayChange();
                 loss.dayChange(day);
                 i++;
             }
