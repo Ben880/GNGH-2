@@ -30,10 +30,10 @@ public class CitizenLoader
         {
             Logger.getLogger(ResourceLoader.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        createType("citizen");
-        createType("lumberjack");
-        createType("soldier");
+        for (int i = 0; i < parser.size(); i++)
+        {
+            createType(parser.getNameAt(i));
+        }
         holder.printCitizens();
 
     }

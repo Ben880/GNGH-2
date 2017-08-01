@@ -25,6 +25,16 @@ public class CitizenHolder
         return null;
     }
 
+    public int totalCitizens()
+    {
+        int temp = 0;
+        for (int i = 0; i < citizens.size(); i++)
+        {
+            temp += citizens.get(i).getCount();
+        }
+        return temp;
+    }
+
     public void createCitizen(String type, int count)
     {
         citizens.add(new CitizenType(type, count));

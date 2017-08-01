@@ -72,7 +72,7 @@ public class JobTab extends JPanel
 
     public void update()
     {
-        header.setText("Citizens: " + citizens.getCitizen("citizen").getCount());
+        header.setText("Total Citizens: " + citizens.totalCitizens());
         for (int i = 0; i < jobs.size(); i++)
         {
             jobs.get(i).update();
