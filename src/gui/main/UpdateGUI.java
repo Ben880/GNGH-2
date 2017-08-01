@@ -13,6 +13,7 @@ public class UpdateGUI
     private static WorldTab world;
     private static ResourcesTab resources;
     private static DebugTab debug;
+    private static DayPanel day;
 
     //accepts gui elements for use in updating entire gui
     public UpdateGUI()
@@ -27,6 +28,7 @@ public class UpdateGUI
         world.update();
         resources.updte();
         debug.update();
+        day.update();
     }
 
     public void passTab(JobTab tab)
@@ -52,6 +54,11 @@ public class UpdateGUI
     public void passTab(DebugTab tab)
     {
         debug = tab;
+    }
+
+    public void passTab(DayPanel tab)
+    {
+        day = tab;
     }
 
 }

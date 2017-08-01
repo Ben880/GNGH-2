@@ -38,12 +38,13 @@ public class DayPanel extends JPanel
 
     public DayPanel()
     {
+        new UpdateGUI().passTab(this);
         //day holder
         setPreferredSize(dayD);
         setBackground(pallet.getPanel());
         //Info lable
-        dayDisplay.setFont(new Font("Arial", Font.PLAIN, 12));
-        dayDisplay.setText("    Days: 5    ");
+        dayDisplay.setFont(new Font("Arial", Font.BOLD, 12));
+        dayDisplay.setText("Day: " + dayTracker.getDay() + " + " + daySlider.getValue() / 10);
         dayDisplay.setBackground(pallet.getPanel());
         dayDisplay.setBorder(BorderFactory.createEmptyBorder());
         add(dayDisplay);
@@ -81,6 +82,11 @@ public class DayPanel extends JPanel
         daySlider.setValue(i);
     }
 
+    public void update()
+    {
+        dayDisplay.setText("Day: " + dayTracker.getDay() + " + " + daySlider.getValue() / 10);
+    }
+
     //handles buttons
     class ActionPress implements ActionListener
     {
@@ -108,8 +114,7 @@ public class DayPanel extends JPanel
 
         public void stateChanged(ChangeEvent e)
         {
-            dayDisplay.setText("Days: " + daySlider.getValue() / 10);
-
+            update();
         }
     }// end sliderhandler
 

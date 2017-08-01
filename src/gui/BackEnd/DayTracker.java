@@ -1,5 +1,6 @@
 package gui.BackEnd;
 
+import gui.main.UpdateGUI;
 import gui.winow.Confirm;
 import player.conditions.LoseCondition;
 import player.resources.ResourceProduction;
@@ -18,6 +19,7 @@ public class DayTracker
     private static LoseCondition loss = new LoseCondition();
     private static Confirm confirm = new Confirm();
     private static RandomEventDispatcher random = new RandomEventDispatcher();
+    private static ResourceProduction production;
 
     //tracks days
     public DayTracker()
@@ -27,28 +29,28 @@ public class DayTracker
 
     public void incriment(int amount)
     {
-        int i = 0;
-        //code needs updating
-        ResourceProduction production;
-        production = ResourceProduction.getInstance();
-
         if (confirm.confirm("Do you want to simulate " + amount + " days", "Start days"))
         {
-            while (i < amount)
-            {
-                day++;
-                System.out.println("Day: " + day);
-                event.dayChange(day);
-                production.dayChange();
-                random.dayChange();
-                loss.dayChange(day);
-                i++;
-            }
+            startDays(amount);
         }
     }//end incriment
+
+    private void startDays(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            day++;
+            System.out.println("Day: " + day);
+            event.dayChange(day);
+            random.dayChange();
+            loss.dayChange(day);
+        }
+        new UpdateGUI().update();
+    }
 
     public int getDay()
     {
         return day;
     }
+
 }
