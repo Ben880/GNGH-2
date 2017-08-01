@@ -1,4 +1,4 @@
-package gui.main;
+package gui.BackEnd;
 
 import gui.winow.Confirm;
 import player.conditions.LoseCondition;

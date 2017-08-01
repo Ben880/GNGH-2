@@ -5,6 +5,7 @@ package gui.main;
        //  Project GNGH
  */
 //feed stuff
+import gui.BackEnd.DayTracker;
 import gui.BackEnd.ConsoleHandler;
 import java.awt.BorderLayout;
 import java.awt.Color;

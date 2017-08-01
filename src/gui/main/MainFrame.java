@@ -1,5 +1,6 @@
 package gui.main;
 
+import gui.BackEnd.DayTracker;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import util.SoundPlayer;

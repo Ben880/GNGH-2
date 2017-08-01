@@ -1,7 +1,7 @@
 package world.event;
 
 import gui.BackEnd.ConsoleHandler;
-import gui.main.DayTracker;
+import gui.BackEnd.DayTracker;
 import gui.main.UpdateGUI;
 import player.resources.ResourceHolder;
 import world.CellHolder;
