@@ -18,14 +18,14 @@ public class ResourceHolder
 
     }
 
-    public Resource getType(String name)
+    public Resource getType(String name) throws NoSuchResourceException
     {
         for (int i = 0; i < resource.size(); i++)
         {
             if (resource.get(i).getName().equalsIgnoreCase(name))
                 return resource.get(i);
         }
-        return null;
+        throw new NoSuchResourceException(name);
     }
 
     public Resource getNumber(int i)
@@ -35,9 +35,9 @@ public class ResourceHolder
         return null;
     }
 
-    public void createType(String name, int count)
+    public void createType(String name)
     {
-        resource.add(new Resource(name, count));
+        resource.add(new Resource(name));
     }
 
     public void printResources()

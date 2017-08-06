@@ -1,6 +1,6 @@
 package player.resources;
 
-import util.Resource;
+import java.util.ArrayList;
 
 /*
        //  Author: Benjamin Wilcox
@@ -9,50 +9,47 @@ import util.Resource;
 public class ResourceProduction
 {
 
-    private Resource food = new Resource();
-    private static ResourceProduction instance = null;
-    ResourceHolder resources = new ResourceHolder();
+    private static ArrayList<Producer> list = new ArrayList();
+    private static ResourceHolder resources = new ResourceHolder();
+    private static BaseProduction b = new BaseProduction();
 
-    private ResourceProduction()
+    public ResourceProduction()
     {
-        setup();
+
     }
 
-    private void setup()
+    public int pollProduction(Resource resource)
     {
-//        food.setNumStipulations(5);
-//        food.modifyStipulation(0, 100, 1);
-//        food.modifyStipulation(1, resources.people().get(), -2);
-//        food.modifyStipulation(2, resources.troops().get(), -3);
-//        food.modifyStipulation(3, resources.animals().get(), -4);
-//        food.modifyStipulation(4, resources.horses().get(), -5);
-    }
-
-    private void update()
-    {
-//        food.modifyBase(1, resources.people().get());
-//        food.modifyBase(2, resources.troops().get());
-//        food.modifyBase(3, resources.animals().get());
-//        food.modifyBase(4, resources.horses().get());
-    }
-
-    public static ResourceProduction getInstance()
-    {
-        if (instance == null)
+        int temp = 0;
+        for (int i = 0; i < list.size(); i++)
         {
-            instance = new ResourceProduction();
+            if (resource.getName() == list.get(i).getResourceName())
+                temp += list.get(i).getProduction();
         }
-        return instance;
+        return temp;
+    }
+
+    public void addProducer(Resource resource, int count) throws NoSuchResourceException
+    {
+        list.add(new Producer(resource, count));
     }
 
     public void dayChange()
     {
-//        update();
-//        resources.food().set(resources.food().get() + food());
+        for (int i = 0; i < list.size(); i++)
+        {
+            list.get(i).produce();
+
+        }
     }
 
-    public int food()
+    public void printProducers()
     {
-        return food.calculate();
+        System.out.println("----Producers------");
+        for (int i = 0; i < list.size(); i++)
+        {
+            System.out.println(list.get(i).getResourceName() + ": " + list.get(i).getProduction());
+        }
     }
+
 }

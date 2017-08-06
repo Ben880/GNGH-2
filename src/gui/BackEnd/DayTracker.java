@@ -19,7 +19,7 @@ public class DayTracker
     private static LoseCondition loss = new LoseCondition();
     private static Confirm confirm = new Confirm();
     private static RandomEventDispatcher random = new RandomEventDispatcher();
-    private static ResourceProduction production;
+    private static ResourceProduction production = new ResourceProduction();
 
     //tracks days
     public DayTracker()
@@ -40,6 +40,7 @@ public class DayTracker
         for (int i = 0; i < amount; i++)
         {
             day++;
+            production.dayChange();
             System.out.println("Day: " + day);
             event.dayChange(day);
             random.dayChange();

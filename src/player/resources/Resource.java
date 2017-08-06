@@ -10,11 +10,32 @@ public class Resource
 
     private String name;
     private int count;
+    private String image;
+    private double production;
 
-    public Resource(String name, int count)
+    public Resource(String name)
     {
         this.name = name;
-        this.count = count;
+    }
+
+    public void setPercentage(double d)
+    {
+        production = d;
+    }
+
+    public double getProduction()
+    {
+        return production;
+    }
+
+    public void setImageString(String s)
+    {
+        image = s;
+    }
+
+    public String getImageString()
+    {
+        return image;
     }
 
     public String getName()

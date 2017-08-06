@@ -31,25 +31,20 @@ public class ResourceLoader
             Logger.getLogger(ResourceLoader.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        createType("food");
-        createType("lumber");
-        createType("stone");
-        createType("ore");
-        createType("tools");
-        createType("medicine");
+        for (int i = 0; i < parser.size(); i++)
+        {
+            holder.createType(parser.getNameAt(i));
+            try
+            {
+                holder.getNumber(i).set(Integer.parseInt(parser.getString(i, "count")));
+                holder.getNumber(i).setImageString(parser.getString(i, "image"));
+            } catch (NoMatchException ex)
+            {
+                Logger.getLogger(ResourceLoader.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         holder.printResources();
 
-    }
-
-    private void createType(String s)
-    {
-        try
-        {
-            holder.createType(s, Integer.parseInt(parser.getString(s, "count")));
-        } catch (NoMatchException ex)
-        {
-            Logger.getLogger(ResourceLoader.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
 }
