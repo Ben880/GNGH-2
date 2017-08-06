@@ -19,12 +19,19 @@ public class TabHolder extends JTabbedPane
     //holds all the tabs
     public TabHolder()
     {
+        new UpdateGUI().passTabHolder(this);
         setPreferredSize(new Dimension(390, 540));
         addTab("World", world);
         addTab("Jobs", jobs);
         addTab("Resources", resources);
         addTab("Research", research);
         addTab("Debug", debug);
+
+    }
+
+    public void setSelected(int i)
+    {
+        setSelectedIndex(i);
     }
 
 }

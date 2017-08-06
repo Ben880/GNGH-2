@@ -1,6 +1,9 @@
 package world.event.random;
 
 import gui.main.UpdateGUI;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import player.resources.NoSuchResourceException;
 import player.resources.ResourceHolder;
 
 /*
@@ -15,7 +18,13 @@ public class ResourceEvent extends RandomEvent
 
     public void addResource(int i)
     {
-        resources.getType(resource).add(i);
+        try
+        {
+            resources.getType(resource).add(i);
+        } catch (NoSuchResourceException ex)
+        {
+            Logger.getLogger(ResourceEvent.class.getName()).log(Level.SEVERE, null, ex);
+        }
         new UpdateGUI().update();
     }
 

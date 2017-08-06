@@ -14,6 +14,7 @@ public class UpdateGUI
     private static ResourcesTab resources;
     private static DebugTab debug;
     private static DayPanel day;
+    private static TabHolder tab;
 
     //accepts gui elements for use in updating entire gui
     public UpdateGUI()
@@ -29,6 +30,16 @@ public class UpdateGUI
         resources.updte();
         debug.update();
         day.update();
+    }
+
+    public void setSelected(int i)
+    {
+        tab.setSelected(i);
+    }
+
+    public void passTabHolder(TabHolder tab)
+    {
+        this.tab = tab;
     }
 
     public void passTab(JobTab tab)

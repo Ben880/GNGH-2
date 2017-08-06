@@ -27,6 +27,11 @@ public class MenuBar extends JMenuBar
     private JMenuItem menuReset = new JMenuItem("Reset", KeyEvent.VK_R);
     private JMenuItem menuExit = new JMenuItem("Exit", KeyEvent.VK_E);
     private JMenuItem menuDebug = new JMenuItem("Debug", KeyEvent.VK_D);
+    private JMenu tabsMenu = new JMenu("Tabs");
+    private JMenuItem world = new JMenuItem("World", KeyEvent.VK_1);
+    private JMenuItem jobs = new JMenuItem("Jobs", KeyEvent.VK_2);
+    private JMenuItem resources = new JMenuItem("Resources", KeyEvent.VK_3);
+    private JMenuItem research = new JMenuItem("World", KeyEvent.VK_4);
     //needed classes
     private UpdateGUI gui = new UpdateGUI();
     private DebugInfo debug = new DebugInfo();
@@ -47,27 +52,35 @@ public class MenuBar extends JMenuBar
         menuReset.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, ActionEvent.CTRL_MASK));
         menuExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, ActionEvent.CTRL_MASK));
         menuDebug.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, ActionEvent.CTRL_MASK));
+        world.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.SHIFT_MASK));
+        jobs.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_2, ActionEvent.SHIFT_MASK));
+        resources.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_3, ActionEvent.SHIFT_MASK));
+        research.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_4, ActionEvent.SHIFT_MASK));
         //action listener
+        world.addActionListener(new Menu());
+        jobs.addActionListener(new Menu());
+        resources.addActionListener(new Menu());
+        research.addActionListener(new Menu());
         menuOpen.addActionListener(new Menu());
         menuSave.addActionListener(new Menu());
         menuReset.addActionListener(new Menu());
         menuExit.addActionListener(new Menu());
         menuDebug.addActionListener(new Menu());
-        menuOpen.setActionCommand("Open");
-        menuSave.setActionCommand("Save");
-        menuReset.setActionCommand("Reset");
-        menuExit.setActionCommand("Exit");
-        //adding things to things
+        //adding file menu
         fileMenu.add(menuOpen);
         fileMenu.add(menuSave);
         add(fileMenu);
-        //top.add(fileBar);
+        //adding options menu
         optionsMenu.add(menuReset);
         optionsMenu.add(menuExit);
         optionsMenu.add(menuDebug);
         add(optionsMenu);
-        //Finishing things off
-        //this.setJMenuBar(menuBar);
+        //adding tab menu
+        tabsMenu.add(world);
+        tabsMenu.add(jobs);
+        tabsMenu.add(resources);
+        tabsMenu.add(research);
+        add(tabsMenu);
     }
 
     class Menu implements ActionListener
@@ -77,12 +90,28 @@ public class MenuBar extends JMenuBar
         public void actionPerformed(ActionEvent event)
         {
             //gets and preforms proper action
-            if (event.getActionCommand() == "Exit")
+            if (event.getSource() == menuExit)
                 System.exit(0);
             if (event.getSource() == menuDebug)
             {
                 debug.toggleDebug();
                 gui.update();
+            }
+            if (event.getSource() == world)
+            {
+                gui.setSelected(0);
+            }
+            if (event.getSource() == jobs)
+            {
+                gui.setSelected(1);
+            }
+            if (event.getSource() == resources)
+            {
+                gui.setSelected(2);
+            }
+            if (event.getSource() == research)
+            {
+                gui.setSelected(3);
             }
         }
     }
