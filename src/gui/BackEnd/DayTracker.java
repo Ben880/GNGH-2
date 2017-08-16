@@ -35,6 +35,11 @@ public class DayTracker
         }
     }//end incriment
 
+    public void incrimentOverride(int amount)
+    {
+        startDays(amount);
+    }
+
     private void startDays(int amount)
     {
         for (int i = 0; i < amount; i++)

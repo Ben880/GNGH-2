@@ -23,5 +23,6 @@ public class GNGH
         frame.setVisible(true);
         frame.setResizable(false);
         new UpdateGUI().update();
+        new Timmer().start();
     }
 }

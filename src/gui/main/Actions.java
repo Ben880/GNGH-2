@@ -27,6 +27,7 @@ public class Actions extends JPanel
     //sub classes
     private TabHolder tabHolder;
     private DayPanel dayP = new DayPanel();
+    private DayProgress progress = new DayProgress();
 
     Actions()
     {
@@ -58,6 +59,7 @@ public class Actions extends JPanel
         holder.add(tabHolder, BorderLayout.CENTER);
         holder.add(bottomHolder);
         bottomHolder.add(dayP);
+        holder.add(progress);
     }
 
 }
