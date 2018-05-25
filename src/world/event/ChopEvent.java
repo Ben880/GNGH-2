@@ -2,6 +2,8 @@ package world.event;
 
 import gui.winow.Slider;
 import java.util.Random;
+import util.Location;
+import world.CellHolder;
 
 /*
     BenjaminWilcox
@@ -11,23 +13,37 @@ import java.util.Random;
 public class ChopEvent extends Event
 {
 
+    CellHolder cells = new CellHolder();
+    CitizenReleaseEvent citizens;
+    ResourceReleaseEvent resource;
+    Location location;
     Random rand = new Random();
-    int people = 0;
+    int days;
+    int lumberjack = 0;
     int recruiters = 0;
     int wood = 0;
 
-    public void create()
+    public ChopEvent(Location l)
     {
+        create(l);
+    }
 
+    public void create(Location l)
+    {
         Slider slider = new Slider();
-        people = slider.getNumber("send", "people") / 10;
-        if (people != 0)
+        lumberjack = slider.getNumber("send", "lumberjack") / 10;
+
+        if (lumberjack != 0)
         {
-//            resources.people().subtrat(people);
-            wood = rand.nextInt(3) * people * 10;
-            setCompleet(rand.nextInt(10) + day.getDay());
-            setMessage("Chopers have returned with " + wood + " wood");
-            console.append("The " + people + " Chopers will return in 10  days");
+            wood = 10;
+            setMessage("Lumberjacks have returned with " + wood + " wood");
+            citizens = new CitizenReleaseEvent("citizen", lumberjack);
+            resource = new ResourceReleaseEvent("lumber", wood);
+            location = l;
+            days = (int) Math.round(location.baseDistance() * 4.0 + 4);
+            setCompleet(days + day.getDay());
+            gui.update();
+            console.append("Lumberjacks set to return on day " + compleet);
         } else
         {
             dispatch.cancelEvent();
@@ -36,6 +52,9 @@ public class ChopEvent extends Event
 
     public void end()
     {
+        citizens.release();
+        resource.release();
+        gui.update();
         console.append(message);
 //        resources.lumber().add(wood);
 //        resources.people().add(people);
