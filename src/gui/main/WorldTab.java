@@ -58,7 +58,7 @@ public class WorldTab extends JPanel
     JButton scout = new JButton("scout");
     JButton forage = new JButton("forage");
     JButton chop = new JButton("chop wood");
-    JButton withdrawl = new JButton("withdrawl");
+    JButton quarry = new JButton("quarry");
     JButton base = new JButton("build base");
     JButton abandon = new JButton("abandon");
     JButton outpost = new JButton("outpost");
@@ -99,6 +99,7 @@ public class WorldTab extends JPanel
         scout.addActionListener(new ActionPress());
         forage.addActionListener(new ActionPress());
         chop.addActionListener(new ActionPress());
+        quarry.addActionListener(new ActionPress());
         attack.setBackground(butn);
         //tring some shit
         try
@@ -139,7 +140,7 @@ public class WorldTab extends JPanel
         buttonHolder.add(scout);
         buttonHolder.add(forage);
         buttonHolder.add(chop);
-        buttonHolder.add(withdrawl);
+        buttonHolder.add(quarry);
         buttonHolder.add(base);
         buttonHolder.add(abandon);
         buttonHolder.add(outpost);

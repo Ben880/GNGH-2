@@ -59,6 +59,9 @@ public class UserCreatedEvent
         } else if (s.equalsIgnoreCase("chop wood"))
         {
             dispatch.storeEvent(new ChopEvent(l));
+        } else if (s.equalsIgnoreCase("quarry"))
+        {
+            dispatch.storeEvent(new QuarryEvent(l));
         }
     }
 

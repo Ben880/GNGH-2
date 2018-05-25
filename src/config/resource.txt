@@ -10,6 +10,10 @@ ore
 
 20
 
+stone
+
+20
+
 tools
 
 10

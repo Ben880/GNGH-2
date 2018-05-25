@@ -35,6 +35,9 @@ public class WorldHandler
         } else if (s.equalsIgnoreCase("chop wood"))
         {
             event.create(selected.getSelected(), "chop wood");
+        } else if (s.equalsIgnoreCase("quarry"))
+        {
+            event.create(selected.getSelected(), "quarry");
         }
 
     }

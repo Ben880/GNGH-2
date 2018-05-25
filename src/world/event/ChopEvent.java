@@ -35,12 +35,15 @@ public class ChopEvent extends Event
 
         if (lumberjack != 0)
         {
+            //set amount values
             wood = 10;
-            setMessage("Lumberjacks have returned with " + wood + " wood");
-            citizens = new CitizenReleaseEvent("citizen", lumberjack);
-            resource = new ResourceReleaseEvent("lumber", wood);
             location = l;
             days = (int) Math.round(location.baseDistance() * 4.0 + 4);
+            //set up release events and message
+            citizens = new CitizenReleaseEvent("lumberjack", lumberjack);
+            resource = new ResourceReleaseEvent("lumber", wood);
+            setMessage("Lumberjacks have returned with " + wood + " wood");
+            //set completion day an update gui
             setCompleet(days + day.getDay());
             gui.update();
             console.append("Lumberjacks set to return on day " + compleet);

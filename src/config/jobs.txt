@@ -14,7 +14,7 @@ soldier
 {
 5
 }
-test
+miner
 {
 2
 }
