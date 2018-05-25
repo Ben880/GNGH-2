@@ -38,6 +38,30 @@ public class UserCreatedEvent
         }
     }
 
+    public void create(Location l, String s)
+    {
+        System.out.println("User CreatedEvent");
+        if (s.equalsIgnoreCase("scout"))
+        {
+            ScoutEvent scout = new ScoutEvent();
+            scout.create(l);
+            dispatch.storeEvent(scout);
+            scout = null;
+        } else if (s.equalsIgnoreCase("attack"))
+        {
+            AttackEvent attack = new AttackEvent();
+            attack.create(l);
+            dispatch.storeEvent(attack);
+            attack = null;
+        } else if (s.equalsIgnoreCase("forage"))
+        {
+            dispatch.storeEvent(new ForageEvent(l));
+        } else if (s.equalsIgnoreCase("chop wood"))
+        {
+            dispatch.storeEvent(new ChopEvent(l));
+        }
+    }
+
     public void create(int type)
     {
         if (type == 3)
@@ -54,9 +78,9 @@ public class UserCreatedEvent
         }
         if (type == 5)
         {
-            ChopEvent chop = new ChopEvent();
-            chop.create();
-            dispatch.storeEvent(chop);
+            //ChopEvent chop = new ChopEvent(l);
+            //chop.create();
+            //dispatch.storeEvent(chop);
         }
     }
 

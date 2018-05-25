@@ -32,7 +32,11 @@ public class WorldHandler
         } else if (s.equalsIgnoreCase("forage"))
         {
             event.create(selected.getSelected(), 2);
+        } else if (s.equalsIgnoreCase("chop wood"))
+        {
+            event.create(selected.getSelected(), "chop wood");
         }
+
     }
 
 }

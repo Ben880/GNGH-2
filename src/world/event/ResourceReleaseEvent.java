@@ -1,5 +1,8 @@
 package world.event;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import player.resources.NoSuchResourceException;
 import player.resources.ResourceHolder;
 
 /*
@@ -24,7 +27,13 @@ public class ResourceReleaseEvent
 
     public void release()
     {
-        holder.getType(type).add(count);
+        try
+        {
+            holder.getType(type).add(count);
+        } catch (NoSuchResourceException ex)
+        {
+            Logger.getLogger(ResourceReleaseEvent.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

@@ -1,6 +1,9 @@
 package world.event;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import player.citizens.CitizenHolder;
+import player.resources.NoSuchResourceException;
 import player.resources.ResourceHolder;
 
 /*
@@ -66,8 +69,14 @@ public class CitizenReleaseEvent
 
     public void releaseWounded()
     {
-        holder.getCitizen(name).addCitizen(wounded);
-        resources.getType("medicine").subtrat(wounded);
+        try
+        {
+            holder.getCitizen(name).addCitizen(wounded);
+            resources.getType("medicine").subtrat(wounded);
+        } catch (NoSuchResourceException ex)
+        {
+            Logger.getLogger(CitizenReleaseEvent.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
