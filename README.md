@@ -1,5 +1,4 @@
 # GNGH-2
-Title: GNGH-2.0
 Creator: Ben880 (aka: Benjamin W.)
 Started: 2016
 
