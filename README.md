@@ -20,6 +20,5 @@ Bug reports: Click new issue button on webpage https://github.com/Ben880/GNGH-2/
 Suggestions: Click new issue button on webpage, specify its a suggestion https://github.com/Ben880/GNGH-2/issues
 
 # contact
-github
-# History
-nutin much
+bwilcox@ltu.edu
+
