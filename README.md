@@ -1,11 +1,11 @@
 # GNGH-2
 Title: GNGH-2.0
-Creator: Ben880 (aka: BenDover, BenDover880, Benjamin W.)
+Creator: Ben880 (aka: Benjamin W.)
 Started: 2016
-Contributors: https://github.com/Ben880/GNGH-2/graphs/contributors
 
 # Description
-Description: GNGH is a tile based strategy world domination game with aspects of base building, resource management, and research.
+GNGH was a hobby project developed to learn programming.
+Its aim was to be a tile based strategy world domination game with aspects of base building, resource management, and research.
 
 # License
 read license file
